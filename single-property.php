@@ -24,6 +24,20 @@ SINGLE POST / ARTICLE PAGE
     
       <?php the_content(); ?>
 
+      <section>
+
+        <h3>Location</h3>
+
+        <?php $location = get_field('location'); ?>
+
+        <p><a href="https://www.google.com/maps/place/<?php echo $location['address'];?>"><?php echo $location['address'];?></a></p>
+
+        <p>lat/long: <?php echo $location['lat'] . ', ' . $location['lng'] ;?></p>
+
+        <p><?php echo get_the_term_list( $post->ID, 'neighborhood', 'Neighborhood: ', ', ' ); ?></p>
+
+      </section>
+
     </article>
 
   <?php endwhile; endif; ?>
