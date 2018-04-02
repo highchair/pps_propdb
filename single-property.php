@@ -14,7 +14,8 @@ SINGLE POST / ARTICLE PAGE
 
     <header>
 
-      <h1><?php the_title(); ?></h1>
+      <h1><?php the_title(); ?> <em>&#123; <?php the_field('aka'); ?> &#125;</em></h1>
+      <p><?php the_field('period'); ?></p>
 
       <?php the_post_thumbnail(); ?>
 
