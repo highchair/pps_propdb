@@ -54,6 +54,14 @@ SINGLE POST / ARTICLE PAGE
 
       </section>
 
+      <section>
+
+        <h3>Additional Tags</h3>
+
+        <p><?php the_tags(''); ?></p>
+
+      </section>
+
     </article>
 
   <?php endwhile; endif; ?>
