@@ -47,9 +47,7 @@ SINGLE POST / ARTICLE PAGE
 
         <p><?php echo get_the_term_list( $post->ID, 'construction_type', 'Construction Type: ', ', ' ); ?>
 
-        <p><?php echo get_the_term_list( $post->ID, 'designer', 'Original Designer: ', ', ' ); ?>
-
-        <p><?php echo get_the_term_list( $post->ID, 'modifier', 'Modifications by: ', ', ' ); ?>
+        <p><?php echo get_the_term_list( $post->ID, 'designer', 'Designer: ', ', ' ); ?>
 
         <p><?php echo get_the_term_list( $post->ID, 'list', 'Lists/Districts: ', ', ' ); ?>
 
