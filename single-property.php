@@ -49,7 +49,7 @@ SINGLE POST / ARTICLE PAGE
 
         <p><?php echo get_the_term_list( $post->ID, 'designer', 'Designer: ', ', ' ); ?>
 
-        <p><?php echo get_the_term_list( $post->ID, 'list', 'Lists/Districts: ', ', ' ); ?>
+        <p><?php echo get_the_term_list( $post->ID, 'list', 'List/District: ', ', ' ); ?>
 
       </section>
 
