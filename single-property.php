@@ -38,6 +38,22 @@ SINGLE POST / ARTICLE PAGE
 
       </section>
 
+      <section>
+
+        <h3>Details</h3>
+
+        <p><?php echo get_the_term_list( $post->ID, 'architectural_style', 'Architectural Style: ', ', ' ); ?>
+
+        <p><?php echo get_the_term_list( $post->ID, 'construction_type', 'Construction Type: ', ', ' ); ?>
+
+        <p><?php echo get_the_term_list( $post->ID, 'designer', 'Original Designer: ', ', ' ); ?>
+
+        <p><?php echo get_the_term_list( $post->ID, 'modifier', 'Modifications by: ', ', ' ); ?>
+
+        <p><?php echo get_the_term_list( $post->ID, 'list', 'Lists/Districts: ', ', ' ); ?>
+
+      </section>
+
     </article>
 
   <?php endwhile; endif; ?>
