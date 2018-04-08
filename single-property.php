@@ -53,13 +53,15 @@ SINGLE POST / ARTICLE PAGE
 
       </section>
 
-      <section>
+      <?php if ( has_tag() ) : ?>
+        <section>
 
-        <h3>Additional Tags</h3>
+          <h3>Additional Tags</h3>
 
-        <p><?php the_tags(''); ?></p>
+          <p><?php the_tags(''); ?></p>
 
-      </section>
+        </section>
+      <?php endif; ?>
 
     </article>
 
