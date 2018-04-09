@@ -1,5 +1,5 @@
 <!--
-SINGLE POST / ARTICLE PAGE
+SINGLE PROPERTY PAGE
 -->
 <?php
   $location = get_field('location');
