@@ -1,6 +1,9 @@
 <!--
 SINGLE POST / ARTICLE PAGE
 -->
+<?php
+  $location = get_field('location');
+?>
 
 <?php get_header(); ?>
 
@@ -27,9 +30,23 @@ SINGLE POST / ARTICLE PAGE
 
       <section>
 
-        <h3>Location</h3>
+        <div id="map" style="width: 360px; height: 260px"></div>
 
-        <?php $location = get_field('location'); ?>
+        <script>
+
+          var lat = <?php echo $location['lat']; ?>;
+          var lng = <?php echo $location['lng']; ?>;
+
+          function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 16,
+              center: {lat: lat, lng: lng}
+            });
+          }
+
+        </script>
+
+        <h3>Location</h3>
 
         <p><a href="https://www.google.com/maps/place/<?php echo $location['address'];?>"><?php echo $location['address'];?></a></p>
 
@@ -70,4 +87,6 @@ SINGLE POST / ARTICLE PAGE
 </main>
 
 <?php get_footer(); ?>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIqb19OYrLxZvikR_yVnPTDnhsCsP0vtA&callback=initMap"></script>
 
