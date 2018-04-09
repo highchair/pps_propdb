@@ -60,13 +60,25 @@ SINGLE POST / ARTICLE PAGE
 
         <h3>Details</h3>
 
-        <p><?php echo get_the_term_list( $post->ID, 'architectural_style', 'Architectural Style: ', ', ' ); ?>
+        <?php
 
-        <p><?php echo get_the_term_list( $post->ID, 'construction_type', 'Construction Type: ', ', ' ); ?>
+          if( has_term( '', 'architectural_style' ) ) {
+            echo '<p>' . get_the_term_list( $post->ID, 'architectural_style', 'Architectural Style: ', ', ' ) . '</p>';
+          }
 
-        <p><?php echo get_the_term_list( $post->ID, 'designer', 'Designer: ', ', ' ); ?>
+          if( has_term( '', 'construction_type' ) ) {
+            echo '<p>' . get_the_term_list( $post->ID, 'construction_type', 'Construction Type: ', ', ' ) . '</p>';
+          }
 
-        <p><?php echo get_the_term_list( $post->ID, 'list', 'List/District: ', ', ' ); ?>
+          if( has_term( '', 'designer' ) ) {
+            echo '<p>' . get_the_term_list( $post->ID, 'designer', 'Designer: ', ', ' ) . '</p>';
+          }
+
+          if( has_term( '', 'list' ) ) {
+            echo '<p>' . get_the_term_list( $post->ID, 'list', 'List/District: ', ', ' ) . '</p>';
+          }
+
+        ?>
 
       </section>
 
