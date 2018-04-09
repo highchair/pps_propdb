@@ -17,8 +17,20 @@ SINGLE POST / ARTICLE PAGE
 
     <header>
 
-      <h1><?php the_title(); ?> <em>&#123; <?php the_field('aka'); ?> &#125;</em></h1>
-      <p><?php the_field('period'); ?></p>
+      <h1>
+        <?php 
+          the_title();
+          if ( get_field('aka') ) {
+            echo ' <em>&#123; ' . get_field('aka') . ' &#125;</em>';
+          }
+        ?>
+      </h1>
+
+      <?php
+        if ( get_field('period') ) {
+          echo '<p>' . get_field('period') . '</p>';
+        }
+      ?>
 
       <?php the_post_thumbnail(); ?>
 
@@ -61,23 +73,18 @@ SINGLE POST / ARTICLE PAGE
         <h3>Details</h3>
 
         <?php
-
           if( has_term( '', 'architectural_style' ) ) {
             echo '<p>' . get_the_term_list( $post->ID, 'architectural_style', 'Architectural Style: ', ', ' ) . '</p>';
           }
-
           if( has_term( '', 'construction_type' ) ) {
             echo '<p>' . get_the_term_list( $post->ID, 'construction_type', 'Construction Type: ', ', ' ) . '</p>';
           }
-
           if( has_term( '', 'designer' ) ) {
             echo '<p>' . get_the_term_list( $post->ID, 'designer', 'Designer: ', ', ' ) . '</p>';
           }
-
           if( has_term( '', 'list' ) ) {
             echo '<p>' . get_the_term_list( $post->ID, 'list', 'List/District: ', ', ' ) . '</p>';
           }
-
         ?>
 
       </section>
