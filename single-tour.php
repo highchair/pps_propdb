@@ -24,6 +24,25 @@ SINGLE TOUR PAGE
 
       <?php the_content(); ?>
 
+      <section>
+
+        <h2><?php _e( 'Properties on this Tour', 'ppsdb' ); ?></h2>
+
+        <?php
+
+        $properties = get_field('properties');
+
+        if( $properties ):
+          foreach( $properties as $post):
+            setup_postdata($post);
+            get_template_part('partials/property-sm');
+          endforeach; 
+          wp_reset_postdata();
+          endif;
+        ?>
+
+      </section>
+
     </article>
 
   <?php endwhile; endif; ?>
