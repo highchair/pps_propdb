@@ -5,10 +5,6 @@ PROPERTIES ARCHIVE PAGE TEMPLATE
 <?php get_header(); ?>
 
 <main>
-  
-  <nav class="breadcrumb">
-    <?php bcn_display(); ?>
-  </nav>
 
   <div class="main">
 

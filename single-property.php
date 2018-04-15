@@ -7,10 +7,6 @@ SINGLE PROPERTY PAGE
 
 <?php get_header(); ?>
 
-<nav class="breadcrumb">
-  <?php bcn_display(); ?>
-</nav>
-
 <main>
 
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
