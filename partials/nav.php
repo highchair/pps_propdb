@@ -6,7 +6,6 @@
 
 		<div class="secondary-nav">
 			<a class="toggle-nav" href="javascript:void(0)"><span class="icon-bars"></span> Menu</a> 
-			<?php ppsri_secondary_nav(); ?>
 			<div class="desktop-search"><a href="javascript:void(0)">Search</a></div>
 		</div>
 
@@ -15,6 +14,8 @@
 		  	<?php ppsri_primary_nav(); ?>
 			<?php echo get_search_form(); ?>
 		</div>
+
+		<a href="<?php echo network_home_url(); ?>"><?php _e( 'PPSri.org', 'ppsdb' ); ?> &rarr;</a>
 
 	</nav>
 
