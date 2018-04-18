@@ -8,70 +8,39 @@ Template Name: Homepage
 
 <main>
 
-  <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-    <section class="hero">
+  <section>
 
-      <div class="image" style="background-image:url(<?php the_field('hero_image'); ?>)"></div>
+    <?php
+    $loop = new WP_Query( array( 'posts_per_page' => 1, 'post_type' => 'tour' ) );
+    while ($loop->have_posts()) :
+      $loop->the_post();
+    ?>
 
-    	<div class="text">
-    		<p class="subheading"><?php the_field('hero_subtitle'); ?></p>
-    		<h2 class="kilo"><?php the_field('hero_title'); ?></h2>
-    		<a class="button secondary" href="<?php the_field('hero_button_link'); ?>"><?php the_field('hero_button_text'); ?></a>
-    	</div>
+      <?php the_post_thumbnail('grid-thumb'); ?>
 
-    </section>
-
-    <section class="articles">
-
-      <h2>Recent News and Upcoming Events</h2>
-
-      <?php
-      $loop = new WP_Query( array( 'posts_per_page'=>4, 'post_type'=>array('post','events') ) );
-      while ($loop->have_posts()) :
-        $loop->the_post();
-        get_template_part('partials/article-sm');
-      endwhile; wp_reset_postdata();
+      <p><?php _e("Take a Tour of Providence's Historic Architecture", 'ppsdb'); ?></p>
+      <h3><?php the_title(); ?></h3>
+      <p>
+      <?php 
+        echo count(get_field('properties'));
+        _e(' properties', 'ppsdb');
       ?>
+      </p>
 
-    </section>
+      <?php the_excerpt(); ?>
 
-    <section class="primary block">
+      <a href="<?php the_permalink(); ?>"><?php _e('See all Properties on this Tour'); ?></a>
 
-      <?php the_field('primary_block'); ?>
+    <?php
+    endwhile; wp_reset_postdata();
+    ?>
 
-      <div class="expand">
-        <a class="button primary" href="javascript:void(0)">Show More</a>
-      </div>
+  </section>
 
-    </section>
+<?php endwhile; endif; ?>
 
-    <section class="secondary block">
-
-      <?php the_field('secondary_block'); ?>
-
-      <?php if ( have_rows('button_group') ) : ?>
-
-        <div class="buttons"><div class="button-group">
-
-          <?php while ( have_rows('button_group') ) : the_row(); ?>
-          <div>
-            <a href="<?php echo get_sub_field('link'); ?>" class="button primary"><?php echo get_sub_field('text'); ?></a>
-          </div>
-          <?php endwhile; ?>
-
-        </div></div>
-
-      <?php endif; ?>
-
-      <div class="expand">
-        <a class="button secondary" href="javascript:void(0)">Show More</a>
-      </div>
-
-    </section>
-      
-  </main>
-
-  <?php endwhile; endif; ?>
+</main>
 
 <?php get_footer(); ?>
