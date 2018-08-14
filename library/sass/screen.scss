@@ -108,4 +108,15 @@ SITE-SPECIFIC
       font-style: normal;
     }
   }
-}
+
+  .sidebar .h6 {
+    color: $gray;
+  }
+
+  .sidebar p {
+    font-size: 1rem;
+    @include breakpoint(xlarge) {
+      margin-left: $padding * 5;
+    }
+  }
+} // .single-property
