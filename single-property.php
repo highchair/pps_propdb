@@ -11,20 +11,20 @@ SINGLE PROPERTY PAGE
 
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-    <header>
+    <header class="page-header">
 
-      <h1>
+      <h1 class="page-title">
         <?php 
           the_title();
           if ( get_field('aka') ) {
-            echo ' <em>&#123; ' . get_field('aka') . ' &#125;</em>';
+            echo ' <em class="h2">&#123; ' . get_field('aka') . ' &#125;</em>';
           }
         ?>
       </h1>
 
       <?php
         if ( get_field('period') ) {
-          echo '<p>' . get_field('period') . '</p>';
+          echo '<p class="h4">' . get_field('period') . '</p>';
         }
       ?>
 
