@@ -19,7 +19,7 @@ function ppsdb_scripts_and_styles() {
 
     // Child Theme
     wp_enqueue_style( 'ppsdb-stylesheet',
-        get_stylesheet_directory_uri() . '/style.css',
+        get_stylesheet_directory_uri() . '/library/stylesheets/screen.css',
         array( 'ppsri-stylesheet' ),
         wp_get_theme()->get('Version')
     );
