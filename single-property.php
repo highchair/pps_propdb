@@ -28,72 +28,80 @@ SINGLE PROPERTY PAGE
         }
       ?>
 
-      <?php the_post_thumbnail(); ?>
-
     </header>
 
     <article>
+
+      <div class="main">
+
+        <?php the_post_thumbnail(); ?>
     
-      <?php the_content(); ?>
+        <?php the_content(); ?>
 
-      <section>
+      </div>
 
-        <div id="map" style="width: 360px; height: 260px"></div>
+      <aside class="sidebar">
 
-        <script>
-
-          var lat = <?php echo $location['lat']; ?>;
-          var lng = <?php echo $location['lng']; ?>;
-
-          function initMap() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 16,
-              center: {lat: lat, lng: lng}
-            });
-          }
-
-        </script>
-
-        <h3>Location</h3>
-
-        <p><a href="https://www.google.com/maps/place/<?php echo $location['address'];?>"><?php echo $location['address'];?></a></p>
-
-        <p>lat/long: <?php echo $location['lat'] . ', ' . $location['lng'] ;?></p>
-
-        <p><?php echo get_the_term_list( $post->ID, 'neighborhood', 'Neighborhood: ', ', ' ); ?></p>
-
-      </section>
-
-      <section>
-
-        <h3>Details</h3>
-
-        <?php
-          if( has_term( '', 'architectural_style' ) ) {
-            echo '<p>' . get_the_term_list( $post->ID, 'architectural_style', 'Architectural Style: ', ', ' ) . '</p>';
-          }
-          if( has_term( '', 'construction_type' ) ) {
-            echo '<p>' . get_the_term_list( $post->ID, 'construction_type', 'Construction Type: ', ', ' ) . '</p>';
-          }
-          if( has_term( '', 'designer' ) ) {
-            echo '<p>' . get_the_term_list( $post->ID, 'designer', 'Designer: ', ', ' ) . '</p>';
-          }
-          if( has_term( '', 'list' ) ) {
-            echo '<p>' . get_the_term_list( $post->ID, 'list', 'List/District: ', ', ' ) . '</p>';
-          }
-        ?>
-
-      </section>
-
-      <?php if ( has_tag() ) : ?>
         <section>
 
-          <h3>Additional Tags</h3>
+          <div id="map" style="width: 360px; height: 260px"></div>
 
-          <p><?php the_tags(''); ?></p>
+          <script>
+
+            var lat = <?php echo $location['lat']; ?>;
+            var lng = <?php echo $location['lng']; ?>;
+
+            function initMap() {
+              var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                center: {lat: lat, lng: lng}
+              });
+            }
+
+          </script>
+
+          <h3>Location</h3>
+
+          <p><a href="https://www.google.com/maps/place/<?php echo $location['address'];?>"><?php echo $location['address'];?></a></p>
+
+          <p>lat/long: <?php echo $location['lat'] . ', ' . $location['lng'] ;?></p>
+
+          <p><?php echo get_the_term_list( $post->ID, 'neighborhood', 'Neighborhood: ', ', ' ); ?></p>
 
         </section>
-      <?php endif; ?>
+
+        <section>
+
+          <h3>Details</h3>
+
+          <?php
+            if( has_term( '', 'architectural_style' ) ) {
+              echo '<p>' . get_the_term_list( $post->ID, 'architectural_style', 'Architectural Style: ', ', ' ) . '</p>';
+            }
+            if( has_term( '', 'construction_type' ) ) {
+              echo '<p>' . get_the_term_list( $post->ID, 'construction_type', 'Construction Type: ', ', ' ) . '</p>';
+            }
+            if( has_term( '', 'designer' ) ) {
+              echo '<p>' . get_the_term_list( $post->ID, 'designer', 'Designer: ', ', ' ) . '</p>';
+            }
+            if( has_term( '', 'list' ) ) {
+              echo '<p>' . get_the_term_list( $post->ID, 'list', 'List/District: ', ', ' ) . '</p>';
+            }
+          ?>
+
+        </section>
+
+        <?php if ( has_tag() ) : ?>
+          <section>
+
+            <h3>Additional Tags</h3>
+
+            <p><?php the_tags(''); ?></p>
+
+          </section>
+        <?php endif; ?>
+
+      </aside>
 
     </article>
 

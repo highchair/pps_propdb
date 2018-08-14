@@ -17,3 +17,32 @@ $breakpoints: (
 $grid-row-width: rem-calc(1350);
 
 @import "../../../pps-2017/node_modules/foundation-sites/scss/foundation";
+
+
+/********************
+GRID
+********************/
+
+@include breakpoint(large) {
+
+  // Override default body.single layout
+  body.single-property {
+		main > article, section.meta, section.pagination,
+    main > aside > div,
+    section.pagination > div,
+    main > header {
+			@include grid-column(12);
+		}
+  }
+
+  // Create sidebar layout
+  body.single-property {
+    div.main {
+      @include grid-column(7);
+    }
+    aside.sidebar {
+      @include grid-column(4);
+    }
+  }
+
+} // end breakpoint(large)
