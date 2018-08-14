@@ -2,7 +2,7 @@
 $location = get_field('location');
 ?>
 
-<div>
+<div class="property">
   <a href="<?php the_permalink(); ?>">
 
     <?php the_post_thumbnail('grid-thumb'); ?>

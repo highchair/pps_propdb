@@ -8,9 +8,9 @@ SINGLE TOUR PAGE
 
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-    <header>
+    <header class="page-header">
 
-      <h1><?php the_title(); ?></h1>
+      <h1 class="page-title"><?php the_title(); ?></h1>
 
       <a href="<?php echo get_post_type_archive_link( 'tour' ); ?>">&larr; <?php _e( 'View All Tours', 'ppsdb' ); ?></a>
 
@@ -20,7 +20,7 @@ SINGLE TOUR PAGE
 
       <?php the_content(); ?>
 
-      <section>
+      <section class="related-properties">
 
         <h2><?php _e( 'Properties on this Tour', 'ppsdb' ); ?></h2>
 

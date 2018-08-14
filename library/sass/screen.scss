@@ -64,10 +64,24 @@ $grid-row-width: rem-calc(1350);
 GRID
 ********************/
 
+@include breakpoint(medium) {
+
+  // Tour "Related Properties section"
+  .related-properties {
+    @include clearfix;
+
+    .property {
+      @include grid-column(6);
+    }
+  }
+
+}
+
 @include breakpoint(large) {
 
   // Override default body.single layout
-  body.single-property {
+  body.single-property,
+  body.single-tour {
 		main > article, section.meta, section.pagination,
     main > aside > div,
     section.pagination > div,
@@ -86,21 +100,41 @@ GRID
     }
   }
 
+  body.single-tour .page-header {
+    @include grid-column(8);
+  }
+
+  // Tour "Related Properties section"
+  .related-properties .property {
+    @include grid-column(4);
+  }
+
 } // end breakpoint(large)
+
+
+/********************
+GLOBAL
+********************/
+
+.page-title {
+  font-family: $serif, serif;
+}
 
 
 /********************
 SITE-SPECIFIC
 ********************/
 
+body.single-property .page-header,
+body.single-tour .page-header {
+  padding-left: 0;
+  text-align: left;
+}
+
 .single-property {
-  .page-header {
-    text-align: left;
-  }
 
   .page-title {
     color: $bronze;
-    font-family: $serif, serif;
     margin-bottom: $padding / 2;
   
     em {
@@ -120,3 +154,7 @@ SITE-SPECIFIC
     }
   }
 } // .single-property
+
+.single-tour article p {
+  max-width: 42rem;
+}
