@@ -35,6 +35,8 @@ SINGLE PROPERTY PAGE
       <div class="main">
 
         <?php the_post_thumbnail(); ?>
+
+        <h2><?php _e( 'About this Property', 'ppsdb' ); ?></h2>
     
         <?php the_content(); ?>
 
@@ -60,7 +62,7 @@ SINGLE PROPERTY PAGE
 
           </script>
 
-          <h3>Location</h3>
+          <h3 class="h6"><?php _e( 'Location', 'ppsdb' ); ?></h3>
 
           <p><a href="https://www.google.com/maps/place/<?php echo $location['address'];?>"><?php echo $location['address'];?></a></p>
 
@@ -72,7 +74,7 @@ SINGLE PROPERTY PAGE
 
         <section>
 
-          <h3>Details</h3>
+          <h3 class="h6"><?php _e( 'Details', 'ppsb' ); ?></h3>
 
           <?php
             if( has_term( '', 'architectural_style' ) ) {
@@ -94,7 +96,7 @@ SINGLE PROPERTY PAGE
         <?php if ( has_tag() ) : ?>
           <section>
 
-            <h3>Additional Tags</h3>
+            <h3 class="h6"><?php _e( 'Additional Tags', 'ppsdb' ); ?></h3>
 
             <p><?php the_tags(''); ?></p>
 
