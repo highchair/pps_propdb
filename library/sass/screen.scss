@@ -131,7 +131,7 @@ body.single-tour .page-header {
   text-align: left;
 }
 
-.single-property {
+body.single-property {
 
   .page-title {
     color: $bronze;
@@ -155,6 +155,17 @@ body.single-tour .page-header {
   }
 } // .single-property
 
-.single-tour article p {
-  max-width: 42rem;
+body.single-tour article {
+
+  @include breakpoint(medium) {
+    .map {
+      float: right;
+      margin-left: $padding * 5;
+      width: 60%;
+    }
+  }
+
+  p {
+    max-width: 42rem;
+  }
 }

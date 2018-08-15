@@ -18,6 +18,8 @@ SINGLE TOUR PAGE
 
     <article>
 
+      <img class="map" src="https://placehold.it/800x430" alt="map placeholder" />
+
       <?php the_content(); ?>
 
       <section class="related-properties">
