@@ -24,6 +24,12 @@ function ppsdb_scripts_and_styles() {
         wp_get_theme()->get('Version')
     );
 
+    // Parent theme scripts file
+    wp_enqueue_script( 'ppsri-js', get_template_directory_uri() . '/library/scripts/scripts.js', array( 'jquery' ), '', true );
+
+    // modernizr media queries
+    wp_enqueue_script( 'modernizr-mq', get_template_directory_uri() . '/library/scripts/modernizr-mq.js', array( 'jquery' ), '', true );
+
 }
 
 add_action('wp_enqueue_scripts', 'ppsdb_scripts_and_styles', 999);
