@@ -70,16 +70,21 @@ GRID
   .related-properties {
     @include clearfix;
 
-    .property {
+    .card {
       @include grid-column(6);
     }
+  }
+
+  // Archive grid layout
+  body.archive .card {
+    @include grid-column(6);
   }
 
 }
 
 @include breakpoint(large) {
 
-  // Override default body.single layout
+  // Override default layouts
   body.single-property,
   body.single-tour {
 		main > article, section.meta, section.pagination,
@@ -89,6 +94,12 @@ GRID
 			@include grid-column(12);
 		}
   }
+  body.archive {
+    div.main,
+    aside.sidebar {
+			@include grid-column(12);
+		}
+	}
 
   // Create sidebar layout
   body.single-property {
@@ -100,12 +111,18 @@ GRID
     }
   }
 
+  // Single Tour page header
   body.single-tour .page-header {
     @include grid-column(8);
   }
 
   // Tour "Related Properties section"
-  .related-properties .property {
+  .related-properties .card {
+    @include grid-column(4);
+  }
+
+  // Archive grid layout
+  body.archive .card {
     @include grid-column(4);
   }
 
@@ -118,6 +135,23 @@ GLOBAL
 
 .page-title {
   font-family: $serif, serif;
+}
+
+.card {
+  margin-bottom: $padding;
+
+  h3 {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  .heading {
+    margin-bottom: $padding;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
 }
 
 
@@ -170,17 +204,7 @@ body.single-tour article {
   }
 }
 
-.related-properties {
+body.archive {
 
-  h3 {
-    margin-bottom: 0;
-  }
 
-  .heading {
-    margin-bottom: $padding;
-  }
-
-  p {
-    margin-bottom: 0;
-  }
 }
