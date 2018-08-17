@@ -94,11 +94,8 @@ GRID
 			@include grid-column(12);
 		}
   }
-  body.archive {
-    div.main,
-    aside.sidebar {
-			@include grid-column(12);
-		}
+  body.archive div.main {
+    @include grid-column(12);
 	}
 
   // Create sidebar layout
@@ -122,8 +119,13 @@ GRID
   }
 
   // Archive grid layout
-  body.archive .card {
-    @include grid-column(4);
+  body.archive {
+    .card {
+      @include grid-column(4);
+    }
+    .taxonomies-browse {
+      @include grid-column(12);
+    }
   }
 
 } // end breakpoint(large)
@@ -204,7 +206,11 @@ body.single-tour article {
   }
 }
 
-body.archive {
+.taxonomies-browse {
+  border-top: $border;
+  padding-top: $padding * 3;
 
-
+  h2 {
+    text-align: center;
+  }
 }

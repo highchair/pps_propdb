@@ -1,4 +1,4 @@
-<div>
+<aside class="taxonomies-browse">
 
   <h2>
     <?php _e('Browse by Category', 'ppsdb'); ?>
@@ -52,4 +52,4 @@
     ?>
   </div>
 
-</div>
+</aside>
