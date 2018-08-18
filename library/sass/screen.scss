@@ -211,4 +211,19 @@ body.single-tour article {
   h2 {
     text-align: center;
   }
+
+  ul {
+    column-count: 2;
+    @include breakpoint(medium) {
+      column-count: 3;
+    }
+    @include breakpoint(large) {
+      column-count: 6;
+    }
+  }
+
+  li {
+    line-height: 1.25em;
+    margin-bottom: 0.5rem;
+  }
 }
