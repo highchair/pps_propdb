@@ -68,22 +68,13 @@ GRID
 
   // Tour "Related Properties section"
   .related-properties {
-    @include clearfix;
-
-    .card {
-      @include grid-column(6);
-    }
+    @include grid-layout(2, '.card', $padding);
   }
 
   // Archive grid layout
-  body.archive .card {
-    @include grid-column(6);
-  }
-
-  // Clear Archive grid for Pagination
   body.archive div.main {
     @include clearfix;
-    float: none;
+    @include grid-layout(2, '.card', $padding);
   }
 
 }
@@ -101,8 +92,9 @@ GRID
 		}
   }
   body.archive div.main {
-    @include grid-column(12);
+    @include grid-layout(3, '.card', $padding);
     float: none;
+    width: 100%;
 	}
 
   // Create sidebar layout
@@ -121,18 +113,8 @@ GRID
   }
 
   // Tour "Related Properties section"
-  .related-properties .card {
-    @include grid-column(4);
-  }
-
-  // Archive grid layout
-  body.archive {
-    .card {
-      @include grid-column(4);
-    }
-    .taxonomies-browse {
-      @include grid-column(12);
-    }
+  .related-properties {
+    @include grid-layout(3, '.card', $padding);
   }
 
 } // end breakpoint(large)
