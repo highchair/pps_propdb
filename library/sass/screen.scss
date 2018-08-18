@@ -80,6 +80,12 @@ GRID
     @include grid-column(6);
   }
 
+  // Clear Archive grid for Pagination
+  body.archive div.main {
+    @include clearfix;
+    float: none;
+  }
+
 }
 
 @include breakpoint(large) {
@@ -96,6 +102,7 @@ GRID
   }
   body.archive div.main {
     @include grid-column(12);
+    float: none;
 	}
 
   // Create sidebar layout
