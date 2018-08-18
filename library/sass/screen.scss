@@ -131,19 +131,28 @@ GLOBAL
 .card {
   margin-bottom: $padding;
 
+  h3, p {
+    color: $gray-dk;
+    transition: all 0.25s;
+  }
+
   h3 {
+    font-size: 1.25rem;
     margin-bottom: 0;
     margin-top: 0;
   }
 
-  .heading {
-    margin-bottom: $padding;
-  }
-
   p {
+    font-size: 1rem;
+    line-height: 1.5em;
     margin-bottom: 0;
   }
-}
+
+  &:hover h3,
+  &:hover p {
+    color: $black;
+  }
+} // .card
 
 
 /********************
