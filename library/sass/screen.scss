@@ -1,0 +1,186 @@
+/*
+
+PPS Property Database Theme Styles
+
+*/
+
+/********************
+SETTINGS & UTILITIES
+********************/
+
+/*** COLORS ***/
+
+$blue: #82a6d6;
+$blue-lt: #d1dcf2;
+$blue-xlt: #e8edf8;
+
+$bronze: #8a7846;
+$mustard: #d6d397;
+$mustard-lt: #f1f0dc;
+
+$black: #333;
+$gray-dk: #666;
+$gray: #999;
+$gray-lt: #ddd;
+$silver: #f2f2f2;
+$white: #fff;
+
+$green: #b3e37e;
+$green-lt: #ecf8df;
+
+$red: #900;
+$red-lt: #e5bfbf;
+
+/*** OTHER UTILITIES ***/
+
+$padding: 1rem;
+$border: 1px solid $silver;
+
+/*** FONTS ***/
+
+// @import url('https://fonts.googleapis.com/css?family=Alegreya|Alegreya+SC|Alegreya+Sans:300,400,400i,900');
+
+$serif: 'Alegreya';
+$small-caps: 'Alegreya SC';
+$sans-serif: 'Alegreya Sans';
+
+
+/********************
+SETUP
+********************/
+
+$breakpoints: (
+  small: 0,
+  medium: 640px,
+  large: 1024px,
+  xlarge: 1366px
+);
+$grid-row-width: rem-calc(1350);
+
+@import "../../../pps-2017/node_modules/foundation-sites/scss/foundation";
+
+
+/********************
+GRID
+********************/
+
+@include breakpoint(medium) {
+
+  // Tour "Related Properties section"
+  .related-properties {
+    @include clearfix;
+
+    .property {
+      @include grid-column(6);
+    }
+  }
+
+}
+
+@include breakpoint(large) {
+
+  // Override default body.single layout
+  body.single-property,
+  body.single-tour {
+		main > article, section.meta, section.pagination,
+    main > aside > div,
+    section.pagination > div,
+    main > header {
+			@include grid-column(12);
+		}
+  }
+
+  // Create sidebar layout
+  body.single-property {
+    div.main {
+      @include grid-column(7);
+    }
+    aside.sidebar {
+      @include grid-column(4);
+    }
+  }
+
+  body.single-tour .page-header {
+    @include grid-column(8);
+  }
+
+  // Tour "Related Properties section"
+  .related-properties .property {
+    @include grid-column(4);
+  }
+
+} // end breakpoint(large)
+
+
+/********************
+GLOBAL
+********************/
+
+.page-title {
+  font-family: $serif, serif;
+}
+
+
+/********************
+SITE-SPECIFIC
+********************/
+
+body.single-property .page-header,
+body.single-tour .page-header {
+  padding-left: 0;
+  text-align: left;
+}
+
+body.single-property {
+
+  .page-title {
+    color: $bronze;
+    margin-bottom: $padding / 2;
+  
+    em {
+      color: $gray;
+      font-style: normal;
+    }
+  }
+
+  .sidebar .h6 {
+    color: $gray;
+  }
+
+  .sidebar p {
+    font-size: 1rem;
+    @include breakpoint(xlarge) {
+      margin-left: $padding * 5;
+    }
+  }
+} // .single-property
+
+body.single-tour article {
+
+  @include breakpoint(medium) {
+    .map {
+      float: right;
+      margin-left: $padding * 5;
+      width: 60%;
+    }
+  }
+
+  p {
+    max-width: 42rem;
+  }
+}
+
+.related-properties {
+
+  h3 {
+    margin-bottom: 0;
+  }
+
+  .heading {
+    margin-bottom: $padding;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}

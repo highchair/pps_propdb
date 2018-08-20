@@ -19,10 +19,16 @@ function ppsdb_scripts_and_styles() {
 
     // Child Theme
     wp_enqueue_style( 'ppsdb-stylesheet',
-        get_stylesheet_directory_uri() . '/style.css',
+        get_stylesheet_directory_uri() . '/library/stylesheets/screen.css',
         array( 'ppsri-stylesheet' ),
         wp_get_theme()->get('Version')
     );
+
+    // Parent theme scripts file
+    wp_enqueue_script( 'ppsri-js', get_template_directory_uri() . '/library/scripts/scripts.js', array( 'jquery' ), '', true );
+
+    // modernizr media queries
+    wp_enqueue_script( 'modernizr-mq', get_template_directory_uri() . '/library/scripts/modernizr-mq.js', array( 'jquery' ), '', true );
 
 }
 
