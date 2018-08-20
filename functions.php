@@ -24,11 +24,20 @@ function ppsdb_scripts_and_styles() {
         wp_get_theme()->get('Version')
     );
 
-    // Parent theme scripts file
+    // Parent theme scripts
     wp_enqueue_script( 'ppsri-js', get_template_directory_uri() . '/library/scripts/scripts.js', array( 'jquery' ), '', true );
+
+    // Child theme scripts
+    wp_enqueue_script( 'ppsdb-js', get_stylesheet_directory_uri() . '/library/scripts/scripts.js', array( 'jquery' ), '', true );
 
     // modernizr media queries
     wp_enqueue_script( 'modernizr-mq', get_template_directory_uri() . '/library/scripts/modernizr-mq.js', array( 'jquery' ), '', true );
+
+    // Foundation scripts
+    wp_enqueue_script( 'foundation-js', get_template_directory_uri() . '/node_modules/foundation-sites/js/foundation.core.js', array( 'jquery' ), '', true );
+    wp_enqueue_script( 'foundation-keyboard-js', get_template_directory_uri() . '/node_modules/foundation-sites/js/foundation.util.keyboard.js', array( 'jquery' ), '', true );
+    wp_enqueue_script( 'foundation-mediaquery-js', get_template_directory_uri() . '/node_modules/foundation-sites/js/foundation.util.mediaQuery.js', array( 'jquery' ), '', true );
+    wp_enqueue_script( 'foundation-accordion-js', get_template_directory_uri() . '/node_modules/foundation-sites/js/foundation.accordion.js', array( 'jquery' ), '', true );
 
 }
 

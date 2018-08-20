@@ -8,9 +8,9 @@ ARCHIVE PAGE TEMPLATE
 
   <div class="main">
 
-    <header>
+    <header class="page-header">
 
-      <h1>
+      <h1 class="page-title">
         <?php
         if ( is_post_type_archive() ) {
           post_type_archive_title('All ');
@@ -29,15 +29,18 @@ ARCHIVE PAGE TEMPLATE
     </header>
     
     <?php
-    if ( have_posts() ) { 
+    if ( have_posts() ) :
       while ( have_posts() ) { the_post();
         get_template_part('partials/property-sm');
       }
-      get_template_part('partials/pagination');
-    }
     ?>
 
   </div>
+
+    <?php
+      get_template_part('partials/pagination');
+    endif;
+    ?>
 
   <?php
   if ( is_post_type_archive('property') ) {
