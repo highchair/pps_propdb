@@ -8,9 +8,9 @@ ARCHIVE PAGE TEMPLATE
 
   <div class="main">
 
-    <header>
+    <header class="page-header">
 
-      <h1>
+      <h1 class="page-title">
         <?php
         if ( is_post_type_archive() ) {
           post_type_archive_title('All ');
