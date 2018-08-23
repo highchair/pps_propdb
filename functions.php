@@ -35,6 +35,18 @@ function ppsdb_scripts_and_styles() {
 add_action('wp_enqueue_scripts', 'ppsdb_scripts_and_styles', 999);
 
 
+// Remove Waypoints js
+function ppsdb_remove_waypoints() {
+  wp_dequeue_script( 'waypoints' );
+  wp_deregister_script( 'waypoints' );
+
+  wp_dequeue_script( 'ppsri-waypoints-js' );
+  wp_deregister_script( 'ppsri-waypoints-js' );
+}
+
+add_action( 'wp_print_scripts', 'ppsdb_remove_waypoints' );
+
+
 /*********************
 FUNCTIONS
 *********************/
