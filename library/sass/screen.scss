@@ -221,9 +221,10 @@ HEADER
   h1 {
     line-height: 1;
     text-align: center;
+    margin-top: 0;
     @include breakpoint(large) {
       float: left;
-      margin-left: $logo-size + $padding;
+      margin: ($padding/2) 0 ($padding*1.5) ($logo-size + $padding);
       text-align: left;
     }
   }
@@ -256,11 +257,15 @@ HEADER
     }
   }
 
-  // always show search
-  .desktop-search #searchform {
-    opacity: 1;
-    right: 100%;
-    width: 280px;
+  .desktop-search {
+    margin-top: $padding*1.25;
+
+    // always show search form
+    #searchform {
+      opacity: 1;
+      right: 100%;
+      width: 280px;
+    }
   }
 
   .toggle-nav {
