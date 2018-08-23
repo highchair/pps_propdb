@@ -196,7 +196,8 @@ HEADER
 
 #header {
   $logo-size: 12rem;
-  background-color: transparent;
+  padding-top: $padding;
+  padding-bottom: $padding;
 
   .logo-text, .site-text {
     color: $bronze;
@@ -205,8 +206,11 @@ HEADER
   // reset
   .logo-text {
     float: none;
-    font-size: 1rem;
+    font-size: 0.85rem;
     margin-left: 0;
+    @include breakpoint(large) {
+      font-size: 1rem;
+    }
   }
 
   .site-text {
@@ -258,6 +262,19 @@ HEADER
     right: 100%;
     width: 280px;
   }
+
+  .toggle-nav {
+    background: $gray-dk;
+    padding: $padding/4 $padding/2;
+    text-align: left;
+    width: 100%;
+  }
+
+  @include breakpoint(large) {
+    background-color: transparent;
+    padding: 0;
+  }
+
 } // #header
 
 
