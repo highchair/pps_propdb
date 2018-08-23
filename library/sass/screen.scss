@@ -223,6 +223,12 @@ HEADER
       text-transform: lowercase;
     }
   }
+
+  .desktop-search #searchform {
+    opacity: 1;
+    right: 100%;
+    width: 280px;
+  }
 } // #header
 
 
