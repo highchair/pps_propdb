@@ -1,0 +1,64 @@
+.page-title {
+  font-family: $serif, serif;
+}
+
+.card {
+  margin-bottom: $padding;
+
+  h3, p {
+    color: $gray-dk;
+    transition: all 0.25s;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5em;
+    margin-bottom: 0;
+  }
+
+  &:hover h3,
+  &:hover p {
+    color: $black;
+  }
+} // .card
+
+.accordion {
+  @include accordion-container;
+
+  h3 {
+    margin: 0;
+  }
+
+  &-item {
+    @include accordion-item;
+    border: 1px solid $gray-lt;
+    margin-bottom: $padding;
+  }
+
+  &-title {
+    @include accordion-title;
+    background: $silver;
+    border: 0 !important;
+
+    &::before {
+      font-size: 2rem;
+      margin-top: 0;
+      transform: translateY(-50%);
+    }
+  }
+
+  &-item.is-active .accordion-title {
+    background: transparent;
+  }
+
+  &-content {
+    display: none;
+    padding: $padding;
+  }
+} // .accordion

@@ -1,0 +1,55 @@
+
+@include breakpoint(medium) {
+
+  // Tour "Related Properties section"
+  .related-properties {
+    @include grid-layout(2, '.card', $padding);
+  }
+
+  // Archive grid layout
+  body.archive div.main {
+    @include clearfix;
+    @include grid-layout(2, '.card', $padding);
+  }
+
+}
+
+@include breakpoint(large) {
+
+  // Override default layouts
+  body.single-property,
+  body.single-tour {
+		main > article, section.meta, section.pagination,
+    main > aside > div,
+    section.pagination > div,
+    main > header {
+			@include grid-column(12);
+		}
+  }
+  body.archive div.main {
+    @include grid-layout(3, '.card', $padding);
+    float: none;
+    width: 100%;
+	}
+
+  // Create sidebar layout
+  body.single-property {
+    div.main {
+      @include grid-column(7);
+    }
+    aside.sidebar {
+      @include grid-column(4);
+    }
+  }
+
+  // Single Tour page header
+  body.single-tour .page-header {
+    @include grid-column(8);
+  }
+
+  // Tour "Related Properties section"
+  .related-properties {
+    @include grid-layout(3, '.card', $padding);
+  }
+
+} // end breakpoint(large)

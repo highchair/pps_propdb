@@ -14,24 +14,15 @@ ENQUEUEING
 
 function ppsdb_scripts_and_styles() {
 
-    // Parent Theme
-    wp_enqueue_style( 'ppsri-stylesheet', get_template_directory_uri() . '/library/stylesheets/screen.css');
-
-    // Child Theme
+    // Theme Styles
     wp_enqueue_style( 'ppsdb-stylesheet',
         get_stylesheet_directory_uri() . '/library/stylesheets/screen.css',
         array( 'ppsri-stylesheet' ),
         wp_get_theme()->get('Version')
     );
 
-    // Parent theme scripts
-    wp_enqueue_script( 'ppsri-js', get_template_directory_uri() . '/library/scripts/scripts.js', array( 'jquery' ), '', true );
-
-    // Child theme scripts
+    // Theme Scripts
     wp_enqueue_script( 'ppsdb-js', get_stylesheet_directory_uri() . '/library/scripts/scripts.js', array( 'jquery' ), '', true );
-
-    // modernizr media queries
-    wp_enqueue_script( 'modernizr-mq', get_template_directory_uri() . '/library/scripts/modernizr-mq.js', array( 'jquery' ), '', true );
 
     // Foundation scripts
     wp_enqueue_script( 'foundation-js', get_template_directory_uri() . '/node_modules/foundation-sites/js/foundation.core.js', array( 'jquery' ), '', true );
@@ -42,6 +33,18 @@ function ppsdb_scripts_and_styles() {
 }
 
 add_action('wp_enqueue_scripts', 'ppsdb_scripts_and_styles', 999);
+
+
+// Remove Waypoints js
+function ppsdb_remove_waypoints() {
+  wp_dequeue_script( 'waypoints' );
+  wp_deregister_script( 'waypoints' );
+
+  wp_dequeue_script( 'ppsri-waypoints-js' );
+  wp_deregister_script( 'ppsri-waypoints-js' );
+}
+
+add_action( 'wp_print_scripts', 'ppsdb_remove_waypoints' );
 
 
 /*********************
