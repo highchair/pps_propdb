@@ -1,0 +1,37 @@
+.home {
+
+  .featured-tour {
+    background: beige;
+    padding: $padding;
+  }
+
+  .the-content {
+    background: $blue-lt;
+    padding: $padding;
+  }
+
+  .cta {
+    background: $mustard;
+    padding: $padding;
+  }
+
+  @include breakpoint(large) {
+
+    .main {
+      display: flex;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: $padding;
+    }
+
+    .cta {
+      flex: 1;
+      margin-top: $padding;
+    }
+
+  } // breakpoint(large)
+} // .home

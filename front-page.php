@@ -10,47 +10,51 @@ Template Name: Homepage
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-  <section>
+  <div class="main">
 
-    <?php
-    $loop = new WP_Query( array( 'posts_per_page' => 1, 'post_type' => 'tour' ) );
-    while ($loop->have_posts()) :
-      $loop->the_post();
-    ?>
+    <section class="featured-tour">
 
-      <?php the_post_thumbnail('grid-thumb'); ?>
-
-      <p><?php _e("Take a Tour of Providence's Historic Architecture", 'ppsdb'); ?></p>
-      <h3><?php the_title(); ?></h3>
-      <p>
-      <?php 
-        echo count(get_field('properties'));
-        _e(' properties', 'ppsdb');
+      <?php
+      $loop = new WP_Query( array( 'posts_per_page' => 1, 'post_type' => 'tour' ) );
+      while ($loop->have_posts()) :
+        $loop->the_post();
       ?>
-      </p>
 
-      <?php the_excerpt(); ?>
+        <?php the_post_thumbnail('grid-thumb'); ?>
 
-      <a href="<?php the_permalink(); ?>"><?php _e('See all Properties on this Tour', 'ppsdb'); ?></a>
+        <p><?php _e("Take a Tour of Providence's Historic Architecture", 'ppsdb'); ?></p>
+        <h3><?php the_title(); ?></h3>
+        <p>
+        <?php 
+          echo count(get_field('properties'));
+          _e(' properties', 'ppsdb');
+        ?>
+        </p>
 
-    <?php
-    endwhile; wp_reset_postdata();
-    ?>
+        <?php the_excerpt(); ?>
 
-  </section>
+        <a href="<?php the_permalink(); ?>"><?php _e('See all Properties on this Tour', 'ppsdb'); ?></a>
 
-  <section>
+      <?php
+      endwhile; wp_reset_postdata();
+      ?>
 
-    <?php the_content(); ?>
+    </section>
 
-  </section>
+    <section class="info">
 
-  <section>
+      <div class="the-content">
+        <?php the_content(); ?>
+      </div>
 
-    <h3><?php the_field('cta_heading'); ?></h3>
-    <a class="button" href="<?php the_field('cta_link'); ?>"><?php the_field('cta_link_text'); ?></a>
+      <div class="cta">
+        <h3><?php the_field('cta_heading'); ?></h3>
+        <a class="button" href="<?php the_field('cta_link'); ?>"><?php the_field('cta_link_text'); ?></a>
+      </div>
 
-  </section>
+    </section>
+
+  </div> <!-- .main -->
 
   <section>
 
