@@ -1,8 +1,8 @@
 <header id="header">
 	<a href="<?php echo get_home_url(); ?>">
-		<h1 class="logo-text">
-      Providence Preservation Society<br />
-      Providence Property Database
+		<h1>
+      <span class="logo-text">Providence Preservation Society</span>
+      <span class="site-text h3">Providence Property Database</span>
     </h1>
 	</a>
 	<nav role="navigation">

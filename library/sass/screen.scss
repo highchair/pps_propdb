@@ -195,11 +195,38 @@ HEADER
 ********************/
 
 #header {
+  $logo-size: 12rem;
   background-color: transparent;
+
+  .logo-text, .site-text {
+    color: $bronze;
+  }
+
+  // reset
+  .logo-text {
+    float: none;
+    font-size: 1rem;
+    margin-left: 0;
+  }
+
+  .site-text {
+    display: block;
+    font-weight: 900;
+  }
+
+  h1 {
+    line-height: 1;
+    text-align: center;
+    @include breakpoint(large) {
+      float: left;
+      margin-left: $logo-size + $padding;
+      text-align: left;
+    }
+  }
 
   div.secondary-nav {
     background: url("../../../pps-2017/library/img/seal.png") no-repeat left center $blue-xlt;
-    background-size: 12rem 12rem;
+    background-size: $logo-size $logo-size;
   }
 
   div.primary-nav {
@@ -225,6 +252,7 @@ HEADER
     }
   }
 
+  // always show search
   .desktop-search #searchform {
     opacity: 1;
     right: 100%;
