@@ -198,7 +198,8 @@ HEADER
   background-color: transparent;
 
   div.secondary-nav {
-    background-color: $blue-xlt;
+    background: url("../../../pps-2017/library/img/seal.png") no-repeat left center $blue-xlt;
+    background-size: 12rem 12rem;
   }
 
   div.primary-nav {
