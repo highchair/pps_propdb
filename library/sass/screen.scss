@@ -191,6 +191,42 @@ GLOBAL
 
 
 /********************
+HEADER
+********************/
+
+#header {
+  background-color: transparent;
+
+  div.secondary-nav {
+    background-color: $blue-xlt;
+  }
+
+  div.primary-nav {
+    @include clearfix;
+    text-align: left;
+    .menu {
+      float: left;
+    }
+    .parent-site-link {
+      float: right;
+      font-size: 1.25rem;
+    }
+    .icon-arrow-right {
+      font-size: 1.125rem;
+      vertical-align: bottom;
+    }
+    .menu a {
+      font-family: $small-caps, serif;
+      font-size: 1.5rem;
+      font-weight: normal;
+      letter-spacing: 0.125em;
+      text-transform: lowercase;
+    }
+  }
+} // #header
+
+
+/********************
 SITE-SPECIFIC
 ********************/
 
