@@ -1,0 +1,87 @@
+#header {
+  $logo-size: 12rem;
+  padding-top: $padding;
+  padding-bottom: $padding;
+
+  .logo-text, .site-text {
+    color: $bronze;
+  }
+
+  // reset
+  .logo-text {
+    float: none;
+    font-size: 0.85rem;
+    margin-left: 0;
+    @include breakpoint(large) {
+      font-size: 1rem;
+    }
+  }
+
+  .site-text {
+    display: block;
+    font-weight: 900;
+  }
+
+  h1 {
+    line-height: 1;
+    text-align: center;
+    margin-top: 0;
+    @include breakpoint(large) {
+      float: left;
+      margin: ($padding/2) 0 ($padding*1.5) ($logo-size + $padding);
+      text-align: left;
+    }
+  }
+
+  div.secondary-nav {
+    background: url("../../../pps-2017/library/img/seal.png") no-repeat left center $blue-xlt;
+    background-size: $logo-size $logo-size;
+  }
+
+  div.primary-nav {
+    @include clearfix;
+    text-align: left;
+    .menu {
+      float: left;
+    }
+    .parent-site-link {
+      float: right;
+      font-size: 1.25rem;
+    }
+    .icon-arrow-right {
+      font-size: 1.125rem;
+      vertical-align: bottom;
+    }
+    .menu a {
+      font-family: $small-caps, serif;
+      font-size: 1.5rem;
+      font-weight: normal;
+      letter-spacing: 0.125em;
+      text-transform: lowercase;
+    }
+  }
+
+  .desktop-search {
+    margin-top: $padding*1.25;
+
+    // always show search form
+    #searchform {
+      opacity: 1;
+      right: 100%;
+      width: 280px;
+    }
+  }
+
+  .toggle-nav {
+    background: $gray-dk;
+    padding: $padding/4 $padding/2;
+    text-align: left;
+    width: 100%;
+  }
+
+  @include breakpoint(large) {
+    background-color: transparent;
+    padding: 0;
+  }
+
+} // #header

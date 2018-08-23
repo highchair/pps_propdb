@@ -1,0 +1,72 @@
+body.single-property .page-header,
+body.single-tour .page-header {
+  padding-left: 0;
+  text-align: left;
+}
+
+body.single-property {
+
+  .page-title {
+    color: $bronze;
+    margin-bottom: $padding / 2;
+  
+    em {
+      color: $gray;
+      font-style: normal;
+    }
+  }
+
+  .sidebar .h6 {
+    color: $gray;
+  }
+
+  .sidebar p {
+    font-size: 1rem;
+    @include breakpoint(xlarge) {
+      margin-left: $padding * 5;
+    }
+  }
+} // .single-property
+
+body.single-tour article {
+
+  @include breakpoint(medium) {
+    .map {
+      float: right;
+      margin-left: $padding * 5;
+      width: 60%;
+    }
+  }
+
+  p {
+    max-width: 42rem;
+  }
+}
+
+body.archive header h1 {
+  margin-top: 0.67em; // reset
+}
+
+.taxonomies-browse {
+  border-top: $border;
+  padding-top: $padding * 3;
+
+  h2 {
+    text-align: center;
+  }
+
+  ul {
+    column-count: 2;
+    @include breakpoint(medium) {
+      column-count: 3;
+    }
+    @include breakpoint(large) {
+      column-count: 6;
+    }
+  }
+
+  li {
+    line-height: 1.25em;
+    margin-bottom: 0.5rem;
+  }
+}
