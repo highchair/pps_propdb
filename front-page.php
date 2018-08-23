@@ -60,13 +60,25 @@ Template Name: Homepage
 
     <h2><?php _e('Most Recently Updated Properties', 'ppsdb'); ?></h2>
 
-    <?php
-    $loop = new WP_Query( array( 'posts_per_page' => 5, 'post_type' => 'property' ) );
-    while ($loop->have_posts()) :
-      $loop->the_post();
-      get_template_part('partials/property-sm');
-    endwhile; wp_reset_postdata();
-    ?>
+    <div class="featured-card">
+      <?php
+      $loop = new WP_Query( array( 'posts_per_page' => 1, 'post_type' => 'property' ) );
+      while ($loop->have_posts()) :
+        $loop->the_post();
+        get_template_part('partials/property-sm');
+      endwhile; wp_reset_postdata();
+      ?>
+    </div>
+
+    <div class="cards">
+      <?php
+      $loop = new WP_Query( array( 'posts_per_page' => 4, 'post_type' => 'property', 'offset' => 1 ) );
+      while ($loop->have_posts()) :
+        $loop->the_post();
+        get_template_part('partials/property-sm');
+      endwhile; wp_reset_postdata();
+      ?>
+    </div>
 
   </section>
 
