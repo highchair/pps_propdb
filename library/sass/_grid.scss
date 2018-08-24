@@ -1,4 +1,10 @@
 
+// Homepage main area
+body.home {
+  .featured-tour, .the-content, .cta {
+    margin-top: $padding;
+  }
+}
 
 @include breakpoint(medium) {
 
@@ -38,6 +44,27 @@
     width: 100%;
   }
   
+  // Homepage main area
+  body.home {
+    .main {
+      display: flex;
+    }
+    .featured-tour {
+      flex-basis: 60%;
+    }
+    .info {
+      flex-basis: 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: $padding*1.5;
+    }
+    .cta {
+      flex: 1;
+      margin-top: $padding;
+    }
+  }
+
   // Homepage properties cards area
   body.home {
     .cards,

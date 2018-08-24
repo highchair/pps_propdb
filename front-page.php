@@ -21,7 +21,7 @@ Template Name: Homepage
       ?>
 
         <a class="image" href="<?php the_permalink(); ?>">
-          <?php the_post_thumbnail('grid-thumb'); ?>
+          <?php the_post_thumbnail('large'); ?>
           <span class="button"><?php _e("Start this Tour", 'ppsdb'); ?></span>
         </a>
 
