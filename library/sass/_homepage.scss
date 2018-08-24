@@ -63,8 +63,10 @@
 
   // "How you can help" section
   .cta {
-    background: $mustard-lt;
-    border: 1px solid $mustard;
+    background-color: $mustard-lt;
+    background-position: center;
+    background-size: cover;
+    border: 1px solid $bronze;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,7 +74,7 @@
     padding: $padding*2;
 
     .title {
-      color: $bronze;
+      color: $black;
       font-weight: 100;
       margin-top: 0; 
     }

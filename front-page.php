@@ -54,7 +54,7 @@ Template Name: Homepage
         <?php the_content(); ?>
       </div>
 
-      <div class="cta">
+      <div class="cta" style="background-image: url('<?php the_field('cta_bg_img'); ?>')">
         <h3 class="title h2"><?php the_field('cta_heading'); ?></h3>
         <a class="button" href="<?php the_field('cta_link'); ?>"><?php the_field('cta_link_text'); ?></a>
       </div>
