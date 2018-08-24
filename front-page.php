@@ -20,20 +20,24 @@ Template Name: Homepage
         $loop->the_post();
       ?>
 
-        <?php the_post_thumbnail('grid-thumb'); ?>
+        <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('grid-thumb'); ?></a>
 
-        <p><?php _e("Take a Tour of Providence's Historic Architecture", 'ppsdb'); ?></p>
-        <h3><?php the_title(); ?></h3>
-        <p>
-        <?php 
-          echo count(get_field('properties'));
-          _e(' properties', 'ppsdb');
-        ?>
-        </p>
+        <div class="text">
 
-        <?php the_excerpt(); ?>
+          <p class="subtitle h5"><?php _e("Take a Tour of Providence's Historic Architecture", 'ppsdb'); ?></p>
+          <a href="<?php the_permalink(); ?>"><h3 class="title h2"><?php the_title(); ?></h3></a>
+          <p>
+          <?php 
+            echo count(get_field('properties'));
+            _e(' properties', 'ppsdb');
+          ?>
+          </p>
 
-        <a href="<?php the_permalink(); ?>"><?php _e('See all Properties on this Tour', 'ppsdb'); ?></a>
+          <?php the_excerpt(); ?>
+
+          <a class="more" href="<?php the_permalink(); ?>"><?php _e('See all Properties on this Tour', 'ppsdb'); ?></a>
+
+        </div> <!-- .text -->
 
       <?php
       endwhile; wp_reset_postdata();

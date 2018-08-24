@@ -1,8 +1,31 @@
 .home {
 
   .featured-tour {
-    background: beige;
+    background: $mustard-lt;
+    border: 1px solid $bronze;
     padding: $padding;
+
+    .text {
+      padding: $padding;
+    }
+
+    .subtitle {
+      font-weight: 900;
+      margin-bottom: $padding/4;
+    }
+
+    .title {
+      color: $bronze;
+      font-family: $serif, serif;
+      font-weight: 100;
+      margin: 0 0 $padding/2;
+    }
+  }
+
+  // read-more link
+  .more {
+    border-bottom: 1px solid;
+    color: $black;
   }
 
   .the-content {
