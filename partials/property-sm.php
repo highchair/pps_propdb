@@ -21,7 +21,9 @@ $location = get_field('location');
     </div>
 
     <?php
-    echo '<p>' . $location['address'] . '</p>';
+    if ( isset($location['address']) ) {
+      echo '<p>' . $location['address'] . '</p>';
+    }
 
     if ( get_field('period') ) { echo '<p>' . get_field('period') . '</p>'; }
 
