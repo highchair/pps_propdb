@@ -48,6 +48,20 @@ add_action( 'wp_print_scripts', 'ppsdb_remove_waypoints' );
 
 
 /*********************
+THEME SUPPORT
+*********************/
+
+// Add more image sizes
+function ppsdb_more_img_sizes() {
+
+  add_image_size( 'squarish', 1360, 1180, array( 'center', 'center', true) );
+
+} /* end ppsdb theme support */
+
+add_action('after_setup_theme','ppsdb_more_img_sizes');
+
+
+/*********************
 FUNCTIONS
 *********************/
 

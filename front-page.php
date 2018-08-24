@@ -72,7 +72,8 @@ Template Name: Homepage
       $loop = new WP_Query( array( 'posts_per_page' => 1, 'post_type' => 'property' ) );
       while ($loop->have_posts()) :
         $loop->the_post();
-        get_template_part('partials/property-sm');
+        $featured = true;
+        include(locate_template('partials/property-sm.php'));
       endwhile; wp_reset_postdata();
       ?>
     </div>
