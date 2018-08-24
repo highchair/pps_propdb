@@ -52,7 +52,7 @@ Template Name: Homepage
       </div>
 
       <div class="cta">
-        <h3><?php the_field('cta_heading'); ?></h3>
+        <h3 class="title h2"><?php the_field('cta_heading'); ?></h3>
         <a class="button" href="<?php the_field('cta_link'); ?>"><?php the_field('cta_link_text'); ?></a>
       </div>
 
