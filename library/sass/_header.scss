@@ -1,5 +1,6 @@
 #header {
   $logo-size: 12rem;
+  $logo-indent: $padding*4;
   padding-top: $padding;
   padding-bottom: $padding;
 
@@ -28,13 +29,13 @@
     margin-top: 0;
     @include breakpoint(large) {
       float: left;
-      margin: ($padding/2) 0 ($padding*1.5) ($logo-size + $padding);
+      margin: ($padding/2) 0 ($padding*1.5) ($logo-size + $logo-indent + $padding);
       text-align: left;
     }
   }
 
   div.secondary-nav {
-    background: url("../../../pps-2017/library/img/seal.png") no-repeat left center $blue-xlt;
+    background: url("../img/seal-blue.png") no-repeat $logo-indent center $blue-xlt;
     background-size: $logo-size $logo-size;
   }
 
