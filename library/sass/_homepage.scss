@@ -1,0 +1,87 @@
+.home {
+
+  .subtitle {
+    font-weight: 900;
+    margin-bottom: $padding/4;
+  }
+
+  .more-link {
+    border-bottom: 1px solid;
+    color: $black;
+  }
+
+  // Featured Tour section
+  .featured-tour {
+    background: $mustard-lt;
+    border: 1px solid $bronze;
+    padding: $padding/2;
+
+    .image {
+      display: block;
+      position: relative;
+    }
+
+    .button {
+      background: $mustard-lt;
+      border-color: $bronze;
+      bottom: $padding;
+      color: $bronze;
+      right: $padding;
+      position: absolute;
+      transition: all 0.125s ease-in;
+    }
+
+    .image:hover .button, .image:focus .button {
+      border-color: $black;
+      color: $black;
+    }
+
+    .text {
+      padding: $padding;
+    }
+
+    .title {
+      color: $bronze;
+      font-family: $serif, serif;
+      font-weight: 100;
+      margin: 0 0 $padding/2;
+    }
+  }
+
+  // "What is this?" section
+  .the-content {
+    background: $blue-xlt;
+    border: 1px solid $blue;
+    padding: $padding*2;
+
+    h3 {
+      font-family: $serif, serif;
+      font-weight: 100;
+      margin-top: 0;
+    }
+  }
+
+  // "How you can help" section
+  .cta {
+    background-color: $mustard-lt;
+    background-position: center;
+    background-size: cover;
+    border: 1px solid $bronze;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: $padding*2;
+
+    .title {
+      color: $black;
+      font-weight: 100;
+      margin-top: 0; 
+    }
+
+    .button {
+      border-color: $black;
+      color: $black;
+    }
+  }
+} // .home

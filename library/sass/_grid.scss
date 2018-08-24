@@ -1,5 +1,17 @@
 
+// Homepage main area
+body.home {
+  .featured-tour, .the-content, .cta {
+    margin-top: $padding;
+  }
+}
+
 @include breakpoint(medium) {
+
+  // Homepage properties cards area
+  body.home .cards {
+    @include grid-layout(2, '.card', $padding);
+  }
 
   // Tour "Related Properties section"
   .related-properties {
@@ -30,7 +42,40 @@
     @include grid-layout(3, '.card', $padding);
     float: none;
     width: 100%;
-	}
+  }
+  
+  // Homepage main area
+  body.home {
+    .main {
+      display: flex;
+    }
+    .featured-tour {
+      flex-basis: 60%;
+    }
+    .info {
+      flex-basis: 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: $padding*1.5;
+    }
+    .cta {
+      flex: 1;
+      margin-top: $padding;
+    }
+  }
+
+  // Homepage properties cards area
+  body.home {
+    .cards,
+    .featured-card {
+      @include grid-column(6);
+    }
+
+    .featured-card {
+      float: right;
+    }
+  }
 
   // Create sidebar layout
   body.single-property {

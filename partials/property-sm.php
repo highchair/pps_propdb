@@ -5,7 +5,13 @@ $location = get_field('location');
 <div class="card">
   <a href="<?php the_permalink(); ?>">
 
-    <?php the_post_thumbnail('grid-thumb'); ?>
+    <?php
+    if (isset($featured)) {
+      the_post_thumbnail('squarish');
+    } else {
+      the_post_thumbnail('grid-thumb');
+    }
+    ?>
 
     <div class="heading">
       <h3><?php the_title(); ?></h3>
