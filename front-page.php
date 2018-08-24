@@ -35,7 +35,7 @@ Template Name: Homepage
 
           <?php the_excerpt(); ?>
 
-          <a class="more" href="<?php the_permalink(); ?>"><?php _e('See all Properties on this Tour', 'ppsdb'); ?></a>
+          <a class="more-link" href="<?php the_permalink(); ?>"><?php _e('See all Properties on this Tour', 'ppsdb'); ?></a>
 
         </div> <!-- .text -->
 

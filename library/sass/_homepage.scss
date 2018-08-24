@@ -9,11 +9,6 @@
       padding: $padding;
     }
 
-    .subtitle {
-      font-weight: 900;
-      margin-bottom: $padding/4;
-    }
-
     .title {
       color: $bronze;
       font-family: $serif, serif;
@@ -22,15 +17,26 @@
     }
   }
 
-  // read-more link
-  .more {
+  .subtitle {
+    font-weight: 900;
+    margin-bottom: $padding/4;
+  }
+
+  .more-link {
     border-bottom: 1px solid;
     color: $black;
   }
 
   .the-content {
-    background: $blue-lt;
-    padding: $padding;
+    background: $blue-xlt;
+    border: 1px solid $blue;
+    padding: $padding*2;
+
+    h3 {
+      font-family: $serif, serif;
+      font-weight: 100;
+      margin-top: 0;
+    }
   }
 
   .cta {
