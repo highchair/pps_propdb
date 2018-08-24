@@ -1,5 +1,16 @@
 .home {
 
+  .subtitle {
+    font-weight: 900;
+    margin-bottom: $padding/4;
+  }
+
+  .more-link {
+    border-bottom: 1px solid;
+    color: $black;
+  }
+
+  // Featured Tour section
   .featured-tour {
     background: $mustard-lt;
     border: 1px solid $bronze;
@@ -17,16 +28,7 @@
     }
   }
 
-  .subtitle {
-    font-weight: 900;
-    margin-bottom: $padding/4;
-  }
-
-  .more-link {
-    border-bottom: 1px solid;
-    color: $black;
-  }
-
+  // "What is this?" section
   .the-content {
     background: $blue-xlt;
     border: 1px solid $blue;
@@ -39,6 +41,7 @@
     }
   }
 
+  // "How you can help" section
   .cta {
     background: $mustard;
     padding: $padding;
