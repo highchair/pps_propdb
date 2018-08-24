@@ -63,10 +63,15 @@ SINGLE PROPERTY PAGE
           </script>
 
           <h3 class="h6"><?php _e( 'Location', 'ppsdb' ); ?></h3>
-
-          <p><a href="https://www.google.com/maps/place/<?php echo $location['address'];?>"><?php echo $location['address'];?></a></p>
-
-          <p>lat/long: <?php echo $location['lat'] . ', ' . $location['lng'] ;?></p>
+          
+          <?php
+          if ( isset($location['address']) ) {
+            echo '<p><a href="https://www.google.com/maps/place/' . $location['address'] . '">' . $location['address'] . '</a></p>';
+            echo '<p>lat/long: ' . $location['lat'] . ', ' . $location['lng'] . '</p>';
+          } else {
+            echo '<p>No address found.</p>';
+          }
+          ?>
 
           <p><?php echo get_the_term_list( $post->ID, 'neighborhood', 'Neighborhood: ', ', ' ); ?></p>
 
