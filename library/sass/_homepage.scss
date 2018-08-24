@@ -16,6 +16,26 @@
     border: 1px solid $bronze;
     padding: $padding;
 
+    .image {
+      display: block;
+      position: relative;
+    }
+
+    .button {
+      background: $mustard-lt;
+      border-color: $bronze;
+      bottom: $padding;
+      color: $bronze;
+      right: $padding;
+      position: absolute;
+      transition: all 0.125s ease-in;
+    }
+
+    .image:hover .button, .image:focus .button {
+      border-color: $black;
+      color: $black;
+    }
+
     .text {
       padding: $padding;
     }

@@ -20,7 +20,10 @@ Template Name: Homepage
         $loop->the_post();
       ?>
 
-        <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('grid-thumb'); ?></a>
+        <a class="image" href="<?php the_permalink(); ?>">
+          <?php the_post_thumbnail('grid-thumb'); ?>
+          <span class="button"><?php _e("Start this Tour", 'ppsdb'); ?></span>
+        </a>
 
         <div class="text">
 
