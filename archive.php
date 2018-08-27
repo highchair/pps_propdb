@@ -10,6 +10,12 @@ ARCHIVE PAGE TEMPLATE
 
     <header class="page-header">
 
+      <?php
+      if ( is_tax() || is_tag() ) {
+        echo '<h2 class="subheading">Properties</h2>';
+      }
+      ?>
+
       <h1 class="page-title">
         <?php
         if ( is_post_type_archive() ) {

@@ -1,5 +1,9 @@
 .page-title {
   font-family: $serif, serif;
+
+  .subheading + & {
+    margin-top: 0;
+  }
 }
 
 .card {
