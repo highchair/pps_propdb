@@ -97,4 +97,17 @@ body.home {
     @include grid-layout(3, '.card', $padding);
   }
 
+  // Search Results page
+  body.search-results div.main {
+    @include grid-column(9);
+    .card {
+      @include clearfix;
+      margin-bottom: $padding*2;
+    }
+    img {
+      @include grid-column(4);
+      float: right;
+    }
+  }
+
 } // end breakpoint(large)

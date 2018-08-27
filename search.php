@@ -19,8 +19,21 @@ SEARCH RESULTS PAGE
 
     <?php
       if (have_posts()) : while (have_posts()) : the_post();
-        $class = 'archive';
-        include 'partials/article.php';
+        if ( get_post_type() == 'property' ) :
+          include 'partials/property-sm.php';
+        else :
+    ?>
+      <div class="card">
+        <a href="<?php the_permalink(); ?>">
+          <?php the_post_thumbnail('grid-thumb'); ?>
+          <div class="heading">
+            <h3><?php the_title(); ?></h3>
+            <p><?php the_excerpt(); ?></p>
+          </div>
+        </a>
+      </div>
+    <?php
+        endif;
       endwhile;
         get_template_part('partials/pagination');
       else: ?>
