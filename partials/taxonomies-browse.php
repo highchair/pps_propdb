@@ -6,7 +6,7 @@
 
   <div class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
 
-    <div class="accordion-item is-active" data-accordion-item>
+    <div class="accordion-item" data-accordion-item>
       <a class="accordion-title" href="#"><h3><?php _e('Architectural Styles', 'ppsdb'); ?></h3></a>
       <ul class="accordion-content" data-tab-content>
         <?php

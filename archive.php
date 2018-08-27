@@ -10,6 +10,12 @@ ARCHIVE PAGE TEMPLATE
 
     <header class="page-header">
 
+      <?php
+      if ( is_tax() || is_tag() ) {
+        echo '<h2 class="subheading">Properties</h2>';
+      }
+      ?>
+
       <h1 class="page-title">
         <?php
         if ( is_post_type_archive() ) {
@@ -39,11 +45,13 @@ ARCHIVE PAGE TEMPLATE
 
     <?php
       get_template_part('partials/pagination');
+    else :
+      echo '<p>' . _e( 'We\'re sorry but no results were found.', 'ppsdb' ) . '</p>';
     endif;
     ?>
 
   <?php
-  if ( is_post_type_archive('property') ) {
+  if ( is_post_type_archive('property') || is_tax() || is_tag() ) {
     get_template_part('partials/taxonomies-browse');
   }
   ?>
