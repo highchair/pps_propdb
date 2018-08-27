@@ -10,7 +10,7 @@ SEARCH RESULTS PAGE
   
     <header>
       <p>
-        <?php _e('Results for:', 'ppri'); ?>
+        <?php _e('Results for:', 'ppsri'); ?>
       </p>
       <h1>
         <?php echo esc_attr(get_search_query()); ?>
@@ -37,8 +37,8 @@ SEARCH RESULTS PAGE
       endwhile;
         get_template_part('partials/pagination');
       else: ?>
-      <h2>No Results</h2>
-      <p>We're sorry but no results were found.</p>
+      <h2><?php _e( 'No Results', 'ppsdb' ); ?></h2>
+      <p><?php _e( 'We\'re sorry but no results were found.', 'ppsdb' ); ?></p>
     <?php
       endif;
     ?>
