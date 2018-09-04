@@ -33,7 +33,9 @@ SINGLE TOUR PAGE
         if( $properties ) {
           foreach( $properties as $post) {
             setup_postdata($post);
-            get_template_part('partials/property-sm');
+            $page_id     = get_queried_object_id();
+            $tour = $page_id;
+            include(locate_template('partials/property-sm.php'));
           }
           wp_reset_postdata();
         }

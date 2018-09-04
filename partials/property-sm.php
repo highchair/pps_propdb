@@ -3,7 +3,17 @@ $location = get_field('location');
 ?>
 
 <div class="card">
-  <a href="<?php the_permalink(); ?>">
+  <?php
+  if (isset($tour)) :
+  ?>
+    <a href="<?php echo esc_url( add_query_arg( 't', $tour, the_permalink() ) )?>">
+  <?php
+  else :
+  ?>
+    <a href="<?php the_permalink(); ?>">
+  <?php
+  endif;
+  ?>
 
     <?php
     if (isset($featured)) {
