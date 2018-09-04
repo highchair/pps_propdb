@@ -36,15 +36,15 @@ SINGLE PROPERTY PAGE
 
           <p>Part of <a href="<?php echo get_permalink($tour); ?>"><?php echo $tour->post_title; ?></a></p>
 
-          <?php
-          ?>
           <div>
             <?php
             if ( isset($property_ids[$prev_property]) ) :
               $url_prev = get_permalink( $property_ids[$prev_property] );
+              $url_prev_query = esc_url( add_query_arg( 't', $tour->ID, $url_prev ) );
+              $title_prev = get_the_title( $property_ids[$prev_property] );
             ?>
-              <a href="<?php echo esc_url( add_query_arg( 't', $tour->ID, $url_prev ) ) ?>">
-                <?php echo get_the_title( $property_ids[$prev_property] ); ?>
+              <a href="<?php echo $url_prev_query; ?>" title="<?php echo $title_prev; ?>">
+                <?php _e( 'Previous Property', 'ppsdb' ); ?>
               </a>
             <?php
             else :
@@ -59,9 +59,11 @@ SINGLE PROPERTY PAGE
             <?php
             if ( isset($property_ids[$next_property]) ) :
               $url_next = get_permalink( $property_ids[$next_property] );
+              $url_next_query = esc_url( add_query_arg( 't', $tour->ID, $url_next ) );
+              $title_next = get_the_title( $property_ids[$next_property] );
             ?>
-              <a href="<?php echo esc_url( add_query_arg( 't', $tour->ID, $url_next ) ) ?>">
-                <?php echo get_the_title( $property_ids[$next_property] ); ?>
+              <a href="<?php echo $url_next_query; ?>" title="<?php echo $title_next; ?>">
+                <?php _e( 'Next Property', 'ppsdb' ); ?>
               </a>
             <?php
             else :
