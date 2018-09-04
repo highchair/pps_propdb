@@ -34,9 +34,7 @@ SINGLE PROPERTY PAGE
 
         <nav class="tour-nav" role="navigation">
 
-          <p>Part of <a href="<?php echo get_permalink($tour); ?>"><?php echo $tour->post_title; ?></a></p>
-
-          <div>
+          <div class="prev-next prev-prop">
             <?php
             if ( isset($property_ids[$prev_property]) ) :
               $url_prev = get_permalink( $property_ids[$prev_property] );
@@ -44,18 +42,20 @@ SINGLE PROPERTY PAGE
               $title_prev = get_the_title( $property_ids[$prev_property] );
             ?>
               <a href="<?php echo $url_prev_query; ?>" title="<?php echo $title_prev; ?>">
-                <?php _e( 'Previous Property', 'ppsdb' ); ?>
+                <span class="button icon-chevron-left"></span>
+                <span class="text"><?php _e( 'Previous Property', 'ppsdb' ); ?></span>
               </a>
-            <?php
-            else :
-            ?>
-              This is the first property.
             <?php
             endif;
             ?>
           </div>
 
-          <div>
+          <p class="tour-current">
+            <span class="tour-label"><?php _e( 'Part of', 'ppsdb' ); ?></span>
+            <a href="<?php echo get_permalink($tour); ?>"><?php echo $tour->post_title; ?></a>
+          </p>
+
+          <div class="prev-next next-prop">
             <?php
             if ( isset($property_ids[$next_property]) ) :
               $url_next = get_permalink( $property_ids[$next_property] );
@@ -63,12 +63,9 @@ SINGLE PROPERTY PAGE
               $title_next = get_the_title( $property_ids[$next_property] );
             ?>
               <a href="<?php echo $url_next_query; ?>" title="<?php echo $title_next; ?>">
-                <?php _e( 'Next Property', 'ppsdb' ); ?>
+                <span class="text"><?php _e( 'Next Property', 'ppsdb' ); ?></span>
+                <span class="button icon-chevron-right"></span>
               </a>
-            <?php
-            else :
-            ?>
-              This is the last property.
             <?php
             endif;
             ?>
@@ -76,10 +73,6 @@ SINGLE PROPERTY PAGE
 
         </nav>
 
-      <?php
-      else:
-      ?>
-        <p>Not on a tour right now.</p>
       <?php
       endif;
       ?>
