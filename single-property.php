@@ -13,6 +13,22 @@ SINGLE PROPERTY PAGE
 
     <header class="page-header">
 
+      <nav class="tour-nav" role="navigation">
+        <?php
+        $query_var = get_query_var( 't' );
+        if ( !empty($query_var) ) :
+          $tour = get_post( $query_var );
+        ?>
+          <p>Part of <a href="<?php echo get_permalink($tour); ?>"><?php echo $tour->post_title; ?></a></p>
+        <?php
+        else:
+        ?>
+          <p>Not on a tour right now.</p>
+        <?php
+        endif;
+        ?>
+      </nav>
+
       <h1 class="page-title">
         <?php 
           the_title();
