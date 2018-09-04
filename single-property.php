@@ -50,7 +50,7 @@ SINGLE PROPERTY PAGE
 
         <section>
 
-          <div id="map" style="width: 360px; height: 260px"></div>
+          <div id="map" class="map"></div>
 
           <script>
 

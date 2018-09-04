@@ -9,10 +9,17 @@ body.single-property {
   .page-title {
     color: $bronze;
     margin-bottom: $padding / 2;
-  
     em {
       color: $gray;
       font-style: normal;
+    }
+  }
+
+  .map {
+    width: 22rem;
+    height: 16rem;
+    &:empty {
+      height: 0;
     }
   }
 
