@@ -36,9 +36,13 @@ SINGLE PROPERTY PAGE
 
         <?php the_post_thumbnail(); ?>
 
-        <h2><?php _e( 'About this Property', 'ppsdb' ); ?></h2>
+        <?php if ( !empty( get_the_content() ) ) : ?>
+
+          <h2><?php _e( 'About this Property', 'ppsdb' ); ?></h2>
     
-        <?php the_content(); ?>
+          <?php the_content(); ?>
+
+        <?php endif; ?>
 
       </div>
 
