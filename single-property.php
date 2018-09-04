@@ -18,7 +18,7 @@ SINGLE PROPERTY PAGE
       if ( !empty($query_var) ) :
         $tour = get_post( $query_var );
 
-        $properties = get_field( 'properties_rel', $tour->ID );
+        $properties = get_field( 'properties', $tour->ID );
         $property_ids = array();
 
         foreach( $properties as $property ) :
