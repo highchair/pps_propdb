@@ -79,7 +79,18 @@ SINGLE PROPERTY PAGE
 
         <section>
 
-          <h3 class="h6"><?php _e( 'Details', 'ppsb' ); ?></h3>
+          <?php
+            if( 
+              has_term( '', 'architectural_style' ) ||
+              has_term( '', 'construction_type' ) ||
+              has_term( '', 'designer' ) ||
+              has_term( '', 'list' )
+            ) :
+          ?>
+            <h3 class="h6"><?php _e( 'Details', 'ppsb' ); ?></h3>
+          <?php
+            endif;
+          ?>
 
           <?php
             if( has_term( '', 'architectural_style' ) ) {
