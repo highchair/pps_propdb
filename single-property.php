@@ -2,6 +2,7 @@
 SINGLE PROPERTY PAGE
 -->
 <?php
+  $query_var = get_query_var( 't' );
   $location = get_field('location');
 ?>
 
@@ -13,21 +14,73 @@ SINGLE PROPERTY PAGE
 
     <header class="page-header">
 
-      <nav class="tour-nav" role="navigation">
-        <?php
-        $query_var = get_query_var( 't' );
-        if ( !empty($query_var) ) :
-          $tour = get_post( $query_var );
-        ?>
+      <?php
+      if ( !empty($query_var) ) :
+        $tour = get_post( $query_var );
+
+        $properties = get_field( 'properties_rel', $tour->ID );
+        $property_ids = array();
+
+        foreach( $properties as $property ) :
+          $property_ids[] = $property->ID;
+        endforeach;
+
+        $current_index = array_search( $post->ID, $property_ids );
+
+        $prev_property = $current_index - 1;
+        $next_property = $current_index + 1;
+
+      ?>
+
+        <nav class="tour-nav" role="navigation">
+
           <p>Part of <a href="<?php echo get_permalink($tour); ?>"><?php echo $tour->post_title; ?></a></p>
-        <?php
-        else:
-        ?>
-          <p>Not on a tour right now.</p>
-        <?php
-        endif;
-        ?>
-      </nav>
+
+          <?php
+          ?>
+          <div>
+            <?php
+            if ( isset($property_ids[$prev_property]) ) :
+              $url_prev = get_permalink( $property_ids[$prev_property] );
+            ?>
+              <a href="<?php echo esc_url( add_query_arg( 't', $tour->ID, $url_prev ) ) ?>">
+                <?php echo get_the_title( $property_ids[$prev_property] ); ?>
+              </a>
+            <?php
+            else :
+            ?>
+              This is the first property.
+            <?php
+            endif;
+            ?>
+          </div>
+
+          <div>
+            <?php
+            if ( isset($property_ids[$next_property]) ) :
+              $url_next = get_permalink( $property_ids[$next_property] );
+            ?>
+              <a href="<?php echo esc_url( add_query_arg( 't', $tour->ID, $url_next ) ) ?>">
+                <?php echo get_the_title( $property_ids[$next_property] ); ?>
+              </a>
+            <?php
+            else :
+            ?>
+              This is the last property.
+            <?php
+            endif;
+            ?>
+          </div>
+
+        </nav>
+
+      <?php
+      else:
+      ?>
+        <p>Not on a tour right now.</p>
+      <?php
+      endif;
+      ?>
 
       <h1 class="page-title">
         <?php 
