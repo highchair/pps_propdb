@@ -77,37 +77,39 @@ SINGLE PROPERTY PAGE
 
         </section>
 
-        <section>
+        <?php
+          if( 
+            has_term( '', 'architectural_style' ) ||
+            has_term( '', 'construction_type' ) ||
+            has_term( '', 'designer' ) ||
+            has_term( '', 'list' )
+          ) :
+        ?>
 
-          <?php
-            if( 
-              has_term( '', 'architectural_style' ) ||
-              has_term( '', 'construction_type' ) ||
-              has_term( '', 'designer' ) ||
-              has_term( '', 'list' )
-            ) :
-          ?>
+          <section>
+
             <h3 class="h6"><?php _e( 'Details', 'ppsb' ); ?></h3>
-          <?php
-            endif;
-          ?>
 
-          <?php
-            if( has_term( '', 'architectural_style' ) ) {
-              echo '<p>' . get_the_term_list( $post->ID, 'architectural_style', 'Architectural Style: ', ', ' ) . '</p>';
-            }
-            if( has_term( '', 'construction_type' ) ) {
-              echo '<p>' . get_the_term_list( $post->ID, 'construction_type', 'Construction Type: ', ', ' ) . '</p>';
-            }
-            if( has_term( '', 'designer' ) ) {
-              echo '<p>' . get_the_term_list( $post->ID, 'designer', 'Designer: ', ', ' ) . '</p>';
-            }
-            if( has_term( '', 'list' ) ) {
-              echo '<p>' . get_the_term_list( $post->ID, 'list', 'List/District: ', ', ' ) . '</p>';
-            }
-          ?>
+            <?php
+              if( has_term( '', 'architectural_style' ) ) {
+                echo '<p>' . get_the_term_list( $post->ID, 'architectural_style', 'Architectural Style: ', ', ' ) . '</p>';
+              }
+              if( has_term( '', 'construction_type' ) ) {
+                echo '<p>' . get_the_term_list( $post->ID, 'construction_type', 'Construction Type: ', ', ' ) . '</p>';
+              }
+              if( has_term( '', 'designer' ) ) {
+                echo '<p>' . get_the_term_list( $post->ID, 'designer', 'Designer: ', ', ' ) . '</p>';
+              }
+              if( has_term( '', 'list' ) ) {
+                echo '<p>' . get_the_term_list( $post->ID, 'list', 'List/District: ', ', ' ) . '</p>';
+              }
+            ?>
 
-        </section>
+          </section>
+
+        <?php
+          endif;
+        ?>
 
         <?php if ( has_tag() ) : ?>
           <section>
