@@ -100,13 +100,18 @@ SINGLE PROPERTY PAGE
 
         <?php the_post_thumbnail(); ?>
 
-        <?php if ( !empty( get_the_content() ) ) : ?>
+        <?php
+        $the_content = get_the_content();
+        if ( !empty( $the_content ) ) :
+        ?>
 
           <h2><?php _e( 'About this Property', 'ppsdb' ); ?></h2>
     
           <?php the_content(); ?>
 
-        <?php endif; ?>
+        <?php
+        endif;
+        ?>
 
       </div>
 
