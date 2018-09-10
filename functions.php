@@ -76,5 +76,13 @@ function ppsdb_acf_google_map_api( $api ){
 add_filter('acf/fields/google_map/api', 'ppsdb_acf_google_map_api');
 
 
+/************* CUSTOM TOUR QUERY VAR *****************/
+
+function ppsri_add_query_vars_filter( $vars ) {
+  $vars[] = 't';
+  return $vars;
+}
+add_filter( 'query_vars', 'ppsri_add_query_vars_filter' );
+
 
 ?>
