@@ -1,6 +1,10 @@
 
 // Homepage main area
 body.home {
+  main {
+    @include grid-row;
+    padding: $padding;
+  }
   .featured-tour, .the-content, .cta {
     margin-top: $padding;
   }
@@ -70,6 +74,7 @@ body.home {
     .cards,
     .featured-card {
       @include grid-column(6);
+      padding-left: 0 !important;
     }
 
     .featured-card {

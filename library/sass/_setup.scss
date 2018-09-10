@@ -49,7 +49,7 @@ $breakpoints: (
   large: 1024px,
   xlarge: 1366px
 );
-$grid-row-width: rem-calc(1350);
+$grid-row-width: 84.375rem;
 
 @import "../../../pps-2017/node_modules/foundation-sites/scss/foundation";
 

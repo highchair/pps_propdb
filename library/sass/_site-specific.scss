@@ -6,13 +6,72 @@ body.single-tour .page-header {
 
 body.single-property {
 
+  .tour-nav {
+    align-items: center;
+    border-bottom: 1px solid $silver;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: $padding*2;
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .tour-current {
+    .tour-label {
+      color: $gray-dk;
+      font-size: 1rem;
+    }
+    a {
+      margin-left: $padding/2;
+    }
+  }
+
+  .prev-next {
+    display: flex;
+    flex-basis: 20%;
+    a {
+      align-items: center;
+      display: flex;
+    }
+    .text {
+      margin: $padding/2;
+    }
+    .button {
+      background: $blue;
+      border-color: $blue;
+      color: $white;
+      padding-left: $padding*2;
+      padding-right: $padding*2;
+      transition: all 0.25s;
+    }
+    &:hover .button {
+      background: darken($blue,10);
+    }
+  }
+
+  .prev-prop {
+    justify-content: flex-start;
+  }
+
+  .next-prop {
+    justify-content: flex-end;
+  }
+
   .page-title {
     color: $bronze;
     margin-bottom: $padding / 2;
-  
     em {
       color: $gray;
       font-style: normal;
+    }
+  }
+
+  .map {
+    width: 22rem;
+    height: 16rem;
+    &:empty {
+      height: 0;
     }
   }
 
