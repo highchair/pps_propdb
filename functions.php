@@ -87,4 +87,17 @@ function ppsdb_add_query_vars_filter( $vars ) {
 add_filter( 'query_vars', 'ppsdb_add_query_vars_filter' );
 
 
+/************* CUSTOM SEARCH FORM *****************/
+// uses `pssri_` prefix in order to override parent theme
+
+function ppsri_wpsearch($form) {
+  $form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
+  <input type="search" value="' . get_search_query() . '" name="s" id="s" placeholder="Search for properties and tours" />
+  <button type="submit" class="primary">Search</button>
+  </form>';
+  return $form;
+}
+
+add_filter( 'get_search_form', 'ppsri_wpsearch' );
+
 ?>
