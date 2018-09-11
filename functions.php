@@ -65,6 +65,8 @@ add_action('after_setup_theme','ppsdb_more_img_sizes');
 FUNCTIONS
 *********************/
 
+/************* GOOGLE MAPS API *****************/
+
 function ppsdb_acf_google_map_api( $api ){
 
     $api['key'] = 'AIzaSyDIqb19OYrLxZvikR_yVnPTDnhsCsP0vtA';
@@ -78,11 +80,11 @@ add_filter('acf/fields/google_map/api', 'ppsdb_acf_google_map_api');
 
 /************* CUSTOM TOUR QUERY VAR *****************/
 
-function ppsri_add_query_vars_filter( $vars ) {
+function ppsdb_add_query_vars_filter( $vars ) {
   $vars[] = 't';
   return $vars;
 }
-add_filter( 'query_vars', 'ppsri_add_query_vars_filter' );
+add_filter( 'query_vars', 'ppsdb_add_query_vars_filter' );
 
 
 ?>
