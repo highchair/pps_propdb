@@ -32,6 +32,8 @@ ARCHIVE PAGE TEMPLATE
         ?>
       </h1>
 
+      <?php get_template_part('partials/social'); ?>
+
     </header>
     
     <?php

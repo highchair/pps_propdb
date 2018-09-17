@@ -51,7 +51,7 @@ SINGLE PROPERTY PAGE
           </div>
 
           <p class="tour-current">
-            <span class="tour-label"><?php _e( 'Part of', 'ppsdb' ); ?></span>
+            <span class="label-alt"><?php _e( 'Part of', 'ppsdb' ); ?></span>
             <a href="<?php echo get_permalink($tour); ?>"><?php echo $tour->post_title; ?></a>
           </p>
 
@@ -93,6 +93,8 @@ SINGLE PROPERTY PAGE
       ?>
 
     </header>
+
+    <?php get_template_part('partials/social'); ?>
 
     <article>
 
