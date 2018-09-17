@@ -10,6 +10,13 @@ body.home {
   }
 }
 
+@include breakpoint(medium down) {
+  // AddThis Social Share
+  .addthis_inline_share_toolbox {
+    display: none;
+  }
+}
+
 @include breakpoint(medium) {
 
   // Homepage properties cards area
@@ -46,6 +53,13 @@ body.home {
     @include grid-layout(3, '.card', $padding);
     float: none;
     width: 100%;
+  }
+
+  // AddThis Social Share
+  .addthis_inline_share_toolbox {
+    @include grid-column(4);
+    clear: none !important; // override embed
+    display: flex;
   }
   
   // Homepage main area
@@ -92,7 +106,8 @@ body.home {
     }
   }
 
-  // Single Tour page header
+  // Single page header
+  body.single-property .page-header,
   body.single-tour .page-header {
     @include grid-column(8);
   }

@@ -17,14 +17,8 @@ body.single-property {
     }
   }
 
-  .tour-current {
-    .tour-label {
-      color: $gray-dk;
-      font-size: 1rem;
-    }
-    a {
-      margin-left: $padding/2;
-    }
+  .tour-current a {
+    margin-left: $padding/2;
   }
 
   .prev-next {

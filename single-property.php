@@ -12,70 +12,70 @@ SINGLE PROPERTY PAGE
 
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
+    <?php
+    if ( !empty($query_var) ) :
+      $tour = get_post( $query_var );
+
+      $properties = get_field( 'properties', $tour->ID );
+      $property_ids = array();
+
+      foreach( $properties as $property ) :
+        $property_ids[] = $property->ID;
+      endforeach;
+
+      $current_index = array_search( $post->ID, $property_ids );
+
+      $prev_property = $current_index - 1;
+      $next_property = $current_index + 1;
+
+    ?>
+
+      <nav class="tour-nav" role="navigation">
+
+        <div class="prev-next prev-prop">
+          <?php
+          if ( isset($property_ids[$prev_property]) ) :
+            $url_prev = get_permalink( $property_ids[$prev_property] );
+            $url_prev_query = esc_url( add_query_arg( 't', $tour->ID, $url_prev ) );
+            $title_prev = get_the_title( $property_ids[$prev_property] );
+          ?>
+            <a href="<?php echo $url_prev_query; ?>" title="<?php echo $title_prev; ?>">
+              <span class="button icon-chevron-left"></span>
+              <span class="text"><?php _e( 'Previous Property', 'ppsdb' ); ?></span>
+            </a>
+          <?php
+          endif;
+          ?>
+        </div>
+
+        <p class="tour-current">
+          <span class="label-alt"><?php _e( 'Part of', 'ppsdb' ); ?></span>
+          <a href="<?php echo get_permalink($tour); ?>"><?php echo $tour->post_title; ?></a>
+        </p>
+
+        <div class="prev-next next-prop">
+          <?php
+          if ( isset($property_ids[$next_property]) ) :
+            $url_next = get_permalink( $property_ids[$next_property] );
+            $url_next_query = esc_url( add_query_arg( 't', $tour->ID, $url_next ) );
+            $title_next = get_the_title( $property_ids[$next_property] );
+          ?>
+            <a href="<?php echo $url_next_query; ?>" title="<?php echo $title_next; ?>">
+              <span class="text"><?php _e( 'Next Property', 'ppsdb' ); ?></span>
+              <span class="button icon-chevron-right"></span>
+            </a>
+          <?php
+          endif;
+          ?>
+        </div>
+
+      </nav>
+
+    <?php
+    endif;
+    ?>
+
     <header class="page-header">
-
-      <?php
-      if ( !empty($query_var) ) :
-        $tour = get_post( $query_var );
-
-        $properties = get_field( 'properties', $tour->ID );
-        $property_ids = array();
-
-        foreach( $properties as $property ) :
-          $property_ids[] = $property->ID;
-        endforeach;
-
-        $current_index = array_search( $post->ID, $property_ids );
-
-        $prev_property = $current_index - 1;
-        $next_property = $current_index + 1;
-
-      ?>
-
-        <nav class="tour-nav" role="navigation">
-
-          <div class="prev-next prev-prop">
-            <?php
-            if ( isset($property_ids[$prev_property]) ) :
-              $url_prev = get_permalink( $property_ids[$prev_property] );
-              $url_prev_query = esc_url( add_query_arg( 't', $tour->ID, $url_prev ) );
-              $title_prev = get_the_title( $property_ids[$prev_property] );
-            ?>
-              <a href="<?php echo $url_prev_query; ?>" title="<?php echo $title_prev; ?>">
-                <span class="button icon-chevron-left"></span>
-                <span class="text"><?php _e( 'Previous Property', 'ppsdb' ); ?></span>
-              </a>
-            <?php
-            endif;
-            ?>
-          </div>
-
-          <p class="tour-current">
-            <span class="label-alt"><?php _e( 'Part of', 'ppsdb' ); ?></span>
-            <a href="<?php echo get_permalink($tour); ?>"><?php echo $tour->post_title; ?></a>
-          </p>
-
-          <div class="prev-next next-prop">
-            <?php
-            if ( isset($property_ids[$next_property]) ) :
-              $url_next = get_permalink( $property_ids[$next_property] );
-              $url_next_query = esc_url( add_query_arg( 't', $tour->ID, $url_next ) );
-              $title_next = get_the_title( $property_ids[$next_property] );
-            ?>
-              <a href="<?php echo $url_next_query; ?>" title="<?php echo $title_next; ?>">
-                <span class="text"><?php _e( 'Next Property', 'ppsdb' ); ?></span>
-                <span class="button icon-chevron-right"></span>
-              </a>
-            <?php
-            endif;
-            ?>
-          </div>
-
-        </nav>
-
-      <?php
-      endif;
-      ?>
 
       <h1 class="page-title">
         <?php 

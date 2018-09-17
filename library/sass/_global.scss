@@ -6,6 +6,11 @@
   }
 }
 
+.label-alt {
+  color: $gray-dk;
+  font-size: 1rem;
+}
+
 .card {
   margin-bottom: $padding;
 
@@ -66,3 +71,15 @@
     padding: $padding;
   }
 } // .accordion
+
+.addthis_inline_share_toolbox {
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: $padding*3;
+  padding-right: 0;
+  text-align: right;
+
+  .label-alt {
+    margin-right: $padding;
+  }
+}
