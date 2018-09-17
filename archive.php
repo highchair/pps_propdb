@@ -33,13 +33,17 @@ ARCHIVE PAGE TEMPLATE
       </h1>
 
     </header>
+
+    <?php get_template_part('partials/social'); ?>
     
-    <?php
-    if ( have_posts() ) :
-      while ( have_posts() ) { the_post();
-        get_template_part('partials/property-sm');
-      }
-    ?>
+    <div class="cards">
+      <?php
+      if ( have_posts() ) :
+        while ( have_posts() ) { the_post();
+          get_template_part('partials/property-sm');
+        }
+      ?>
+    </div>
 
   </div>
 

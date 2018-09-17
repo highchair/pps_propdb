@@ -16,6 +16,8 @@ SINGLE TOUR PAGE
 
     </header>
 
+    <?php get_template_part('partials/social'); ?>
+
     <article>
 
       <img class="map" src="https://placehold.it/800x430" alt="map placeholder" />
