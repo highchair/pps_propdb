@@ -11,25 +11,39 @@ body.single-property {
     border-bottom: 1px solid $silver;
     display: flex;
     justify-content: space-between;
-    padding-bottom: $padding*2;
+    margin-top: $padding;
+    padding-bottom: $padding;
     p {
       margin-bottom: 0;
     }
+    @include breakpoint(large) {
+      padding-bottom: $padding*2;
+    }
   }
 
-  .tour-current a {
-    margin-left: $padding/2;
+  .tour-current {
+    display: none;
+    a {
+      margin-left: $padding/2;
+    }
+    @include breakpoint(large) {
+      display: block;
+    }
   }
 
   .prev-next {
     display: flex;
-    flex-basis: 20%;
+    flex-basis: 50%;
     a {
       align-items: center;
       display: flex;
     }
     .text {
+      display: none;
       margin: $padding/2;
+      @include breakpoint(medium) {
+        display: block;
+      }
     }
     .button {
       background: $blue;
@@ -41,6 +55,9 @@ body.single-property {
     }
     &:hover .button {
       background: darken($blue,10);
+    }
+    @include breakpoint(large) {
+      flex-basis: 20%;
     }
   }
 
