@@ -53,5 +53,5 @@ SINGLE TOUR PAGE
 
 <?php get_footer(); ?>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIqb19OYrLxZvikR_yVnPTDnhsCsP0vtA&callback=initMap"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA4aghw-j9Z_ooVKc1vtE-cRjnjWHJDYo&callback=initMap"></script>
 

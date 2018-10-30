@@ -70,11 +70,11 @@ FUNCTIONS
 
 /************* GOOGLE MAPS API *****************/
 
-function ppsdb_acf_google_map_api( $api ){
+function ppsdb_acf_google_map_api( $api ) {
 
-    $api['key'] = 'AIzaSyDIqb19OYrLxZvikR_yVnPTDnhsCsP0vtA';
+  $api['key'] = 'AIzaSyDA4aghw-j9Z_ooVKc1vtE-cRjnjWHJDYo';
 
-    return $api;
+  return $api;
 
 }
 
