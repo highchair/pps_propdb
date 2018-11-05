@@ -140,6 +140,7 @@ SINGLE PROPERTY PAGE
                 zoom: 16,
                 center: {lat: lat, lng: lng}
               });
+              var marker = new google.maps.Marker({position: {lat: lat, lng: lng}, map: map});
             }
 
           </script>
