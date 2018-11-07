@@ -2,6 +2,11 @@
 SINGLE TOUR PAGE
 -->
 
+<?php
+  $properties = get_field('properties');
+  $query_var = get_query_var( 't' );
+?>
+
 <?php get_header(); ?>
 
 <main>
@@ -20,7 +25,24 @@ SINGLE TOUR PAGE
 
     <article>
 
-      <img class="map" src="https://placehold.it/800x430" alt="map placeholder" />
+      <div id="map" class="map" style="height: 500px">
+        <?php
+
+          if( $properties ) {
+
+            foreach( $properties as $property ) :
+
+              $location = get_field('location', $property->ID);
+
+              echo '<div class="marker" data-lat="' . $location['lat'] . '" data-lng="' . $location['lng'] . '"></div>';
+
+            endforeach;
+
+          }
+
+        ?>
+      </div>
+
 
       <?php the_content(); ?>
 
@@ -29,8 +51,6 @@ SINGLE TOUR PAGE
         <h2><?php _e( 'Properties on this Tour', 'ppsdb' ); ?></h2>
 
         <?php
-
-        $properties = get_field('properties');
 
         if( $properties ) {
           foreach( $properties as $post) {
