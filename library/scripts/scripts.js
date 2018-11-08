@@ -6,117 +6,121 @@ jQuery(document).ready( function($) {
 
 } );
 
-// Google Maps
+// Google Maps on Single Tour page
 
 (function($) {
 
-/*
-*  Render a map onto the selected element
-*
-*  source: https://www.advancedcustomfields.com/resources/google-map/
-*/
+	if ( $('body').hasClass('single-tour') ) {
 
-function new_map( $el ) {
+		/*
+		*  Render a map onto the selected element
+		*
+		*  source: https://www.advancedcustomfields.com/resources/google-map/
+		*/
 
-  var $markers = $el.find('.marker');
+		function new_map( $el ) {
 
-  var args = {
-    zoom    : 16,
-    center    : new google.maps.LatLng(0, 0),
-    mapTypeId : google.maps.MapTypeId.ROADMAP
-  };
-     
-  var map = new google.maps.Map( $el[0], args);
+		  var $markers = $el.find('.marker');
 
-  map.markers = [];
+		  var args = {
+		    zoom    : 16,
+		    center    : new google.maps.LatLng(0, 0),
+		    mapTypeId : google.maps.MapTypeId.ROADMAP
+		  };
+		     
+		  var map = new google.maps.Map( $el[0], args);
 
-  $markers.each(function(){
-    
-      add_marker( $(this), map );
-    
-  });
+		  map.markers = [];
 
-  center_map( map );
+		  $markers.each(function(){
+		    
+		      add_marker( $(this), map );
+		    
+		  });
 
-  return map;
-  
-}
+		  center_map( map );
 
-/*
-*  Add a marker to the selected map
-*
-*  source: https://www.advancedcustomfields.com/resources/google-map/
-*/
+		  return map;
+		  
+		}
 
-function add_marker( $marker, map ) {
+		/*
+		*  Add a marker to the selected map
+		*
+		*  source: https://www.advancedcustomfields.com/resources/google-map/
+		*/
 
-  var latlng = new google.maps.LatLng( $marker.attr('data-lat'), $marker.attr('data-lng') );
+		function add_marker( $marker, map ) {
 
-  var marker = new google.maps.Marker({
-    position  : latlng,
-    map     : map
-  });
+		  var latlng = new google.maps.LatLng( $marker.attr('data-lat'), $marker.attr('data-lng') );
 
-  map.markers.push( marker );
+		  var marker = new google.maps.Marker({
+		    position  : latlng,
+		    map     : map
+		  });
 
-  if( $marker.html() )
-  {
-    var infowindow = new google.maps.InfoWindow({
-      content   : $marker.html()
-    });
+		  map.markers.push( marker );
 
-    google.maps.event.addListener(marker, 'click', function() {
+		  if( $marker.html() )
+		  {
+		    var infowindow = new google.maps.InfoWindow({
+		      content   : $marker.html()
+		    });
 
-      infowindow.open( map, marker );
+		    google.maps.event.addListener(marker, 'click', function() {
 
-    });
-  }
+		      infowindow.open( map, marker );
 
-}
+		    });
+		  }
 
-/*
-*  Center the map, showing all markers attached to it
-*
-*  source: https://www.advancedcustomfields.com/resources/google-map/
-*/
+		}
 
-function center_map( map ) {
+		/*
+		*  Center the map, showing all markers attached to it
+		*
+		*  source: https://www.advancedcustomfields.com/resources/google-map/
+		*/
 
-  var bounds = new google.maps.LatLngBounds();
+		function center_map( map ) {
 
-  $.each( map.markers, function( i, marker ){
+		  var bounds = new google.maps.LatLngBounds();
 
-    var latlng = new google.maps.LatLng( marker.position.lat(), marker.position.lng() );
+		  $.each( map.markers, function( i, marker ){
 
-    bounds.extend( latlng );
+		    var latlng = new google.maps.LatLng( marker.position.lat(), marker.position.lng() );
 
-  });
+		    bounds.extend( latlng );
 
-  if( map.markers.length == 1 ) {
-      map.setCenter( bounds.getCenter() );
-      map.setZoom( 16 );
-  } else {
-    map.fitBounds( bounds );
-  }
+		  });
 
-}
+		  if( map.markers.length == 1 ) {
+		      map.setCenter( bounds.getCenter() );
+		      map.setZoom( 16 );
+		  } else {
+		    map.fitBounds( bounds );
+		  }
 
-/*
-*  Render each map when the page has loaded
-*
-*  source: https://www.advancedcustomfields.com/resources/google-map/
-*/
+		}
 
-var map = null;
+		/*
+		*  Render each map when the page has loaded
+		*
+		*  source: https://www.advancedcustomfields.com/resources/google-map/
+		*/
 
-$(document).ready(function(){
+		var map = null;
 
-  $('.map').each(function(){
+		$(document).ready(function(){
 
-    map = new_map( $(this) );
+		  $('.map').each(function(){
 
-  });
+		    map = new_map( $(this) );
 
-});
+		  });
+
+		});
+
+	} // endif
 
 })(jQuery);
