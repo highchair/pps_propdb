@@ -32,18 +32,18 @@ SINGLE TOUR PAGE
 
           if( $properties ) {
 
-            foreach( $properties as $property ) :
-
-              $id = $property->ID;
+            foreach( $properties as $post ) {
+              setup_postdata($post);
+              $id = $post->ID;
               $location = get_field('location', $id);
 
-              if ( isset($location['address']) ) {
+              if ( (isset($location['address'])) && (get_post_status() == 'publish') ) {
 
                 echo '<div class="marker" data-lat="' . $location['lat'] . '" data-lng="' . $location['lng'] . '"><a href="' . get_permalink($id) . '">' . get_the_title($id) . '</a></div>';
 
               }
-
-            endforeach;
+            }
+            wp_reset_postdata();
 
           }
 
@@ -62,9 +62,11 @@ SINGLE TOUR PAGE
         if( $properties ) {
           foreach( $properties as $post) {
             setup_postdata($post);
-            $page_id     = get_queried_object_id();
+            $page_id = get_queried_object_id();
             $tour = $page_id;
-            include(locate_template('partials/property-sm.php'));
+            if ( get_post_status() == 'publish' ) {
+              include(locate_template('partials/property-sm.php'));
+            }
           }
           wp_reset_postdata();
         }
