@@ -43,9 +43,7 @@
       <div class="accordion-content" data-tab-content>
         <ul>
           <?php
-          $designers = get_terms('designer', array(
-            'hide_empty' => false,
-        ));
+          $designers = get_terms('designer');
           foreach ($designers as $designer):
           ?>
             <li><a href="<?php echo get_term_link($designer); ?>"><?php echo $designer->name; ?></a></li>
