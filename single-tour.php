@@ -27,7 +27,7 @@ SINGLE TOUR PAGE
 
     <article>
 
-      <div id="map" class="map" style="height: 500px">
+      <div id="map" class="map">
         <?php
 
           if( $properties ) {

@@ -79,11 +79,7 @@ body.single-property {
   }
 
   .map {
-    width: 22rem;
     height: 16rem;
-    &:empty {
-      height: 0;
-    }
   }
 
   .sidebar .h6 {
@@ -98,17 +94,18 @@ body.single-property {
   }
 } // .single-property
 
-body.single-tour article {
-
-  @include breakpoint(medium) {
-    .map {
+body.single-tour {
+  .map {
+    height: 14rem;
+    margin-bottom: 1rem;
+    @include breakpoint(large) {
       float: right;
+      height: 32rem;
       margin-left: $padding * 5;
       width: 60%;
     }
   }
-
-  p {
+  article p {
     max-width: 42rem;
   }
 }

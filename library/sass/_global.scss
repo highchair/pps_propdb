@@ -72,6 +72,13 @@
   }
 } // .accordion
 
+.map {
+  width: 100%;
+  &:empty {
+    height: 0;
+  }
+}
+
 .addthis_inline_share_toolbox {
   align-items: center;
   justify-content: flex-end;
