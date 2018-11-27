@@ -11,6 +11,7 @@
   font-size: 1rem;
 }
 
+// Cards
 .card {
   margin-bottom: $padding;
 
@@ -37,6 +38,7 @@
   }
 } // .card
 
+// Accordion
 .accordion {
   @include accordion-container;
 
@@ -72,6 +74,7 @@
   }
 } // .accordion
 
+// Google Map
 .map {
   width: 100%;
   &:empty {
@@ -79,6 +82,13 @@
   }
 }
 
+// infoWindow
+.gm-style-iw a {
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+// Social Share buttons
 .addthis_inline_share_toolbox {
   align-items: center;
   justify-content: flex-end;
