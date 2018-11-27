@@ -37,7 +37,11 @@ SINGLE TOUR PAGE
               $id = $property->ID;
               $location = get_field('location', $id);
 
-              echo '<div class="marker" data-lat="' . $location['lat'] . '" data-lng="' . $location['lng'] . '"><a href="' . get_permalink($id) . '">' . get_the_title($id) . '</a></div>';
+              if ( isset($location['address']) ) {
+
+                echo '<div class="marker" data-lat="' . $location['lat'] . '" data-lng="' . $location['lng'] . '"><a href="' . get_permalink($id) . '">' . get_the_title($id) . '</a></div>';
+
+              }
 
             endforeach;
 
