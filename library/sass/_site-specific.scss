@@ -114,6 +114,12 @@ body.archive header h1 {
   margin-top: 0.67em; // reset
 }
 
+.no-results {
+  padding-top: $padding * 2;
+  padding-bottom: $padding * 2;
+  text-align: center;
+}
+
 .taxonomies-browse {
   border-top: $border;
   padding-top: $padding * 3;
