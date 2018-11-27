@@ -34,9 +34,10 @@ SINGLE TOUR PAGE
 
             foreach( $properties as $property ) :
 
-              $location = get_field('location', $property->ID);
+              $id = $property->ID;
+              $location = get_field('location', $id);
 
-              echo '<div class="marker" data-lat="' . $location['lat'] . '" data-lng="' . $location['lng'] . '"></div>';
+              echo '<div class="marker" data-lat="' . $location['lat'] . '" data-lng="' . $location['lng'] . '"><a href="' . get_permalink($id) . '">' . get_the_title($id) . '</a></div>';
 
             endforeach;
 
