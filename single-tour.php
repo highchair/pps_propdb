@@ -2,6 +2,13 @@
 SINGLE TOUR PAGE
 -->
 
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA4aghw-j9Z_ooVKc1vtE-cRjnjWHJDYo"></script>
+
+<?php
+  $properties = get_field('properties');
+  $query_var = get_query_var( 't' );
+?>
+
 <?php get_header(); ?>
 
 <main>
@@ -20,7 +27,29 @@ SINGLE TOUR PAGE
 
     <article>
 
-      <img class="map" src="https://placehold.it/800x430" alt="map placeholder" />
+      <div id="map" class="map">
+        <?php
+
+          if( $properties ) {
+
+            foreach( $properties as $post ) {
+              setup_postdata($post);
+              $id = $post->ID;
+              $location = get_field('location', $id);
+
+              if ( (isset($location['address'])) && (get_post_status() == 'publish') ) {
+
+                echo '<div class="marker" data-lat="' . $location['lat'] . '" data-lng="' . $location['lng'] . '"><a href="' . get_permalink($id) . '">' . get_the_title($id) . '</a></div>';
+
+              }
+            }
+            wp_reset_postdata();
+
+          }
+
+        ?>
+      </div>
+
 
       <?php the_content(); ?>
 
@@ -30,14 +59,14 @@ SINGLE TOUR PAGE
 
         <?php
 
-        $properties = get_field('properties');
-
         if( $properties ) {
           foreach( $properties as $post) {
             setup_postdata($post);
-            $page_id     = get_queried_object_id();
+            $page_id = get_queried_object_id();
             $tour = $page_id;
-            include(locate_template('partials/property-sm.php'));
+            if ( get_post_status() == 'publish' ) {
+              include(locate_template('partials/property-sm.php'));
+            }
           }
           wp_reset_postdata();
         }
@@ -52,6 +81,4 @@ SINGLE TOUR PAGE
 </main>
 
 <?php get_footer(); ?>
-
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIqb19OYrLxZvikR_yVnPTDnhsCsP0vtA&callback=initMap"></script>
 

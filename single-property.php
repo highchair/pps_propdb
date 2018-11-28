@@ -140,6 +140,7 @@ SINGLE PROPERTY PAGE
                 zoom: 16,
                 center: {lat: lat, lng: lng}
               });
+              var marker = new google.maps.Marker({position: {lat: lat, lng: lng}, map: map});
             }
 
           </script>
@@ -162,7 +163,6 @@ SINGLE PROPERTY PAGE
         <?php
           if( 
             has_term( '', 'architectural_style' ) ||
-            has_term( '', 'construction_type' ) ||
             has_term( '', 'designer' ) ||
             has_term( '', 'list' )
           ) :
@@ -175,9 +175,6 @@ SINGLE PROPERTY PAGE
             <?php
               if( has_term( '', 'architectural_style' ) ) {
                 echo '<p>' . get_the_term_list( $post->ID, 'architectural_style', 'Architectural Style: ', ', ' ) . '</p>';
-              }
-              if( has_term( '', 'construction_type' ) ) {
-                echo '<p>' . get_the_term_list( $post->ID, 'construction_type', 'Construction Type: ', ', ' ) . '</p>';
               }
               if( has_term( '', 'designer' ) ) {
                 echo '<p>' . get_the_term_list( $post->ID, 'designer', 'Designer: ', ', ' ) . '</p>';
@@ -213,5 +210,5 @@ SINGLE PROPERTY PAGE
 
 <?php get_footer(); ?>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIqb19OYrLxZvikR_yVnPTDnhsCsP0vtA&callback=initMap"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA4aghw-j9Z_ooVKc1vtE-cRjnjWHJDYo&callback=initMap"></script>
 

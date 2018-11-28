@@ -69,7 +69,7 @@ Template Name: Homepage
 
     <div class="featured-card">
       <?php
-      $loop = new WP_Query( array( 'posts_per_page' => 1, 'post_type' => 'property' ) );
+      $loop = new WP_Query( array( 'posts_per_page' => 1, 'post_type' => 'property', 'orderby'=>'modified' ) );
       while ($loop->have_posts()) :
         $loop->the_post();
         $featured = true;
@@ -80,7 +80,7 @@ Template Name: Homepage
 
     <div class="cards">
       <?php
-      $loop = new WP_Query( array( 'posts_per_page' => 4, 'post_type' => 'property', 'offset' => 1 ) );
+      $loop = new WP_Query( array( 'posts_per_page' => 4, 'post_type' => 'property', 'offset' => 1, 'orderby'=>'modified' ) );
       while ($loop->have_posts()) :
         $loop->the_post();
         get_template_part('partials/property-sm');

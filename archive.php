@@ -50,7 +50,7 @@ ARCHIVE PAGE TEMPLATE
     <?php
       get_template_part('partials/pagination');
     else :
-      echo '<p>' . _e( 'We\'re sorry but no results were found.', 'ppsdb' ) . '</p>';
+      echo '<p class="no-results">' . esc_html__( 'We\'re sorry but no results were found.', 'ppsdb' ) . '</p>';
     endif;
     ?>
 
