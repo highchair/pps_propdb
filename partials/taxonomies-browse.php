@@ -23,22 +23,6 @@
     </div>
 
     <div class="accordion-item" data-accordion-item>
-      <a class="accordion-title" href="#"><h3><?php _e('Construction Type', 'ppsdb'); ?></h3></a>
-      <div class="accordion-content" data-tab-content>
-        <ul>
-          <?php
-          $types = get_terms('construction_type');
-          foreach ($types as $type):
-          ?>
-            <li><a href="<?php echo get_term_link($type); ?>"><?php echo $type->name; ?></a></li>
-          <?php
-          endforeach;
-          ?>
-        </ul>
-      </div>
-    </div>
-
-    <div class="accordion-item" data-accordion-item>
       <a class="accordion-title" href="#"><h3><?php _e('Designers', 'ppsdb'); ?></h3></a>
       <div class="accordion-content" data-tab-content>
         <ul>
