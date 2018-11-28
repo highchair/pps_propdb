@@ -19,21 +19,21 @@ SEARCH RESULTS PAGE
 
     <?php
       if (have_posts()) : while (have_posts()) : the_post();
-        if ( get_post_type() == 'property' ) :
-          include 'partials/property-sm.php';
-        else :
     ?>
       <div class="card">
         <a href="<?php the_permalink(); ?>">
           <?php the_post_thumbnail('grid-thumb'); ?>
           <div class="heading">
             <h3><?php the_title(); ?></h3>
-            <p><?php the_excerpt(); ?></p>
+            <?php if ( is_plugin_active('relevanssi') ) : ?>
+              <p><?php relevanssi_the_excerpt(); ?></p>
+            <?php else : ?>
+              <p><?php the_excerpt(); ?></p>
+            <?php endif; ?>
           </div>
         </a>
       </div>
     <?php
-        endif;
       endwhile;
         get_template_part('partials/pagination');
       else: ?>
