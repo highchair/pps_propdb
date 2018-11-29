@@ -118,7 +118,7 @@ SINGLE PROPERTY PAGE
         <div class="share-story">
           <h2 class="share-story__title"><?php _e( 'Share your Story', 'ppsdb' ); ?></h2>
           <p class="share-story__message"><?php _e( 'We welcome community input about the history of these important places. Have something to add? Have an edit or correction to suggest? Have more information about this property?', 'ppsdb' ); ?> 
-            <a href="mailto:info@ppsri.org?subject=A Story regarding <?php the_title_attribute(); ?>"><?php _e( 'Send us an email and start a conversation: info@ppsri.org', 'ppsdb' ); ?></p>
+            <a href="mailto:info@ppsri.org?subject=A Story regarding <?php the_title_attribute(); ?>"><?php _e( 'Send us an email and start a conversation: info@ppsri.org', 'ppsdb' ); ?></a></p>
           </p>
         </div>
 
