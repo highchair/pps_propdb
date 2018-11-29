@@ -2,8 +2,6 @@
 SINGLE TOUR PAGE
 -->
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA4aghw-j9Z_ooVKc1vtE-cRjnjWHJDYo"></script>
-
 <?php
   $properties = get_field('properties');
   $query_var = get_query_var( 't' );
