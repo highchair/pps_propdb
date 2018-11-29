@@ -104,6 +104,9 @@ body.single-tour {
       margin-left: $padding * 5;
       width: 60%;
     }
+    .marker {
+      display: none; // temporary, overridden by js
+    }
   }
   article p {
     max-width: 42rem;
