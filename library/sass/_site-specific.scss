@@ -96,6 +96,14 @@ body.single-property {
       margin-left: $padding * 5;
     }
   }
+
+  .share-story {
+    border-top: 1px solid $gray-lt;
+    margin-top: $padding * 2;
+    .h3 {
+      margin-bottom: 0.25em;
+    }
+  }
 } // .single-property
 
 body.single-tour {
