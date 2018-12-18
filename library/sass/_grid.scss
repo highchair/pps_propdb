@@ -110,7 +110,15 @@ body.archive .taxonomies-browse {
 
     .featured-card {
       float: right;
+      padding-right: 0;
     }
+  }
+
+  .recently-updated header {
+    align-items: center;
+    display: flex;
+    margin-top: $padding * 2;
+    justify-content: space-between;
   }
 
   // Create sidebar layout
