@@ -62,10 +62,18 @@ add_action( 'wp_print_scripts', 'ppsdb_remove_waypoints' );
 THEME SUPPORT
 *********************/
 
+// Update existing image sizes
+function ppsdb_update_img_sizes() {
+
+  add_image_size( 'grid-thumb', 680, 340, array( 'center', 'center' ) );
+
+}
+add_action( 'init', 'ppsdb_update_img_sizes', 11 );
+
 // Add more image sizes
 function ppsdb_more_img_sizes() {
 
-  add_image_size( 'squarish', 1360, 1180, array( 'center', 'center', true) );
+  add_image_size( 'squarish', 680, 500, array( 'center', 'center' ) );
 
 } /* end ppsdb theme support */
 
