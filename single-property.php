@@ -81,7 +81,7 @@ SINGLE PROPERTY PAGE
         <?php 
           the_title();
           if ( get_field('aka') ) {
-            echo ' <em class="h2">&#123;&nbsp;' . get_field('aka') . '&nbsp;&#125;</em>';
+            echo ' <em class="h2 aka">&#123;&nbsp;' . get_field('aka') . '&nbsp;&#125;</em>';
           }
         ?>
       </h1>

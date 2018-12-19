@@ -72,10 +72,6 @@ body.single-property {
   .page-title {
     color: $bronze;
     margin-bottom: $padding / 2;
-    em {
-      color: $gray;
-      font-style: normal;
-    }
   }
 
   .featured-img img {
@@ -157,6 +153,10 @@ body.archive header h1 {
     line-height: 1.25em;
     margin-bottom: 0.5rem;
   }
+}
+
+body.search-results .aka {
+  font-weight: 400;
 }
 
 
