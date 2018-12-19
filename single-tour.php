@@ -5,6 +5,7 @@ SINGLE TOUR PAGE
 <?php
   $properties = get_field('properties');
   $query_var = get_query_var( 't' );
+  $tour = get_queried_object_id();
 ?>
 
 <?php get_header(); ?>
@@ -34,8 +35,6 @@ SINGLE TOUR PAGE
               setup_postdata($post);
               $id = $post->ID;
               $location = get_field('location', $id);
-              $page_id = get_queried_object_id();
-              $tour = $page_id;
 
               if ( (isset($location['address'])) && (get_post_status() == 'publish') ) {
 
@@ -62,8 +61,6 @@ SINGLE TOUR PAGE
         if( $properties ) {
           foreach( $properties as $post) {
             setup_postdata($post);
-            $page_id = get_queried_object_id();
-            $tour = $page_id;
             if ( get_post_status() == 'publish' ) {
               include(locate_template('partials/property-sm.php'));
             }
