@@ -34,10 +34,12 @@ SINGLE TOUR PAGE
               setup_postdata($post);
               $id = $post->ID;
               $location = get_field('location', $id);
+              $page_id = get_queried_object_id();
+              $tour = $page_id;
 
               if ( (isset($location['address'])) && (get_post_status() == 'publish') ) {
 
-                echo '<div class="marker" data-lat="' . $location['lat'] . '" data-lng="' . $location['lng'] . '"><a href="' . get_permalink($id) . '">' . get_the_title($id) . '</a></div>';
+                echo '<div class="marker" data-lat="' . $location['lat'] . '" data-lng="' . $location['lng'] . '"><a href="' . esc_url( add_query_arg( 't', $tour, get_permalink() ) ) . '">' . get_the_title($id) . '</a></div>';
 
               }
             }
