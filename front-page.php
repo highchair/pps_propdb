@@ -63,9 +63,17 @@ Template Name: Homepage
 
   </div> <!-- .main -->
 
-  <section>
+  <section class="recently-updated">
 
-    <h2><?php _e('Most Recently Updated Properties', 'ppsdb'); ?></h2>
+    <header>
+
+      <h2><?php _e('Most Recently Updated Properties', 'ppsdb'); ?></h2>
+
+      <a class="button" href="<?php echo get_post_type_archive_link( 'property' ); ?>">
+        <?php _e('All Properties', 'ppsdb'); ?>
+      </a>
+
+    </header>
 
     <div class="featured-card">
       <?php

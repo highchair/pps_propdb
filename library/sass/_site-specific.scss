@@ -72,10 +72,10 @@ body.single-property {
   .page-title {
     color: $bronze;
     margin-bottom: $padding / 2;
-    em {
-      color: $gray;
-      font-style: normal;
-    }
+  }
+
+  .featured-img img {
+    margin-top: 0;
   }
 
   .map {
@@ -92,6 +92,14 @@ body.single-property {
       margin-left: $padding * 5;
     }
   }
+
+  .share-story {
+    border-top: 1px solid $gray-lt;
+    margin-top: $padding * 2;
+    .h3 {
+      margin-bottom: 0.25em;
+    }
+  }
 } // .single-property
 
 body.single-tour {
@@ -103,6 +111,9 @@ body.single-tour {
       height: 32rem;
       margin-left: $padding * 5;
       width: 60%;
+    }
+    .marker {
+      display: none; // temporary, overridden by js
     }
   }
   article p {
@@ -142,6 +153,10 @@ body.archive header h1 {
     line-height: 1.25em;
     margin-bottom: 0.5rem;
   }
+}
+
+body.search-results .aka {
+  font-weight: 400;
 }
 
 

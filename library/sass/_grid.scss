@@ -9,6 +9,12 @@ body.home {
   }
 }
 
+// Archive Pages
+nav.pagination,
+body.archive .taxonomies-browse {
+  @include grid-column(12);
+}
+
 @include breakpoint(medium down) {
   // AddThis Social Share
   .addthis_inline_share_toolbox {
@@ -40,9 +46,8 @@ body.home {
   // Override default layouts
   body.single-property,
   body.single-tour {
-		main > article, section.meta, section.pagination,
-    main > aside > div,
-    section.pagination > div {
+		main > article, section.meta,
+    main > aside > div {
 			@include grid-column(12);
 		}
   }
@@ -56,8 +61,7 @@ body.home {
     float: none;
     width: 100%;
   }
-  body.archive .no-results,
-  body.archive .taxonomies-browse {
+  body.archive .no-results {
     @include grid-column(12);
   }
 
@@ -106,7 +110,15 @@ body.home {
 
     .featured-card {
       float: right;
+      padding-right: 0;
     }
+  }
+
+  .recently-updated header {
+    align-items: center;
+    display: flex;
+    margin-top: $padding * 2;
+    justify-content: space-between;
   }
 
   // Create sidebar layout

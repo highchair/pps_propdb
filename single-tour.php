@@ -2,11 +2,10 @@
 SINGLE TOUR PAGE
 -->
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA4aghw-j9Z_ooVKc1vtE-cRjnjWHJDYo"></script>
-
 <?php
   $properties = get_field('properties');
   $query_var = get_query_var( 't' );
+  $tour = get_queried_object_id();
 ?>
 
 <?php get_header(); ?>
@@ -39,7 +38,7 @@ SINGLE TOUR PAGE
 
               if ( (isset($location['address'])) && (get_post_status() == 'publish') ) {
 
-                echo '<div class="marker" data-lat="' . $location['lat'] . '" data-lng="' . $location['lng'] . '"><a href="' . get_permalink($id) . '">' . get_the_title($id) . '</a></div>';
+                echo '<div class="marker" data-lat="' . $location['lat'] . '" data-lng="' . $location['lng'] . '"><a href="' . esc_url( add_query_arg( 't', $tour, get_permalink() ) ) . '">' . get_the_title($id) . '</a></div>';
 
               }
             }
@@ -62,8 +61,6 @@ SINGLE TOUR PAGE
         if( $properties ) {
           foreach( $properties as $post) {
             setup_postdata($post);
-            $page_id = get_queried_object_id();
-            $tour = $page_id;
             if ( get_post_status() == 'publish' ) {
               include(locate_template('partials/property-sm.php'));
             }

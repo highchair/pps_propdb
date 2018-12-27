@@ -81,7 +81,7 @@ SINGLE PROPERTY PAGE
         <?php 
           the_title();
           if ( get_field('aka') ) {
-            echo ' <em class="h2">&#123; ' . get_field('aka') . ' &#125;</em>';
+            echo ' <em class="h2 aka">&#123;&nbsp;' . get_field('aka') . '&nbsp;&#125;</em>';
           }
         ?>
       </h1>
@@ -100,7 +100,9 @@ SINGLE PROPERTY PAGE
 
       <div class="main">
 
-        <?php the_post_thumbnail(); ?>
+        <div class="featured-img">
+          <?php the_post_thumbnail(); ?>
+        </div>
 
         <?php
         $the_content = get_the_content();
@@ -116,9 +118,9 @@ SINGLE PROPERTY PAGE
         ?>
         
         <div class="share-story">
-          <h2 class="share-story__title"><?php _e( 'Share your Story', 'ppsdb' ); ?></h2>
-          <p class="share-story__message"><?php _e( 'We welcome community input about the history of these important places. Have something to add? Have an edit or correction to suggest? Have more information about this property?', 'ppsdb' ); ?> 
-            <a href="mailto:info@ppsri.org?subject=A Story regarding <?php the_title_attribute(); ?>"><?php _e( 'Send us an email and start a conversation: info@ppsri.org', 'ppsdb' ); ?></p>
+          <h2 class="h3"><?php _e( 'Share your Story', 'ppsdb' ); ?></h2>
+          <p class="label-alt"><?php _e( 'We welcome community input about the history of these important places. Have something to add? Have an edit or correction to suggest? Have more information about this property?', 'ppsdb' ); ?> 
+            <a href="mailto:info@ppsri.org?subject=A Story regarding <?php the_title_attribute(); ?>"><?php _e( 'Send us an email and start a conversation: info@ppsri.org', 'ppsdb' ); ?></a></p>
           </p>
         </div>
 
@@ -209,6 +211,4 @@ SINGLE PROPERTY PAGE
 </main>
 
 <?php get_footer(); ?>
-
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA4aghw-j9Z_ooVKc1vtE-cRjnjWHJDYo&callback=initMap"></script>
 

@@ -34,13 +34,6 @@ $location = get_field('location');
     if ( isset($location['address']) ) {
       echo '<p>' . $location['address'] . '</p>';
     }
-
-    if ( get_field('period') ) { echo '<p>' . get_field('period') . '</p>'; }
-
-    if( has_term( '', 'designer' ) ) {
-      $terms_as_text = get_the_term_list( $post->ID, 'designer', 'Designer: ', ', ' );
-      echo '<p>', strip_tags($terms_as_text) ,'</p>';
-    }
     ?>
   </a>
 </div>

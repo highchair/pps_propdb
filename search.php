@@ -24,7 +24,12 @@ SEARCH RESULTS PAGE
         <a href="<?php the_permalink(); ?>">
           <?php the_post_thumbnail('grid-thumb'); ?>
           <div class="heading">
-            <h3><?php the_title(); ?></h3>
+            <h3>
+              <?php the_title(); ?>
+              <?php if ( get_field('aka') ) : ?>
+                <em class="aka">&#123;&nbsp;<?php the_field('aka'); ?>&nbsp;&#125;</em>
+              <?php endif; ?>
+            </h3>
             <?php if ( is_plugin_active('relevanssi') ) : ?>
               <p><?php relevanssi_the_excerpt(); ?></p>
             <?php else : ?>

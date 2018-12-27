@@ -84,4 +84,14 @@
       color: $black;
     }
   }
+
+  // Recently Updated section
+  .recently-updated .button {
+    display: none;
+
+    @include breakpoint(large) {
+      display: block;
+    }
+  }
+
 } // .home
