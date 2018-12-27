@@ -74,8 +74,11 @@ body.single-property {
     margin-bottom: $padding / 2;
   }
 
-  .featured-img img {
-    margin-top: 0;
+  .featured-img {
+    margin-bottom: $padding;
+    img {
+      margin-top: 0;
+    }
   }
 
   .map {
