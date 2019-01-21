@@ -2,7 +2,7 @@
 	<a href="<?php echo get_home_url(); ?>">
 		<h1>
       <span class="logo-text">Providence Preservation Society</span>
-      <span class="site-text h3">Providence Property Database</span>
+      <span class="site-text h3">Guide to Providence Architecture</span>
     </h1>
 	</a>
 	<nav role="navigation">

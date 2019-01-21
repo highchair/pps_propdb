@@ -1,4 +1,4 @@
-# PPS Property Database Website
+# PPS Guide to Providence Architecture Website
 
 ![Screenshot of Website](screenshot.png)
 
