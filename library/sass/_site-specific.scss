@@ -137,6 +137,22 @@ body.archive header h1 {
 .taxonomies-browse {
   @include foundation-menu;
   @include foundation-dropdown-menu;
+  .menu > li {
+    display: inline-block; // override
+  }
+}
+
+.filter {
+  background: $silver;
+  border: 1px solid $gray-lt;
+  margin-left: $padding / 2;
+  min-width: 12rem;
+  .submenu {
+    max-height: 14rem;
+    min-width: auto; // override
+    overflow-y: auto;
+    width: 100%;
+  }
 }
 
 body.search-results .aka {

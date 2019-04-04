@@ -10,8 +10,7 @@ body.home {
 }
 
 // Archive Pages
-nav.pagination,
-body.archive .taxonomies-browse {
+nav.pagination {
   @include grid-column(12);
 }
 
@@ -66,10 +65,16 @@ body.archive .taxonomies-browse {
   }
 
   // Page headers
-  .page-header,
   body.single-property .page-header, // heightened specificity for override
   body.single-tour .page-header {
     @include grid-column(8);
+  }
+
+  .archive .page-header {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   // AddThis Social Share

@@ -1,13 +1,9 @@
 <aside class="taxonomies-browse">
 
-  <h2>
-    <?php _e('Browse by Category', 'ppsdb'); ?>
-  </h2>
-
   <ul class="dropdown menu" data-dropdown-menu>
 
-    <li>
-      <a href="#"><?php _e('Architectural Styles', 'ppsdb'); ?></a>
+    <li class="filter">
+      <a href="#"><?php _e('Styles', 'ppsdb'); ?></a>
       <ul class="menu">
         <?php
         $styles = get_terms('architectural_style');
@@ -20,7 +16,7 @@
       </ul>
     </li>
 
-    <li>
+    <li class="filter">
       <a href="#"><?php _e('Designers', 'ppsdb'); ?></a>
       <ul class="menu">
         <?php
@@ -34,7 +30,7 @@
       </ul>
     </li>
 
-    <li>
+    <li class="filter">
       <a href="#"><?php _e('Neighborhoods', 'ppsdb'); ?></a>
       <ul class="menu">
         <?php
