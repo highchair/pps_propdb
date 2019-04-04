@@ -32,9 +32,13 @@ ARCHIVE PAGE TEMPLATE
         ?>
       </h1>
 
-    </header>
+      <?php
+      if ( is_post_type_archive('property') || is_tax() || is_tag() ) {
+        get_template_part('partials/taxonomies-browse');
+      }
+      ?>
 
-    <?php get_template_part('partials/social'); ?>
+    </header>
     
     <div class="cards">
       <?php
@@ -53,12 +57,6 @@ ARCHIVE PAGE TEMPLATE
       echo '<p class="no-results">' . esc_html__( 'We\'re sorry but no results were found.', 'ppsdb' ) . '</p>';
     endif;
     ?>
-
-  <?php
-  if ( is_post_type_archive('property') || is_tax() || is_tag() ) {
-    get_template_part('partials/taxonomies-browse');
-  }
-  ?>
 
 </main>
 
