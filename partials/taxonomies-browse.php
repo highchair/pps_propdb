@@ -44,6 +44,20 @@
       </ul>
     </li>
 
+    <li class="filter">
+      <a href="#"><?php _e('Lists', 'ppsdb'); ?></a>
+      <ul class="menu">
+        <?php
+        $lists = get_terms('list');
+        foreach ($lists as $list):
+        ?>
+          <li><a href="<?php echo get_term_link($list); ?>"><?php echo $list->name; ?></a></li>
+        <?php
+        endforeach;
+        ?>
+      </ul>
+    </li>
+
   </ul>
 
 </aside>
