@@ -134,6 +134,11 @@ body.archive header h1 {
   text-align: center;
 }
 
+.taxonomies-browse {
+  @include foundation-menu;
+  @include foundation-dropdown-menu;
+}
+
 body.search-results .aka {
   font-weight: 400;
 }
