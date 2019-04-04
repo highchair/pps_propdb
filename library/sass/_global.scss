@@ -43,42 +43,6 @@
   }
 } // .card
 
-// Accordion
-.accordion {
-  @include accordion-container;
-
-  h3 {
-    margin: 0;
-  }
-
-  &-item {
-    @include accordion-item;
-    border: 1px solid $gray-lt;
-    margin-bottom: $padding;
-  }
-
-  &-title {
-    @include accordion-title;
-    background: $silver;
-    border: 0 !important;
-
-    &::before {
-      font-size: 2rem;
-      margin-top: 0;
-      transform: translateY(-50%);
-    }
-  }
-
-  &-item.is-active .accordion-title {
-    background: transparent;
-  }
-
-  &-content {
-    display: none;
-    padding: $padding;
-  }
-} // .accordion
-
 // Google Map
 .map {
   width: 100%;

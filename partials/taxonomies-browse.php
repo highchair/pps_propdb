@@ -4,11 +4,11 @@
     <?php _e('Browse by Category', 'ppsdb'); ?>
   </h2>
 
-  <div class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
+  <div>
 
-    <div class="accordion-item" data-accordion-item>
-      <a class="accordion-title" href="#"><h3><?php _e('Architectural Styles', 'ppsdb'); ?></h3></a>
-      <div class="accordion-content" data-tab-content>
+    <div>
+      <a href="#"><h3><?php _e('Architectural Styles', 'ppsdb'); ?></h3></a>
+      <div>
         <ul>
           <?php
           $styles = get_terms('architectural_style');
@@ -22,9 +22,9 @@
       </div>
     </div>
 
-    <div class="accordion-item" data-accordion-item>
-      <a class="accordion-title" href="#"><h3><?php _e('Designers', 'ppsdb'); ?></h3></a>
-      <div class="accordion-content" data-tab-content>
+    <div>
+      <a href="#"><h3><?php _e('Designers', 'ppsdb'); ?></h3></a>
+      <div>
         <ul>
           <?php
           $designers = get_terms('designer');
@@ -38,9 +38,9 @@
       </div>
     </div>
 
-    <div class="accordion-item" data-accordion-item>
-      <a class="accordion-title" href="#"><h3><?php _e('Neighborhoods', 'ppsdb'); ?></h3></a>
-      <div class="accordion-content" data-tab-content>
+    <div>
+      <a href="#"><h3><?php _e('Neighborhoods', 'ppsdb'); ?></h3></a>
+      <div>
         <ul>
           <?php
           $neighborhoods = get_terms('neighborhood');
@@ -54,6 +54,6 @@
       </div>
     </div>
 
-  </div> <!-- .accordion -->
+  </div>
 
 </aside>

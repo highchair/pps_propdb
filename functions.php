@@ -36,7 +36,6 @@ function ppsdb_scripts_and_styles() {
     wp_enqueue_script( 'foundation-js', get_template_directory_uri() . '/node_modules/foundation-sites/js/foundation.core.js', array( 'jquery' ), '', true );
     wp_enqueue_script( 'foundation-keyboard-js', get_template_directory_uri() . '/node_modules/foundation-sites/js/foundation.util.keyboard.js', array( 'jquery' ), '', true );
     wp_enqueue_script( 'foundation-mediaquery-js', get_template_directory_uri() . '/node_modules/foundation-sites/js/foundation.util.mediaQuery.js', array( 'jquery' ), '', true );
-    wp_enqueue_script( 'foundation-accordion-js', get_template_directory_uri() . '/node_modules/foundation-sites/js/foundation.accordion.js', array( 'jquery' ), '', true );
 
     // AddThis share widget
     wp_enqueue_script( 'addthis-js', '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b97face49653134' );
