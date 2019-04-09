@@ -1,4 +1,4 @@
-<aside class="taxonomies-browse">
+<div class="taxonomies-browse">
 
   <ul class="dropdown menu" data-dropdown-menu>
 
@@ -60,4 +60,4 @@
 
   </ul>
 
-</aside>
+</div>

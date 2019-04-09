@@ -35,15 +35,15 @@ ARCHIVE PAGE TEMPLATE
 
       </div>
 
-      <?php
-      if ( is_post_type_archive('property') || is_tax() || is_tag() ) {
-        get_template_part('partials/taxonomies-browse');
-      }
-      ?>
-
     </header>
 
     <?php get_template_part('partials/social'); ?>
+
+    <?php
+    if ( is_post_type_archive('property') || is_tax() || is_tag() ) {
+      get_template_part('partials/taxonomies-browse');
+    }
+    ?>
     
     <div class="cards">
       <?php
