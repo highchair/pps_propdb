@@ -1,6 +1,6 @@
-<aside class="taxonomies-browse">
+<div class="taxonomies-browse">
 
-  <ul class="dropdown menu" data-dropdown-menu>
+  <ul class="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
 
     <li class="filter">
       <a href="#"><?php _e('Styles', 'ppsdb'); ?></a>
@@ -60,4 +60,4 @@
 
   </ul>
 
-</aside>
+</div>

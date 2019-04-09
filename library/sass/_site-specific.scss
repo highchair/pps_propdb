@@ -144,10 +144,20 @@ body.archive header h1 {
 
 .filter {
   background: $silver;
-  border: 1px solid $gray-lt;
-  margin-left: $padding / 2;
-  min-width: 12rem;
+  margin-right: $padding / 2;
+  margin-bottom: $padding / 2;
+  > a {
+    border: 1px solid $gray-lt;
+    font-weight: 900;
+    &::after {
+      content: '\f078'; // chevron-down
+      font-family: 'icomoon' !important;
+      font-weight: normal;
+      margin-top: -0.5em !important; // override
+    }
+  }
   .submenu {
+    border-top: 0;
     max-height: 14rem;
     min-width: auto; // override
     overflow-y: auto;
