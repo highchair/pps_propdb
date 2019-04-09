@@ -42,6 +42,8 @@ ARCHIVE PAGE TEMPLATE
       ?>
 
     </header>
+
+    <?php get_template_part('partials/social'); ?>
     
     <div class="cards">
       <?php
