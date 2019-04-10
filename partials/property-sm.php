@@ -6,11 +6,11 @@ $location = get_field('location');
   <?php
   if (isset($tour)) :
   ?>
-    <a href="<?php echo esc_url( add_query_arg( 't', $tour, the_permalink() ) )?>">
+    <a class="transparent" href="<?php echo esc_url( add_query_arg( 't', $tour, the_permalink() ) )?>">
   <?php
   else :
   ?>
-    <a href="<?php the_permalink(); ?>">
+    <a class="transparent" href="<?php the_permalink(); ?>">
   <?php
   endif;
   ?>
