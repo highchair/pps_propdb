@@ -27,8 +27,23 @@
   a {
     border: 1px solid transparent;
     display: block;
-    padding: $padding / 2;
-  }
+
+    @include breakpoint(medium) {
+
+      padding: 0.5rem;
+
+      &:hover,
+      &:focus {
+        border-color: $gray;
+        h3,
+        p {
+          color: $black;
+        }
+      }
+
+    }
+
+  } // .card a
 
   h3, p {
     color: $gray-dk;
@@ -44,15 +59,6 @@
     font-size: 1rem;
     line-height: 1.5em;
     margin-bottom: 0;
-  }
-
-  a:hover,
-  a:focus {
-    border-color: $gray;
-    h3,
-    p {
-      color: $black;
-    }
   }
 
 } // .card
