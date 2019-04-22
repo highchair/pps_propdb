@@ -138,9 +138,48 @@ SINGLE PROPERTY PAGE
             function initMap() {
               var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 16,
-                center: {lat: lat, lng: lng}
+                center: {lat: lat, lng: lng},
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                styles: [
+                  {
+                    featureType: 'landscape.man_made',
+                    elementType: 'geometry',
+                    stylers: [{color: '#f2f2f2'}]
+                  },
+                  {
+                    featureType: 'poi.park',
+                    elementType: 'geometry',
+                    stylers: [{color: '#b3e37e'}]
+                  },
+                  {
+                    featureType: 'road',
+                    elementType: 'geometry',
+                    stylers: [{color: '#d6d397'}]
+                  },
+                  {
+                    featureType: 'water',
+                    elementType: 'geometry',
+                    stylers: [{color: '#d1dcf2'}]
+                  },
+                  {
+                    featureType: 'water',
+                    elementType: 'labels.text.fill',
+                    stylers: [{color: '#666666'}]
+                  },
+                  {
+                    featureType: 'water',
+                    elementType: 'labels.text.stroke',
+                    stylers: [{color: '#ffffff'}]
+                  }
+                ]
               });
-              var marker = new google.maps.Marker({position: {lat: lat, lng: lng}, map: map});
+
+              var marker = new google.maps.Marker({
+                position: {lat: lat, lng: lng},
+                map: map,
+                icon: stylesheetDir + '/library/img/marker.png'
+              });
+
             }
 
           </script>
