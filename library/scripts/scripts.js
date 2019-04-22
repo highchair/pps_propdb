@@ -28,9 +28,41 @@ jQuery(document).ready( function($) {
 			var args = {
 				zoom: 16,
 				center: new google.maps.LatLng(0, 0),
-				mapTypeId: google.maps.MapTypeId.ROADMAP
+				mapTypeId: google.maps.MapTypeId.ROADMAP,
+				styles: [
+					{
+						featureType: 'landscape.man_made',
+						elementType: 'geometry',
+						stylers: [{color: '#f2f2f2'}]
+					},
+					{
+						featureType: 'poi.park',
+						elementType: 'geometry',
+						stylers: [{color: '#b3e37e'}]
+					},
+					{
+						featureType: 'road',
+						elementType: 'geometry',
+						stylers: [{color: '#d6d397'}]
+					},
+					{
+						featureType: 'water',
+						elementType: 'geometry',
+						stylers: [{color: '#d1dcf2'}]
+					},
+					{
+						featureType: 'water',
+						elementType: 'labels.text.fill',
+						stylers: [{color: '#666666'}]
+					},
+					{
+						featureType: 'water',
+						elementType: 'labels.text.stroke',
+						stylers: [{color: '#ffffff'}]
+					}
+				]
 			};
-			 
+
 			var map = new google.maps.Map( $el[0], args);
 
 			map.markers = [];
@@ -55,7 +87,8 @@ jQuery(document).ready( function($) {
 
 			var marker = new google.maps.Marker({
 				position: latlng,
-				map: map
+				map: map,
+				icon: stylesheetDir + '/library/img/marker.png'
 			});
 
 			map.markers.push( marker );
