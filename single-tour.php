@@ -54,24 +54,35 @@ SINGLE TOUR PAGE
 
       <?php the_content(); ?>
 
+      <?php
+
+      if( $properties ) :
+
+      ?>
+
       <section class="related-properties">
 
-        <h2><?php _e( 'Properties on this Tour', 'ppsdb' ); ?></h2>
+      <?php
 
-        <?php
+        echo '<h2>' . 'Properties on this Tour' . '</h2>';
 
-        if( $properties ) {
-          foreach( $properties as $post) {
-            setup_postdata($post);
-            if ( get_post_status() == 'publish' ) {
-              include(locate_template('partials/property-sm.php'));
-            }
+        foreach( $properties as $post) {
+          setup_postdata($post);
+          if ( get_post_status() == 'publish' ) {
+            include(locate_template('partials/property-sm.php'));
           }
-          wp_reset_postdata();
         }
-        ?>
+        wp_reset_postdata();
+
+      ?>
 
       </section>
+
+      <?php
+
+      endif;
+
+      ?>
 
     </article>
 
