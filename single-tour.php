@@ -26,28 +26,30 @@ SINGLE TOUR PAGE
 
     <article>
 
-      <div id="map" class="map">
-        <?php
+      <?php
 
-          if( $properties ) {
+      if( $properties ) {
 
-            foreach( $properties as $post ) {
-              setup_postdata($post);
-              $id = $post->ID;
-              $location = get_field('location', $id);
+        echo '<div id="map" class="map">';
 
-              if ( (isset($location['address'])) && (get_post_status() == 'publish') ) {
+        foreach( $properties as $post ) {
+          setup_postdata($post);
+          $id = $post->ID;
+          $location = get_field('location', $id);
 
-                include 'partials/marker.php';
+          if ( (isset($location['address'])) && (get_post_status() == 'publish') ) {
 
-              }
-            }
-            wp_reset_postdata();
+            include 'partials/marker.php';
 
           }
+        }
+        wp_reset_postdata();
 
-        ?>
-      </div>
+        echo '</div>';
+
+      }
+
+      ?>
 
 
       <?php the_content(); ?>
