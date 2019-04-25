@@ -106,6 +106,30 @@ function ppsdb_add_query_vars_filter( $vars ) {
 add_filter( 'query_vars', 'ppsdb_add_query_vars_filter' );
 
 
+/************* ADD CUSTOM POST TYPES TO TAGS ARCHIVE *****************/
+/** src: https://docs.pluginize.com/article/17-post-types-in-category-tag-archives **/
+
+function ppsdb_cpt_tags_archive( $query ) {
+
+  if ( is_admin() || ! $query->is_main_query() ) {
+    return;
+  }
+
+  if ( is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
+    $cptui_post_types = cptui_get_post_type_slugs();
+
+    $query->set(
+      'post_type',
+      array_merge(
+        array( 'post' ),
+        $cptui_post_types
+      )
+    );
+  }
+}
+add_filter( 'pre_get_posts', 'ppsdb_cpt_tags_archive' );
+
+
 /************* CUSTOM SEARCH FORM *****************/
 // uses `pssri_` prefix in order to override parent theme
 
