@@ -135,26 +135,33 @@ body.archive header h1 {
 }
 
 .taxonomies-browse {
-  border-top: $border;
-  padding-top: $padding * 3;
-
-  h2 {
-    text-align: center;
+  @include foundation-menu;
+  @include foundation-dropdown-menu;
+  .menu > li {
+    display: inline-block; // override
   }
+}
 
-  ul {
-    column-count: 2;
-    @include breakpoint(medium) {
-      column-count: 3;
-    }
-    @include breakpoint(large) {
-      column-count: 6;
+.filter {
+  background: $silver;
+  margin-right: $padding / 2;
+  margin-bottom: $padding / 2;
+  > a {
+    border: 1px solid $gray-lt;
+    font-weight: 900;
+    &::after {
+      content: '\f078'; // chevron-down
+      font-family: 'icomoon' !important;
+      font-weight: normal;
+      margin-top: -0.5em !important; // override
     }
   }
-
-  li {
-    line-height: 1.25em;
-    margin-bottom: 0.5rem;
+  .submenu {
+    border-top: 0;
+    max-height: 14rem;
+    min-width: auto; // override
+    overflow-y: auto;
+    width: 100%;
   }
 }
 

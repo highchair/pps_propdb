@@ -10,9 +10,24 @@ body.home {
 }
 
 // Archive Pages
-nav.pagination,
-body.archive .taxonomies-browse {
+nav.pagination {
   @include grid-column(12);
+}
+
+.taxonomies-browse {
+  float: left;
+  margin-bottom: $padding * 2;
+  width: 100%;
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .filter {
+    flex: 1 1 12rem;
+    @include breakpoint(large) {
+      flex-grow: 0;
+    }
+  }
 }
 
 @include breakpoint(medium down) {
@@ -37,6 +52,8 @@ body.archive .taxonomies-browse {
   // Archive grid layout
   body.archive div.main .cards {
     @include grid-layout(2, '.card', $padding);
+    margin-left: -($padding / 2);
+    margin-right: -($padding / 2);
   }
 
 }
@@ -70,6 +87,10 @@ body.archive .taxonomies-browse {
   body.single-property .page-header, // heightened specificity for override
   body.single-tour .page-header {
     @include grid-column(8);
+  }
+
+  .page-header {
+    padding-left: 0;
   }
 
   // AddThis Social Share
