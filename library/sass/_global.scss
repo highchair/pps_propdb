@@ -51,10 +51,36 @@
   }
 }
 
+// remove margin around map ui buttons
+body.single article .map img {
+  margin: 0; // override
+}
+
 // infoWindow
-.gm-style-iw a {
-  font-size: 1rem;
-  font-weight: 900;
+.gm-style-iw {
+  h4 {
+    font-size: 1.25rem;
+    line-height: 1.125em;
+    margin-bottom: 0.25em;
+    margin-top: 0.25em;
+  }
+  p {
+    color: $black;
+    line-height: 1.25;
+    margin-bottom: 0.5em;
+  }
+  .aka {
+    font-size: 1rem;
+  }
+  .address {
+    font-size: 0.85rem;
+  }
+  &-d {
+      overflow: visible !important;
+  }
+  &-c {
+    padding: $padding / 2 !important;
+  }
 }
 
 // Social Share buttons

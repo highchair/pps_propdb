@@ -26,50 +26,63 @@ SINGLE TOUR PAGE
 
     <article>
 
-      <div id="map" class="map">
-        <?php
+      <?php
 
-          if( $properties ) {
+      if( $properties ) {
 
-            foreach( $properties as $post ) {
-              setup_postdata($post);
-              $id = $post->ID;
-              $location = get_field('location', $id);
+        echo '<div id="map" class="map">';
 
-              if ( (isset($location['address'])) && (get_post_status() == 'publish') ) {
+        foreach( $properties as $post ) {
+          setup_postdata($post);
+          $id = $post->ID;
+          $location = get_field('location', $id);
 
-                echo '<div class="marker" data-lat="' . $location['lat'] . '" data-lng="' . $location['lng'] . '"><a href="' . esc_url( add_query_arg( 't', $tour, get_permalink() ) ) . '">' . get_the_title($id) . '</a></div>';
+          if ( (isset($location['address'])) && (get_post_status() == 'publish') ) {
 
-              }
-            }
-            wp_reset_postdata();
+            include 'partials/marker.php';
 
           }
+        }
+        wp_reset_postdata();
 
-        ?>
-      </div>
+        echo '</div>';
+
+      }
+
+      ?>
 
 
       <?php the_content(); ?>
 
+      <?php
+
+      if( $properties ) :
+
+      ?>
+
       <section class="related-properties">
 
-        <h2><?php _e( 'Properties on this Tour', 'ppsdb' ); ?></h2>
+      <?php
 
-        <?php
+        echo '<h2>' . 'Properties on this Tour' . '</h2>';
 
-        if( $properties ) {
-          foreach( $properties as $post) {
-            setup_postdata($post);
-            if ( get_post_status() == 'publish' ) {
-              include(locate_template('partials/property-sm.php'));
-            }
+        foreach( $properties as $post) {
+          setup_postdata($post);
+          if ( get_post_status() == 'publish' ) {
+            include(locate_template('partials/property-sm.php'));
           }
-          wp_reset_postdata();
         }
-        ?>
+        wp_reset_postdata();
+
+      ?>
 
       </section>
+
+      <?php
+
+      endif;
+
+      ?>
 
     </article>
 
