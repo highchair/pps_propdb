@@ -30,11 +30,18 @@ SEARCH RESULTS PAGE
                 <em class="aka">&#123;&nbsp;<?php the_field('aka'); ?>&nbsp;&#125;</em>
               <?php endif; ?>
             </h3>
-            <?php if ( is_plugin_active('relevanssi') ) : ?>
+            <?php
+            include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+            if ( is_plugin_active( 'relevanssi/relevanssi.php' ) ) :
+            ?>
               <p><?php relevanssi_the_excerpt(); ?></p>
-            <?php else : ?>
+            <?php
+            else :
+            ?>
               <p><?php the_excerpt(); ?></p>
-            <?php endif; ?>
+            <?php
+            endif;
+            ?>
           </div>
         </a>
       </div>
