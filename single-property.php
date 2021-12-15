@@ -86,12 +86,6 @@ SINGLE PROPERTY PAGE
         ?>
       </h1>
 
-      <?php
-        if ( get_field('period') ) {
-          echo '<p class="h4">' . get_field('period') . '</p>';
-        }
-      ?>
-
     </header>
 
     <?php get_template_part('partials/social'); ?>
@@ -184,60 +178,37 @@ SINGLE PROPERTY PAGE
 
           </script>
 
-          <h3 class="h6"><?php _e( 'Location', 'ppsdb' ); ?></h3>
+        </section>
+
+        <section>
           
           <?php
           if ( isset($location['address']) ) {
-            echo '<p><a href="https://www.google.com/maps/place/' . $location['address'] . '">' . $location['address'] . '</a></p>';
-            echo '<p>lat/long: ' . $location['lat'] . ', ' . $location['lng'] . '</p>';
+            echo '<p>Address: <a href="https://www.google.com/maps/place/' . $location['address'] . '">' . $location['address'] . '</a></p>';
           } else {
             echo '<p>No address found.</p>';
           }
+          if ( get_field('period') ) {
+            echo '<p>Date(s): ' . get_field('period') . '</p>';
+          }
+          if( has_term( '', 'neighborhood' ) ) {
+            echo '<p>' . get_the_term_list( $post->ID, 'neighborhood', 'Neighborhood: ', ', ' ) . '</p>';
+          }
+          if( has_term( '', 'architectural_style' ) ) {
+            echo '<p>' . get_the_term_list( $post->ID, 'architectural_style', 'Architectural Style: ', ', ' ) . '</p>';
+          }
+          if( has_term( '', 'designer' ) ) {
+            echo '<p>' . get_the_term_list( $post->ID, 'designer', 'Designer(s): ', ', ' ) . '</p>';
+          }
+          if( has_term( '', 'list' ) ) {
+            echo '<p>' . get_the_term_list( $post->ID, 'list', 'List/District: ', ', ' ) . '</p>';
+          }
+          if ( has_tag() ) {
+            the_tags('<p>Additional Tags: ', ', ', '</p>');
+          }
           ?>
 
-          <p><?php echo get_the_term_list( $post->ID, 'neighborhood', 'Neighborhood: ', ', ' ); ?></p>
-
         </section>
-
-        <?php
-          if( 
-            has_term( '', 'architectural_style' ) ||
-            has_term( '', 'designer' ) ||
-            has_term( '', 'list' )
-          ) :
-        ?>
-
-          <section>
-
-            <h3 class="h6"><?php _e( 'Details', 'ppsb' ); ?></h3>
-
-            <?php
-              if( has_term( '', 'architectural_style' ) ) {
-                echo '<p>' . get_the_term_list( $post->ID, 'architectural_style', 'Architectural Style: ', ', ' ) . '</p>';
-              }
-              if( has_term( '', 'designer' ) ) {
-                echo '<p>' . get_the_term_list( $post->ID, 'designer', 'Designer: ', ', ' ) . '</p>';
-              }
-              if( has_term( '', 'list' ) ) {
-                echo '<p>' . get_the_term_list( $post->ID, 'list', 'List/District: ', ', ' ) . '</p>';
-              }
-            ?>
-
-          </section>
-
-        <?php
-          endif;
-        ?>
-
-        <?php if ( has_tag() ) : ?>
-          <section>
-
-            <h3 class="h6"><?php _e( 'Additional Tags', 'ppsdb' ); ?></h3>
-
-            <p><?php the_tags(''); ?></p>
-
-          </section>
-        <?php endif; ?>
 
       </aside>
 
