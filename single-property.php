@@ -94,10 +94,6 @@ SINGLE PROPERTY PAGE
 
       <div class="main">
 
-        <div class="featured-img">
-          <?php the_post_thumbnail(); ?>
-        </div>
-
         <?php
         $the_content = get_the_content();
         if ( !empty( $the_content ) ) :
@@ -119,6 +115,10 @@ SINGLE PROPERTY PAGE
       </div>
 
       <aside class="sidebar">
+
+        <section class="featured-img">
+          <?php the_post_thumbnail('large'); ?>
+        </section>
 
         <section>
           
