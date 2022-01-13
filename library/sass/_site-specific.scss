@@ -150,6 +150,11 @@ body.single-property {
       width: 33%;
     }
   }
+
+  .comment-form {
+    background: $blue-xlt;
+    padding: $padding * 2;
+  }
 } // .single-property
 
 body.single-tour {

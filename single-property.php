@@ -104,13 +104,13 @@ SINGLE PROPERTY PAGE
         <?php
         endif;
         ?>
-        
-        <div class="share-story">
-          <h2 class="h3"><?php _e( 'Share your Story', 'ppsdb' ); ?></h2>
-          <div>
-            <p class="label-alt"><?php _e( 'Something to add? An edit or correction to suggest? Community input about the history of these important places is welcome. All submissions are reviewed before posting.', 'ppsdb' ); ?> </p>
-          </div>
-        </div>
+
+        <?php
+        // If comments are open or we have at least one comment, load up the comment template.
+        if ( comments_open() || get_comments_number() ) :
+          comments_template( '/comments-property.php' );
+        endif;
+        ?>
 
       </div>
 
