@@ -1,3 +1,11 @@
+// Link Style overrides
+body.single article a:not(.button):not(.ngg-fancybox):not(.transparent),
+body.page:not(.home):not(.page-template-events-page) article a:not(.button):not(.ngg-fancybox):not(.transparent) {
+  background: transparent;
+  border-bottom: 1px solid;
+  color: $black;
+}
+
 body.single-property .page-header,
 body.single-tour .page-header {
   padding-left: 0;
