@@ -124,6 +124,26 @@ body.single-property {
       }
     }
   }
+
+  .taxonomies {
+    margin-bottom: $padding * 2;
+    table {
+      border: 2px solid $blue-xlt;
+      border-collapse: collapse;
+    }
+    tr + tr {
+      border-top: 2px solid $blue-xlt;
+    }
+    td {
+      font-size: 1rem;
+      vertical-align: top;
+    }
+    .label {
+      text-align: right;
+      text-transform: none;
+      width: 33%;
+    }
+  }
 } // .single-property
 
 body.single-tour {

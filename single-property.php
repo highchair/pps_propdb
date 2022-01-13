@@ -121,33 +121,35 @@ SINGLE PROPERTY PAGE
           <?php the_post_thumbnail('large'); ?>
         </section>
 
-        <section>
+        <section class="taxonomies">
           
-          <?php
-          if ( isset($location['address']) ) {
-            echo '<p>Address: <a href="https://www.google.com/maps/place/' . $location['address'] . '">' . $location['address'] . '</a></p>';
-          } else {
-            echo '<p>No address found.</p>';
-          }
-          if ( get_field('period') ) {
-            echo '<p>Date(s): ' . get_field('period') . '</p>';
-          }
-          if( has_term( '', 'neighborhood' ) ) {
-            echo '<p>' . get_the_term_list( $post->ID, 'neighborhood', 'Neighborhood: ', ', ' ) . '</p>';
-          }
-          if( has_term( '', 'architectural_style' ) ) {
-            echo '<p>' . get_the_term_list( $post->ID, 'architectural_style', 'Architectural Style: ', ', ' ) . '</p>';
-          }
-          if( has_term( '', 'designer' ) ) {
-            echo '<p>' . get_the_term_list( $post->ID, 'designer', 'Designer(s): ', ', ' ) . '</p>';
-          }
-          if( has_term( '', 'list' ) ) {
-            echo '<p>' . get_the_term_list( $post->ID, 'list', 'List/District: ', ', ' ) . '</p>';
-          }
-          if ( has_tag() ) {
-            the_tags('<p>Additional Tags: ', ', ', '</p>');
-          }
-          ?>
+          <table>
+            <?php
+            if ( isset($location['address']) ) {
+              echo '<tr><td class="label">Address</td><td><a href="https://www.google.com/maps/place/' . $location['address'] . '">' . $location['address'] . '</a></td></tr>';
+            } else {
+              echo '<tr><td class="label">Address</td><td>No address found.</td></tr>';
+            }
+            if ( get_field('period') ) {
+              echo '<tr><td class="label">Date(s)</td><td>' . get_field('period') . '</td></tr>';
+            }
+            if ( has_term( '', 'neighborhood' ) ) {
+              echo '<tr><td class="label">' . get_the_term_list( $post->ID, 'neighborhood', 'Neighborhood</td><td>', ', ' ) . '</td></tr>';
+            }
+            if ( has_term( '', 'architectural_style' ) ) {
+              echo '<tr><td class="label">' . get_the_term_list( $post->ID, 'architectural_style', 'Architectural Style</td><td>', ', ' ) . '</td></tr>';
+            }
+            if ( has_term( '', 'designer' ) ) {
+              echo '<tr><td class="label">' . get_the_term_list( $post->ID, 'designer', 'Designer(s)</td><td>', ', ' ) . '</td></tr>';
+            }
+            if ( has_term( '', 'list' ) ) {
+              echo '<tr><td class="label">' . get_the_term_list( $post->ID, 'list', 'List/District</td><td>', ', ' ) . '</td></tr>';
+            }
+            if ( has_tag() ) {
+              the_tags('<tr><td class="label">Additional Tags</td><td> ', ', ', '</td></tr>');
+            }
+            ?>
+          </table>
 
         </section>
 
