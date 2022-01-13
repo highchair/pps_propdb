@@ -105,10 +105,23 @@ body.single-property {
   }
 
   .share-story {
-    border-top: 1px solid $gray-lt;
+    background: $blue-xlt;
     margin-top: $padding * 2;
+    padding: $padding * 2;
     .h3 {
-      margin-bottom: 0.25em;
+      margin-top: 0;
+    }
+    p {
+      margin-bottom: 0;
+    }
+    @include breakpoint(medium) {
+      display: flex;
+      flex-wrap: wrap;
+
+      div {
+        flex: 1;
+        margin-left: $padding * 2;
+      }
     }
   }
 } // .single-property
