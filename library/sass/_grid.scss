@@ -142,8 +142,12 @@ nav.pagination {
 
   // Create sidebar layout
   body.single-property {
+    article {
+      @include grid-row();
+    }
     div.main {
       @include grid-column(7);
+      padding-left: 0 !important;
     }
     aside.sidebar {
       @include grid-column(5);

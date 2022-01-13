@@ -14,6 +14,12 @@ body.single-tour .page-header {
 
 body.single-property {
 
+  .aka {
+    display: block;
+    font-family: $sans-serif;
+    line-height: 1.25em;
+  }
+
   .tour-nav {
     align-items: center;
     border-bottom: 1px solid $silver;
