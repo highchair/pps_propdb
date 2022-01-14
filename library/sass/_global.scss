@@ -124,3 +124,68 @@ body.single article .map img {
     margin-right: $padding;
   }
 }
+
+// Comments
+
+article ul.comment-list {
+  list-style: none;
+  margin: ($padding * 2) 0 0;
+  padding: 0;
+  text-indent: 0;
+}
+
+.single .comment-list .comment {
+  padding-bottom: 1rem;
+
+  &-author,
+  &-meta {
+    display: inline;
+  }
+
+  &-author .says {
+    display: none;
+  }
+
+  p {
+    font-family: $serif;
+    margin-top: $padding;
+
+    @include breakpoint(medium) {
+      margin-left: $padding * 7;
+    }
+  }
+
+  .comment-author cite.fn { // high specificity needed
+    color: $bronze;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 900;
+
+    a.url {
+      color: $bronze;
+    }
+  }
+
+  .comment-meta {
+    color: $bronze;
+    font-size: 1.25rem;
+    margin-top: 0.25rem;
+
+    a {
+      color: $bronze !important;
+      text-decoration: none;
+    }
+
+    &::before {
+      content: ' on ';
+    }
+
+    &::after {
+      content: ':';
+    }
+  }
+} // .comment
+
+.bypostauthor {
+  display: block;
+}
