@@ -156,6 +156,23 @@ body.single article .map img {
   }
 }
 
+// Citation block
+
+.ppsdb-cite-block-title {
+  color: $blue-dk;
+  font-weight: 900;
+}
+
+.ppsdb-cite-block-accordion {
+  --color__ui-accordion-icon: #{$blue-dk};
+  border-color: $mustard-lt;
+
+  .ppsdb-cite-block-title {
+    background: lighten($mustard-lt, 3);
+    cursor: pointer;
+  }
+}
+
 // Comments
 
 .comment-reply-title {
