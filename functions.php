@@ -145,4 +145,14 @@ function ppsri_wpsearch($form) {
 
 add_filter( 'get_search_form', 'ppsri_wpsearch' );
 
+
+/************* COMMENTS FORM *****************/
+function ppsdb_comments_remove_fields( $fields ) {
+  unset( $fields['url'] );
+  unset( $fields['cookies'] );
+  return $fields;
+}
+
+add_filter( 'comment_form_default_fields', 'ppsdb_comments_remove_fields' );
+
 ?>

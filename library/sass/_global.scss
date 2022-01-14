@@ -25,6 +25,10 @@ body {
   line-height: 1.2em;
 }
 
+textarea {
+  font-family: $serif;
+}
+
 // Cards
 .card {
   margin-bottom: $padding;
@@ -126,6 +130,56 @@ body.single article .map img {
 }
 
 // Comments
+
+.comment-reply-title {
+  margin: 0;
+}
+
+.comment-form {
+
+  label {
+    color: $blue-dk;
+    font-weight: 400;
+    margin-top: 0.5em;
+    text-transform: none;
+  }
+
+  &-field {
+    background: $white;
+  }
+
+  @include breakpoint(medium) {
+
+    label {
+      text-align: right;
+      width: 30%;
+    }
+
+    &-comment,
+    &-author,
+    &-email {
+      display: flex;
+    }
+
+    &-field {
+      flex: 1;
+      margin-left: $padding * 2;
+    }
+
+    .form-submit {
+      margin-bottom: 0;
+      margin-left: calc(30% + ($padding * 2));
+    }
+  }
+}
+
+.comment-awaiting-moderation {
+  margin-left: $padding;
+}
+
+.comment-notes {
+  display: none;
+}
 
 article ul.comment-list {
   list-style: none;

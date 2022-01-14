@@ -40,6 +40,13 @@ Used on single-property.php.
 	<?php
 		comment_form( array(
 			'title_reply' => '',
+			'fields' => array(
+				'author' => '<p class="comment-form-author"><label for="author">' . __( 'Your Name', 'ppsdb' ) . '</label><input id="author" name="author" class="comment-form-field" aria-required="true" placeholder="' . __( 'First and last please', 'ppsdb' ) . '"></input></p>',
+				'email' => '<p class="comment-form-email"><label for="email">' . __( 'Your Email', 'ppsdb' ) . '</label><input id="email" name="email" class="comment-form-field" placeholder="' . __( 'email@domain.com', 'ppsdb' ) .'"></input></p>',
+				'cookies' => '',
+			),
+			'label_submit' => __( 'Submit', 'ppsdb' ),
+			'comment_field' => '<p class="comment-form-comment"><label for="comment">' . __( 'Your Message', 'ppsdb' ) . '</label><textarea id="comment" name="comment" class="comment-form-field" aria-required="true" cols="45" rows="8" maxlength="65525"></textarea></p>',
 		) );
 	?>
 
