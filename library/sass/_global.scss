@@ -23,10 +23,16 @@ body {
   color: $blue-dk;
   font-family: $serif;
   line-height: 1.2em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
 }
 
 textarea {
   font-family: $serif;
+}
+
+figcaption {
+  font-style: italic;
 }
 
 .wp-block-separator {
@@ -163,10 +169,6 @@ body.single article .map img {
     font-weight: 400;
     margin-top: 0.5em;
     text-transform: none;
-  }
-
-  &-field {
-    background: $white;
   }
 
   @include breakpoint(medium) {

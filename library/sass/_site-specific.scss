@@ -124,10 +124,29 @@ body.single-property {
       display: flex;
       flex-wrap: wrap;
 
+      .h3 {
+        width: 30%;
+      }
+
       div {
         flex: 1;
         margin-left: $padding * 2;
       }
+    }
+  }
+
+  .comment-form-field {
+    background: $white;
+  }
+
+  .form-submit input {
+    background: $blue-dk;
+    border-color: $blue-dk;
+    color: $white;
+
+    &:hover,
+    &:focus {
+      background: darken($blue-dk, 10);
     }
   }
 
