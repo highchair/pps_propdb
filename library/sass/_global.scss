@@ -201,6 +201,7 @@ body.single article .map img {
 }
 
 .ppsdb-cite-block-accordion {
+  @include clearfix;
   --color__ui-accordion-icon: #{$blue-dk};
   border-color: $mustard-lt;
 
