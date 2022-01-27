@@ -19,12 +19,17 @@ body {
   color: $gray;
 }
 
-.has-large-font-size {
+.has-large-font-size,
+.has-x-large-font-size {
   color: $blue-dk;
   font-family: $serif;
   line-height: 1.2em;
   margin-top: 1.5em;
   margin-bottom: 1.5em;
+
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 textarea {
