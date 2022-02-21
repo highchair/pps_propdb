@@ -1,3 +1,7 @@
+body {
+  color: $gray-dk;
+}
+
 .page-title {
   font-family: $serif, serif;
 
@@ -13,7 +17,85 @@
 
 .aka {
   color: $gray;
-  font-style: normal;
+}
+
+.has-large-font-size,
+.has-x-large-font-size {
+  color: $blue-dk;
+  font-family: $serif;
+  line-height: 1.2em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+textarea {
+  font-family: $serif;
+}
+
+figcaption {
+  font-style: italic;
+}
+
+.wp-block-separator {
+  border-top: 0;
+  border-color: $mustard;
+  margin-top: $padding * 2;
+  margin-bottom: $padding * 2;
+  position: relative;
+  &::after {
+    background: $white;
+    content: '***';
+    color: $mustard;
+    display: block;;
+    font-size: 2.5rem;
+    left: 50%;
+    line-height: 1;
+    padding: 0 ($padding * 0.5);
+    position: absolute;
+    transform: translateX(-50%);
+    top: -0.5rem;
+  }
+}
+
+.wp-block-file a {
+  border-bottom: 0 !important;
+  color: $gray-dk !important;
+  font-size: 1.125rem;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    color: $black !important;
+  }
+  &[href$='.doc']::before,
+  &[href$='.docx']::before,
+  &[href$='.pdf']::before {
+    background-color: $blue-dk;
+    content: '';
+    display: inline-block;
+    height: 2.25rem;
+    margin-right: 0.5rem;
+    mask-repeat: no-repeat;
+    vertical-align: -0.75rem;
+    width: 2rem;
+  }
+  &[href$='.doc']::before,
+  &[href$='.docx']::before {
+    mask-image: url('data:image/svg+xml;utf8,<svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="file-word" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M369.9 97.9L286 14C277 5 264.8-.1 252.1-.1H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V131.9c0-12.7-5.1-25-14.1-34zm-22.6 22.7c2.1 2.1 3.5 4.6 4.2 7.4H256V32.5c2.8.7 5.3 2.1 7.4 4.2l83.9 83.9zM336 480H48c-8.8 0-16-7.2-16-16V48c0-8.8 7.2-16 16-16h176v104c0 13.3 10.7 24 24 24h104v304c0 8.8-7.2 16-16 16zm-53.6-246.5c-6.8 32.8-32.5 139.7-33.4 150.3-5.8-29.1-.7 1.6-41.8-150.9-1.4-5.2-6.2-8.9-11.6-8.9h-6.4c-5.4 0-10.2 3.6-11.6 8.9-38.3 142.3-37.4 140.6-39.4 154.7-4.1-23.9 2.1-2.9-34.4-154.4-1.3-5.4-6.1-9.2-11.7-9.2h-7.2c-7.8 0-13.5 7.3-11.6 14.9 9.5 38 34.5 137.4 42.2 168 1.3 5.3 6.1 9.1 11.6 9.1h17c5.4 0 10.2-3.7 11.6-8.9 34.2-127.7 33.5-123.4 36.7-142.9 6.5 31.1.2 7 36.7 142.9 1.4 5.2 6.2 8.9 11.6 8.9h14c5.5 0 13.7-3.7 15.1-9l42.8-168c1.9-7.6-3.8-15-11.6-15h-6.8c-5.7 0-10.6 4-11.8 9.5z"></path></svg>');
+  }
+  &[href$='.pdf']::before {
+    mask-image: url('data:image/svg+xml;utf8,<svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M369.9 97.9L286 14C277 5 264.8-.1 252.1-.1H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V131.9c0-12.7-5.1-25-14.1-34zm-22.6 22.7c2.1 2.1 3.5 4.6 4.2 7.4H256V32.5c2.8.7 5.3 2.1 7.4 4.2l83.9 83.9zM336 480H48c-8.8 0-16-7.2-16-16V48c0-8.8 7.2-16 16-16h176v104c0 13.3 10.7 24 24 24h104v304c0 8.8-7.2 16-16 16zm-22-171.2c-13.5-13.3-55-9.2-73.7-6.7-21.2-12.8-35.2-30.4-45.1-56.6 4.3-18 12-47.2 6.4-64.9-4.4-28.1-39.7-24.7-44.6-6.8-5 18.3-.3 44.4 8.4 77.8-11.9 28.4-29.7 66.9-42.1 88.6-20.8 10.7-54.1 29.3-58.8 52.4-3.5 16.8 22.9 39.4 53.1 6.4 9.1-9.9 19.3-24.8 31.3-45.5 26.7-8.8 56.1-19.8 82-24 21.9 12 47.6 19.9 64.6 19.9 27.7.1 28.9-30.2 18.5-40.6zm-229.2 89c5.9-15.9 28.6-34.4 35.5-40.8-22.1 35.3-35.5 41.5-35.5 40.8zM180 175.5c8.7 0 7.8 37.5 2.1 47.6-5.2-16.3-5-47.6-2.1-47.6zm-28.4 159.3c11.3-19.8 21-43.2 28.8-63.7 9.7 17.7 22.1 31.7 35.1 41.5-24.3 4.7-45.4 15.1-63.9 22.2zm153.4-5.9s-5.8 7-43.5-9.1c41-3 47.7 6.4 43.5 9.1z"></path></svg>');
+  }
+  &.wp-block-file__button::before {
+    display: none;
+  }
+}
+
+.wp-block-file object.wp-block-file__embed {
+  position: static; // override fluid-width-wrapper
 }
 
 // Cards
@@ -114,4 +196,133 @@ body.single article .map img {
   .label-alt {
     margin-right: $padding;
   }
+}
+
+// Citation block
+
+.ppsdb-cite-block-title {
+  color: $blue-dk;
+  font-weight: 900;
+}
+
+.ppsdb-cite-block-accordion {
+  @include clearfix;
+  --color__ui-accordion-icon: #{$blue-dk};
+  border-color: $mustard-lt;
+
+  .ppsdb-cite-block-title {
+    background: lighten($mustard-lt, 3);
+    cursor: pointer;
+  }
+}
+
+// Comments
+
+.comment-reply-title {
+  margin: 0;
+}
+
+.comment-form {
+
+  label {
+    color: $blue-dk;
+    font-weight: 400;
+    margin-top: 0.5em;
+    text-transform: none;
+  }
+
+  @include breakpoint(medium) {
+
+    label {
+      text-align: right;
+      width: 30%;
+    }
+
+    &-comment,
+    &-author,
+    &-email {
+      display: flex;
+    }
+
+    &-field {
+      flex: 1;
+      margin-left: $padding * 2;
+    }
+
+    .form-submit {
+      margin-bottom: 0;
+      margin-left: calc(30% + ($padding * 2));
+    }
+  }
+}
+
+.comment-awaiting-moderation {
+  margin-left: $padding;
+}
+
+.comment-notes {
+  display: none;
+}
+
+article ul.comment-list {
+  list-style: none;
+  margin: ($padding * 2) 0 0;
+  padding: 0;
+  text-indent: 0;
+}
+
+.single .comment-list .comment {
+  padding-bottom: 1rem;
+
+  &-author,
+  &-meta {
+    display: inline;
+  }
+
+  &-author .says {
+    display: none;
+  }
+
+  p {
+    font-family: $serif;
+    margin-top: $padding;
+
+    @include breakpoint(medium) {
+      margin-left: $padding * 7;
+    }
+  }
+
+  .comment-author cite.fn { // high specificity needed
+    color: $bronze;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 900;
+
+    a.url {
+      color: $bronze;
+    }
+  }
+
+  .comment-meta {
+    color: $bronze;
+    font-size: 1.25rem;
+    margin-top: 0.25rem;
+
+    a {
+      color: $bronze !important;
+      text-decoration: none;
+    }
+
+    &::before {
+      content: ' on ';
+    }
+
+    &::after {
+      content: ':';
+    }
+  }
+} // .comment
+
+.bypostauthor {
+  display: block;
 }

@@ -26,7 +26,7 @@ $location = get_field('location');
     <div class="heading">
       <h3><?php the_title(); ?></h3>
       <?php
-      if ( get_field('aka') ) { echo '<p class="aka">&#123; ' . get_field('aka') . ' &#125;</p>'; }
+      if ( get_field('aka') ) { echo '<p class="aka">' . get_field('aka') . '</p>'; }
       ?>
     </div>
 

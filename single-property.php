@@ -81,16 +81,10 @@ SINGLE PROPERTY PAGE
         <?php 
           the_title();
           if ( get_field('aka') ) {
-            echo ' <em class="h2 aka">&#123;&nbsp;' . get_field('aka') . '&nbsp;&#125;</em>';
+            echo '<em class="h4 aka">also known as ' . get_field('aka') . '</em>';
           }
         ?>
       </h1>
-
-      <?php
-        if ( get_field('period') ) {
-          echo '<p class="h4">' . get_field('period') . '</p>';
-        }
-      ?>
 
     </header>
 
@@ -99,10 +93,6 @@ SINGLE PROPERTY PAGE
     <article>
 
       <div class="main">
-
-        <div class="featured-img">
-          <?php the_post_thumbnail(); ?>
-        </div>
 
         <?php
         $the_content = get_the_content();
@@ -114,17 +104,53 @@ SINGLE PROPERTY PAGE
         <?php
         endif;
         ?>
-        
-        <div class="share-story">
-          <h2 class="h3"><?php _e( 'Share your Story', 'ppsdb' ); ?></h2>
-          <p class="label-alt"><?php _e( 'We welcome community input about the history of these important places. Have something to add? Have an edit or correction to suggest? Have more information about this property?', 'ppsdb' ); ?> 
-            <a href="mailto:info@ppsri.org?subject=A Story regarding <?php the_title_attribute(); ?>"><?php _e( 'Send us an email and start a conversation: info@ppsri.org', 'ppsdb' ); ?></a></p>
-          </p>
-        </div>
+
+        <?php
+        // If comments are open or we have at least one comment, load up the comment template.
+        if ( comments_open() || get_comments_number() ) :
+          comments_template( '/comments-property.php' );
+        endif;
+        ?>
 
       </div>
 
       <aside class="sidebar">
+
+        <section class="featured-img">
+          <?php the_post_thumbnail('large'); ?>
+        </section>
+
+        <section class="taxonomies">
+          
+          <table>
+            <?php
+            if ( isset($location['address']) ) {
+              echo '<tr><td class="label">Address</td><td><a href="https://www.google.com/maps/place/' . $location['address'] . '">' . $location['address'] . '</a></td></tr>';
+            } else {
+              echo '<tr><td class="label">Address</td><td>No address found.</td></tr>';
+            }
+            if ( get_field('period') ) {
+              echo '<tr><td class="label">Date(s)</td><td>' . get_field('period') . '</td></tr>';
+            }
+            if ( has_term( '', 'neighborhood' ) ) {
+              echo '<tr><td class="label">' . get_the_term_list( $post->ID, 'neighborhood', 'Neighborhood</td><td>', ', ' ) . '</td></tr>';
+            }
+            if ( has_term( '', 'architectural_style' ) ) {
+              echo '<tr><td class="label">' . get_the_term_list( $post->ID, 'architectural_style', 'Architectural Style</td><td>', ', ' ) . '</td></tr>';
+            }
+            if ( has_term( '', 'designer' ) ) {
+              echo '<tr><td class="label">' . get_the_term_list( $post->ID, 'designer', 'Designer(s)</td><td>', ', ' ) . '</td></tr>';
+            }
+            if ( has_term( '', 'list' ) ) {
+              echo '<tr><td class="label">' . get_the_term_list( $post->ID, 'list', 'List/District</td><td>', ', ' ) . '</td></tr>';
+            }
+            if ( has_tag() ) {
+              the_tags('<tr><td class="label">Additional Tags</td><td> ', ', ', '</td></tr>');
+            }
+            ?>
+          </table>
+
+        </section>
 
         <section>
 
@@ -184,60 +210,7 @@ SINGLE PROPERTY PAGE
 
           </script>
 
-          <h3 class="h6"><?php _e( 'Location', 'ppsdb' ); ?></h3>
-          
-          <?php
-          if ( isset($location['address']) ) {
-            echo '<p><a href="https://www.google.com/maps/place/' . $location['address'] . '">' . $location['address'] . '</a></p>';
-            echo '<p>lat/long: ' . $location['lat'] . ', ' . $location['lng'] . '</p>';
-          } else {
-            echo '<p>No address found.</p>';
-          }
-          ?>
-
-          <p><?php echo get_the_term_list( $post->ID, 'neighborhood', 'Neighborhood: ', ', ' ); ?></p>
-
         </section>
-
-        <?php
-          if( 
-            has_term( '', 'architectural_style' ) ||
-            has_term( '', 'designer' ) ||
-            has_term( '', 'list' )
-          ) :
-        ?>
-
-          <section>
-
-            <h3 class="h6"><?php _e( 'Details', 'ppsb' ); ?></h3>
-
-            <?php
-              if( has_term( '', 'architectural_style' ) ) {
-                echo '<p>' . get_the_term_list( $post->ID, 'architectural_style', 'Architectural Style: ', ', ' ) . '</p>';
-              }
-              if( has_term( '', 'designer' ) ) {
-                echo '<p>' . get_the_term_list( $post->ID, 'designer', 'Designer: ', ', ' ) . '</p>';
-              }
-              if( has_term( '', 'list' ) ) {
-                echo '<p>' . get_the_term_list( $post->ID, 'list', 'List/District: ', ', ' ) . '</p>';
-              }
-            ?>
-
-          </section>
-
-        <?php
-          endif;
-        ?>
-
-        <?php if ( has_tag() ) : ?>
-          <section>
-
-            <h3 class="h6"><?php _e( 'Additional Tags', 'ppsdb' ); ?></h3>
-
-            <p><?php the_tags(''); ?></p>
-
-          </section>
-        <?php endif; ?>
 
       </aside>
 

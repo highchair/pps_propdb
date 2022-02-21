@@ -4,7 +4,9 @@ SETTINGS & UTILITIES
 
 /*** COLORS ***/
 
-$blue: #82a6d6;
+$blue-dk: #6683aa;
+$blue: #4881cb;
+$blue-border: #82a6d6;
 $blue-lt: #d1dcf2;
 $blue-xlt: #e8edf8;
 
@@ -31,8 +33,6 @@ $padding: 1rem;
 $border: 1px solid $silver;
 
 /*** FONTS ***/
-
-// @import url('https://fonts.googleapis.com/css?family=Alegreya|Alegreya+SC|Alegreya+Sans:300,400,400i,900');
 
 $serif: 'Alegreya';
 $small-caps: 'Alegreya SC';

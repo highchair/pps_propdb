@@ -7,7 +7,7 @@ GOOGLE MAP MARKER & INFOWINDOW
 		<?php
 		echo '<h4>' . get_the_title($id) . '</h4>';
 		if ( get_field('aka') ) {
-			echo '<p class="aka">&#123; ' . get_field('aka') . ' &#125;</p>';
+			echo '<p class="aka">' . get_field('aka') . '</p>';
 		}
 		if ( isset($location['address']) ) {
 			echo '<p class="address">' . $location['address'] . '</p>';

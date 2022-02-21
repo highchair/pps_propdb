@@ -27,7 +27,7 @@ SEARCH RESULTS PAGE
             <h3>
               <?php the_title(); ?>
               <?php if ( get_field('aka') ) : ?>
-                <em class="aka">&#123;&nbsp;<?php the_field('aka'); ?>&nbsp;&#125;</em>
+                <em class="aka"><?php the_field('aka'); ?></em>
               <?php endif; ?>
             </h3>
             <?php

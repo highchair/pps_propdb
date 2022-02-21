@@ -31,9 +31,25 @@ nav.pagination {
 }
 
 @include breakpoint(medium down) {
+
   // AddThis Social Share
   .addthis_inline_share_toolbox {
     display: none;
+  }
+
+  // order "sidebar" first on mobile
+  .single-property article {
+    display: flex;
+    flex-direction: column;
+
+    > .sidebar {
+      order: 1;
+    }
+
+    > .main {
+      margin-top: 2rem;
+      order: 2;
+    }
   }
 }
 
@@ -142,11 +158,15 @@ nav.pagination {
 
   // Create sidebar layout
   body.single-property {
+    article {
+      @include grid-row();
+    }
     div.main {
       @include grid-column(7);
+      padding-left: 0 !important;
     }
     aside.sidebar {
-      @include grid-column(4);
+      @include grid-column(5);
     }
   }
 

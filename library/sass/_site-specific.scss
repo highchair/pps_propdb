@@ -1,3 +1,11 @@
+// Link Style overrides
+body.single article a:not(.button):not(.ngg-fancybox):not(.transparent),
+body.page:not(.home):not(.page-template-events-page) article a:not(.button):not(.ngg-fancybox):not(.transparent) {
+  background: transparent;
+  border-bottom: 1px solid;
+  color: $black;
+}
+
 body.single-property .page-header,
 body.single-tour .page-header {
   padding-left: 0;
@@ -5,6 +13,12 @@ body.single-tour .page-header {
 }
 
 body.single-property {
+
+  .aka {
+    display: block;
+    font-family: $sans-serif;
+    line-height: 1.25em;
+  }
 
   .tour-nav {
     align-items: center;
@@ -97,11 +111,69 @@ body.single-property {
   }
 
   .share-story {
-    border-top: 1px solid $gray-lt;
+    background: $blue-xlt;
     margin-top: $padding * 2;
+    padding: $padding * 2;
     .h3 {
-      margin-bottom: 0.25em;
+      margin-top: 0;
     }
+    p {
+      margin-bottom: 0;
+    }
+    @include breakpoint(medium) {
+      display: flex;
+      flex-wrap: wrap;
+
+      .h3 {
+        width: 30%;
+      }
+
+      div {
+        flex: 1;
+        margin-left: $padding * 2;
+      }
+    }
+  }
+
+  .comment-form-field {
+    background: $white;
+  }
+
+  .form-submit input {
+    background: $blue-dk;
+    border-color: $blue-dk;
+    color: $white;
+
+    &:hover,
+    &:focus {
+      background: darken($blue-dk, 10);
+    }
+  }
+
+  .taxonomies {
+    margin-bottom: $padding * 2;
+    table {
+      border: 2px solid $blue-xlt;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    tr + tr {
+      border-top: 2px solid $blue-xlt;
+    }
+    td {
+      font-size: 1rem;
+      vertical-align: top;
+    }
+    .label {
+      text-align: right;
+      text-transform: none;
+      width: 33%;
+    }
+  }
+
+  .comment-form {
+    background: $blue-xlt;
+    padding: $padding * 2;
   }
 } // .single-property
 
