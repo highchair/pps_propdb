@@ -4,7 +4,8 @@
 
 
 ## Description
-A custom WordPress child theme, created for the Providence Preservation Society.
+A custom WordPress child theme, created for the Providence Preservation Society. This theme is used with
+custom post types to support a Guide to Providence Architecture.
 
 
 ## Requirements
