@@ -4,7 +4,7 @@
 
 PPS PROPERTY DATABASE Theme Functions
 Author: Kay Belardinelli
-URL: http://kangabell.co
+URL: https://kangabell.co
 
 */
 
@@ -15,10 +15,12 @@ ENQUEUEING
 function ppsdb_scripts_and_styles() {
 
     // Theme Styles
-    wp_enqueue_style( 'ppsdb-stylesheet',
-        get_stylesheet_directory_uri() . '/library/stylesheets/screen.css',
-        array( 'ppsri-stylesheet' ),
-        wp_get_theme()->get('Version')
+    wp_enqueue_style(
+      'ppsdb-stylesheet',
+      get_stylesheet_directory_uri() . '/library/stylesheets/screen.css',
+      array( 'ppsri-stylesheet' ),
+      wp_get_theme()->get('Version'),
+      #filemtime( get_stylesheet_directory_uri() . '/library/stylesheets/screen.css'),
     );
 
     // Theme Scripts
@@ -133,7 +135,7 @@ add_filter( 'pre_get_posts', 'ppsdb_cpt_tags_archive' );
 
 
 /************* CUSTOM SEARCH FORM *****************/
-// uses `pssri_` prefix in order to override parent theme
+// uses `ppsri_` prefix in order to override parent theme
 
 function ppsri_wpsearch($form) {
   $form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
