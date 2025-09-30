@@ -88,29 +88,42 @@ SINGLE PROPERTY PAGE
 
     </header>
 
-    <?php get_template_part('partials/social'); ?>
-
     <article>
 
       <div class="main">
 
-        <?php
+      <?php
         $the_content = get_the_content();
         if ( !empty( $the_content ) ) :
-        ?>
+      ?>
     
-          <?php the_content(); ?>
+        <?php the_content(); ?>
 
-        <?php
+      <?php
         endif;
-        ?>
 
-        <?php
+        if ( get_field('architectural_slides') ) {
+          echo '<div class="architectural-slide" style="padding-block: var(--wp--preset--spacing--60)">';
+          echo '<h2>From the PPS Architectural Slides Collection</h2>';
+
+          $slides = get_field('architectural_slides');
+          $caption = get_field('caption');
+          echo '<figure class="architectural-slide--img">';
+          echo '<img src="' . $slides['sizes']['large'] . '" alt="" />';
+          if ( !empty($caption) ) {
+            echo '<figcaption>' . $caption . '</figcaption>';
+          }
+          echo '</figure>';
+          echo '</div>';
+        }
+      ?>
+
+      <?php
         // If comments are open or we have at least one comment, load up the comment template.
         if ( comments_open() || get_comments_number() ) :
           comments_template( '/comments-property.php' );
         endif;
-        ?>
+      ?>
 
       </div>
 
@@ -146,6 +159,33 @@ SINGLE PROPERTY PAGE
             }
             if ( has_tag() ) {
               the_tags('<tr><td class="label">Additional Tags</td><td> ', ', ', '</td></tr>');
+            }
+            // Check two URL fields for content. They are arrays with title (empty), url, and target (empty) values
+            // Set vars to empty
+            $gowdey = $building_history = '';
+            // Check if there are values to pull from DB
+            if ( get_field('gowdey') ) {
+              $gowdey = get_field('gowdey');
+            }
+            if ( get_field('building_history') ) {
+              $building_history = get_field('building_history');
+            }
+            // Create singular label
+            $download_label = 'Download';
+            // If both have values, there are two downloads
+            if ( !empty($gowdey) && !empty($building_history) ) {
+              $download_label = 'Downloads';
+            }
+            // Now conditionally output either or both of the values
+            if ( !empty($gowdey) || !empty($building_history) ) {
+              echo '<tr><td class="label">'. $download_label .'</td><td>';
+              if ( !empty($gowdey) ) {
+                echo '<a href="' . $gowdey['url'] . '" download>Gowdey File (PDF)</a>';
+              }
+              if ( !empty($building_history) ) {
+                echo '<br /><a href="' . $building_history['url'] . '" download>Building History (PDF)</a></td></tr>';
+              }
+              echo '</td></tr>';
             }
             ?>
           </table>
