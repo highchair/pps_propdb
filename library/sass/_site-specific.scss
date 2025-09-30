@@ -236,6 +236,11 @@ body.archive header h1 {
   }
 }
 
+body.search-results .tour-label {
+  letter-spacing: 0.0625em;
+  text-transform: uppercase;
+}
+
 body.search-results .aka {
   font-weight: 400;
 }

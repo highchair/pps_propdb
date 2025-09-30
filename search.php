@@ -19,28 +19,42 @@ SEARCH RESULTS PAGE
 
     <?php
       if (have_posts()) : while (have_posts()) : the_post();
+        include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
     ?>
       <div class="card">
         <a href="<?php the_permalink(); ?>">
           <?php the_post_thumbnail('grid-thumb'); ?>
           <div class="heading">
             <h3>
-              <?php the_title(); ?>
-              <?php if ( get_field('aka') ) : ?>
+              <?php
+                if ( 'tour' == get_post_type() ) :
+                  echo '<span class="tour-label">Tour:</span> ';
+                endif;
+                if ( is_plugin_active( 'relevanssi/relevanssi.php' ) ) :
+                  relevanssi_the_title();
+                else:
+                  the_title();
+                endif;
+                if ( get_field('aka') ) : ?>
                 <em class="aka"><?php the_field('aka'); ?></em>
               <?php endif; ?>
             </h3>
             <?php
-            include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-            if ( is_plugin_active( 'relevanssi/relevanssi.php' ) ) :
+              //if ( get_field('location') ) :
+              //  $location = get_field('location');
+              //  echo '<p>' . $location['address'] . '</p>';
+              //endif;
+            ?>
+            <?php
+              if ( is_plugin_active( 'relevanssi/relevanssi.php' ) ) :
             ?>
               <p><?php relevanssi_the_excerpt(); ?></p>
             <?php
-            else :
+              else :
             ?>
               <p><?php the_excerpt(); ?></p>
             <?php
-            endif;
+              endif;
             ?>
           </div>
         </a>
