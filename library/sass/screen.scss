@@ -2,8 +2,21 @@
 
 PPS Property Database Theme Styles
 
+Standalone build. The _base-* partials were moved in from the
+pps-2017 parent theme so this theme no longer depends on it.
+Load order matches the old setup: parent CSS first, then
+the Property Database overrides.
+
 */
 
+// Base: formerly the pps-2017 parent theme stylesheet
+@import 'base-setup'; // colors, fonts, icon font, Foundation grid + global styles
+@import 'base-global'; // typography, media, reusable components
+@import 'base-header'; // header, main nav
+@import 'base-footer'; // footer
+@import 'base-site-specific'; // page-specific styles (includes base-homepage)
+
+// Property Database overrides
 @import 'setup'; // utilities, variables, mixins, grid system, etc.
 @import 'global'; // typography, media, reusable components, etc.
 @import 'header'; // header, main nav
