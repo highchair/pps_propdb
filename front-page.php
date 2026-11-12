@@ -67,7 +67,7 @@ Template Name: Homepage
 
     <header>
 
-      <h2><?php _e('Most Recently Updated Properties', 'ppsdb'); ?></h2>
+      <h2><?php _e('Recently Updated Properties', 'ppsdb'); ?></h2>
 
       <a class="button" href="<?php echo get_post_type_archive_link( 'property' ); ?>">
         <?php _e('All Properties', 'ppsdb'); ?>
