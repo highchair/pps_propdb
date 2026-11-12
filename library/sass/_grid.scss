@@ -32,11 +32,6 @@ nav.pagination {
 
 @include breakpoint(medium down) {
 
-  // AddThis Social Share
-  .addthis_inline_share_toolbox {
-    display: none;
-  }
-
   // order "sidebar" first on mobile
   .single-property article {
     display: flex;
@@ -107,12 +102,6 @@ nav.pagination {
     padding-left: 0;
   }
 
-  // AddThis Social Share
-  .addthis_inline_share_toolbox {
-    @include grid-column(4);
-    clear: none !important; // override embed
-    display: flex;
-  }
   
   // Homepage main area
   body.home {

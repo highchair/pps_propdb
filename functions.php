@@ -120,10 +120,6 @@ function ppsdb_scripts_and_styles() {
     wp_enqueue_script( 'foundation-mediaquery-js', $foundation . 'foundation.util.mediaQuery.js', array( 'foundation-js' ), '6.3.0', true );
     wp_enqueue_script( 'foundation-dropdownmenu-js', $foundation . 'foundation.dropdownMenu.js', array( 'foundation-js' ), '6.3.0', true );
 
-    // AddThis share widget
-    // NOTE: AddThis was discontinued in 2023; this script no longer loads. Replace or remove.
-    wp_enqueue_script( 'addthis-js', '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b97face49653134' );
-
 }
 
 add_action('wp_enqueue_scripts', 'ppsdb_scripts_and_styles', 999);

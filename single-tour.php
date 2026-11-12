@@ -22,8 +22,6 @@ SINGLE TOUR PAGE
 
     </header>
 
-    <?php get_template_part('partials/social'); ?>
-
     <article>
 
       <?php
