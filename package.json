@@ -1,0 +1,17 @@
+{
+  "name": "pps-propdb",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Standalone theme for guide.ppsri.org (PPS Guide to Providence Architecture)",
+  "scripts": {
+    "build:css": "sass --style=compressed --no-source-map --quiet-deps --silence-deprecation=import,global-builtin,slash-div,mixed-decls,color-functions library/sass/screen.scss library/stylesheets/screen.css",
+    "watch:css": "sass --watch --quiet-deps --silence-deprecation=import,global-builtin,slash-div,mixed-decls,color-functions library/sass/screen.scss library/stylesheets/screen.css",
+    "vendor:js": "mkdir -p library/scripts/vendor/foundation && cp node_modules/foundation-sites/js/foundation.core.js node_modules/foundation-sites/js/foundation.util.keyboard.js node_modules/foundation-sites/js/foundation.util.box.js node_modules/foundation-sites/js/foundation.util.nest.js node_modules/foundation-sites/js/foundation.util.mediaQuery.js node_modules/foundation-sites/js/foundation.dropdownMenu.js library/scripts/vendor/foundation/",
+    "build": "npm run vendor:js && npm run build:css"
+  },
+  "devDependencies": {
+    "compass-mixins": "^0.12.10",
+    "foundation-sites": "6.3.0",
+    "sass": "^1.80.0"
+  }
+}
