@@ -1,0 +1,75 @@
+/********************
+DESIGN TOKENS
+Aligned with the PPS 2025 theme (pps-2025/theme.json + assets/css/0_base/root.css).
+The legacy variable names are kept so existing partials keep compiling;
+only their values changed. Imported by both _base-setup and _setup.
+Plain hex values (not CSS vars) so Sass color functions keep working.
+********************/
+
+/*** 2025 PALETTE ***/
+
+$c-default-bg:      #fff;      // White
+$c-default-fg:      #242D2E;   // Rich Black
+$c-gray-md:         #485b5b;   // Gray Medium
+$c-gray-lt:         #5c7a7a;   // Gray Light
+$c-border:          #d3d5d5;   // Border Gray (hsla(186,12%,16%,.2) flattened on white)
+$c-border-lt:       #e9eaea;   // Border Gray Light (hsla(186,12%,16%,.1) flattened on white)
+$c-primary-dk:      #003239;   // Dark Jewel
+$c-primary:         #016979;   // Jewel
+$c-primary-tint:    #D7F5FA;   // Blue Jewel Tint
+$c-primary-tint-lt: #ECFAFD;   // Blue Jewel Light Tint (hsl(189,82%,96%))
+$c-secondary:       #EABA6B;   // Pencil Yellow
+$c-secondary-tint:  #FBF7F1;   // Pencil Yellow Tint
+$c-accent:          #570757;   // Eggplant
+$c-accent-dk:       #3D013d;   // Deep Eggplant
+
+/*** LEGACY NAMES → 2025 VALUES ***/
+// was                          // now
+
+$blue-dk:     $c-primary;       // #6683aa
+$blue:        $c-primary;       // #4881cb
+$blue-border: $c-primary-tint;  // #82a6d6
+$blue-lt:     $c-primary-tint;  // #d1dcf2
+$blue-xlt:    $c-primary-tint-lt; // #e8edf8
+
+$bronze:      $c-primary;       // #8a7846 (page titles, site name: Jewel)
+$mustard:     $c-secondary;     // #d6d397
+$mustard-lt:  $c-secondary-tint; // #f1f0dc
+
+$black:       $c-default-fg;    // #333
+$gray-dk:     $c-gray-md;       // #666
+$gray:        $c-gray-lt;       // #999 (failed WCAG AA on white; new value passes)
+$gray-lt:     $c-border;        // #ddd
+$silver:      $c-border-lt;     // #f2f2f2
+$white:       $c-default-bg;    // #fff
+
+// Map colors (also hard-coded in library/scripts/scripts.js); unchanged
+$green:       #b3e37e;
+$green-lt:    #ecf8df;
+$red:         #900;
+$red-lt:      #e5bfbf;
+
+/*** FONTS ***/
+// Loaded from Adobe Fonts kit msx3awg, the same URL the 2025 theme uses (see functions.php)
+
+$serif:      'loretta-variable';   // was Alegreya → 2025 "accent"
+$small-caps: 'loretta-variable';   // was Alegreya SC → 2025 nav uses the accent font
+$sans-serif: 'poppins';            // was Alegreya Sans → 2025 "default"
+
+$font-weight-light:  300;  // --fw-accent-light
+$font-weight-normal: 400;  // --fw-default-normal
+$font-weight-bold:   700;  // --fw-default-bold (was 900; not available in the 2025 fonts)
+
+/*** FOUNDATION SETTINGS ***/
+// Foundation's defaults (e.g. #1779ba for active menu items) would otherwise leak into the filter menus
+
+$foundation-palette: (
+  primary: $c-primary,
+  secondary: $c-gray-md,
+  success: #3adb76,
+  warning: #ffae00,
+  alert: #cc4b37,
+);
+$light-gray: $c-border-lt;
+$medium-gray: $c-border;
+$dark-gray: $c-gray-md;

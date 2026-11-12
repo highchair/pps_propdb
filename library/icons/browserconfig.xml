@@ -3,7 +3,7 @@
     <msapplication>
         <tile>
             <square150x150logo src="/wp-content/themes/ppsdb/library/icons/mstile-150x150.png"/>
-            <TileColor>#4881cb</TileColor>
+            <TileColor>#016979</TileColor>
         </tile>
     </msapplication>
 </browserconfig>

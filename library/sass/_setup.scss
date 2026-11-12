@@ -2,41 +2,15 @@
 SETTINGS & UTILITIES
 ********************/
 
-/*** COLORS ***/
+/*** COLORS & FONTS ***/
+// See _tokens.scss (shared with _base-setup.scss)
 
-$blue-dk: #6683aa;
-$blue: #4881cb;
-$blue-border: #82a6d6;
-$blue-lt: #d1dcf2;
-$blue-xlt: #e8edf8;
-
-$bronze: #8a7846;
-$mustard: #d6d397;
-$mustard-lt: #f1f0dc;
-
-$black: #333;
-$gray-dk: #666;
-$gray: #999;
-$gray-lt: #ddd;
-$silver: #f2f2f2;
-$white: #fff;
-
-$green: #b3e37e;
-$green-lt: #ecf8df;
-
-$red: #900;
-$red-lt: #e5bfbf;
+@import 'tokens';
 
 /*** OTHER UTILITIES ***/
 
 $padding: 1rem;
 $border: 1px solid $silver;
-
-/*** FONTS ***/
-
-$serif: 'Alegreya';
-$small-caps: 'Alegreya SC';
-$sans-serif: 'Alegreya Sans';
 
 
 /********************

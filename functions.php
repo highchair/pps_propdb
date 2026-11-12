@@ -78,11 +78,21 @@ function ppsdb_scripts_and_styles() {
     $theme_dir = get_stylesheet_directory();
     $theme_uri = get_stylesheet_directory_uri();
 
+    // Fonts: same Adobe Fonts kit and URL as the pps-2025 theme (ppsri.org),
+    // so visitors moving between the two sites reuse the cached CSS and font files.
+    // Keep this URL identical to pps-2025/functions.php.
+    wp_enqueue_style(
+      'pps-2025-type',
+      'https://use.typekit.net/msx3awg.css',
+      array(),
+      null
+    );
+
     // Theme Styles (single compiled stylesheet; no parent dependency)
     wp_enqueue_style(
       'ppsdb-stylesheet',
       $theme_uri . '/library/stylesheets/screen.css',
-      array(),
+      array( 'pps-2025-type' ),
       filemtime( $theme_dir . '/library/stylesheets/screen.css' )
     );
 

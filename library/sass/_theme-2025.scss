@@ -1,0 +1,218 @@
+/********************
+2025 THEME ALIGNMENT
+Loaded last. Brings type and navigation in line with the PPS 2025 theme
+(pps-2025/assets/css: 0_base/root.css, 1_elements/typography.css,
+3_components/navs.css). Colors come from _tokens.scss.
+********************/
+
+/*** CSS custom properties (same names as the 2025 theme) ***/
+
+:root {
+  --wp--preset--color--default-bg: #{$c-default-bg};
+  --wp--preset--color--default-fg: #{$c-default-fg};
+  --wp--preset--color--gray-md: #{$c-gray-md};
+  --wp--preset--color--gray-lt: #{$c-gray-lt};
+  --wp--preset--color--primary-dk: #{$c-primary-dk};
+  --wp--preset--color--primary: #{$c-primary};
+  --wp--preset--color--primary-tint: #{$c-primary-tint};
+  --wp--preset--color--primary-tint-lt: #{$c-primary-tint-lt};
+  --wp--preset--color--secondary: #{$c-secondary};
+  --wp--preset--color--secondary-tint: #{$c-secondary-tint};
+  --wp--preset--color--accent: #{$c-accent};
+  --wp--preset--font-family--default: 'poppins', sans-serif;
+  --wp--preset--font-family--accent: 'loretta-variable', serif;
+  --wp--preset--font-size--sm: clamp(0.875rem, 0.85rem + 0.1vw, 0.9375rem); // 2025 "Small (15px)", fluid 14–15px
+
+  --fw-default-normal: 400;
+  --fw-default-bold: 700;
+  --fw-accent-light: 300;
+  --fw-accent-normal: 450;
+  --fw-accent-semi: 550;
+  --fw-accent-bold: 700;
+
+  --lh-tight: 1.25;
+  --lh-normal: 1.6;
+  --ls-normal: 0.0625em;
+  --tran-default: all 250ms ease;
+}
+
+/*** Base type ***/
+
+body {
+  color: var(--wp--preset--color--default-fg);
+  font-family: var(--wp--preset--font-family--default);
+  letter-spacing: normal; // Alegreya Sans needed 0.025em; Poppins does not
+}
+
+/* Headings: same families and weights as the 2025 theme (sizes unchanged) */
+h1, .h1, .page-title {
+  font-family: var(--wp--preset--font-family--accent);
+  font-weight: normal;
+  font-variation-settings: "wght" var(--fw-accent-semi);
+}
+h2, .h2, h3, .h3 {
+  font-family: var(--wp--preset--font-family--accent);
+  font-weight: normal;
+  font-variation-settings: "wght" var(--fw-accent-bold);
+}
+h4, .h4 {
+  font-family: var(--wp--preset--font-family--accent);
+  font-weight: normal;
+  font-variation-settings: "wght" var(--fw-accent-semi);
+}
+h5, .h5, h6, .h6 {
+  font-family: var(--wp--preset--font-family--default);
+  font-weight: var(--fw-default-bold);
+}
+h6, .h6 {
+  letter-spacing: var(--ls-normal);
+}
+
+/* Page titles in Jewel */
+.page-title,
+body.single-property .page-title {
+  color: var(--wp--preset--color--primary);
+}
+
+/* Former small-caps text: the 2025 theme uses the accent font without forced lowercase */
+.subheading,
+.logo-text,
+.filter > a {
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+/*** Subfooter (copyright line): 2025 small font size ***/
+
+.subfooter {
+  font-size: var(--wp--preset--font-size--sm);
+
+  p {
+    font-size: inherit; // overrides the 1.125rem paragraph size at the large breakpoint
+    line-height: var(--lh-normal);
+    margin-bottom: 0;
+  }
+}
+
+/*** Header + Navigation (matches pps-2025 navs.css) ***/
+
+#header {
+  background-color: rgba($c-default-bg, 0.92);
+
+  .logo-text {
+    color: var(--wp--preset--color--default-fg);
+  }
+
+  .site-text {
+    color: var(--wp--preset--color--primary);
+    font-family: var(--wp--preset--font-family--accent);
+    font-weight: normal;
+    font-variation-settings: "wght" var(--fw-accent-bold);
+  }
+
+  /* Utility row (search link, menu toggle) */
+  div.secondary-nav {
+    font-family: var(--wp--preset--font-family--default);
+    letter-spacing: normal;
+    text-transform: none;
+
+    a {
+      color: var(--wp--preset--color--primary);
+      font-size: 1rem;
+      font-weight: var(--fw-default-normal);
+      text-decoration: none;
+      transition: var(--tran-default);
+
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  /* Main menu */
+  div.primary-nav {
+    .menu a {
+      background-color: rgba($c-primary-tint, 0);
+      border-bottom: 0;
+      color: var(--wp--preset--color--primary);
+      font-family: var(--wp--preset--font-family--accent);
+      font-size: 1.125rem; // 112.5%
+      font-weight: var(--fw-default-normal);
+      letter-spacing: normal;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      text-transform: none;
+      transition: var(--tran-default);
+    }
+
+    .menu a:hover,
+    .menu a:focus,
+    .current-menu-item > a,
+    .current-page-ancestor > a,
+    .current_page_parent > a {
+      background-color: rgba($c-primary-tint, 0.5);
+      color: var(--wp--preset--color--primary-dk);
+    }
+
+    .parent-site-link {
+      color: var(--wp--preset--color--primary);
+      font-size: 1rem;
+      font-weight: var(--fw-default-normal);
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  /* Menu / Exit buttons (2025 .nav__trigger) */
+  .toggle-nav,
+  div.primary-nav .toggle-nav {
+    background-color: transparent;
+    border-top: 0;
+    color: var(--wp--preset--color--default-fg);
+    font-family: var(--wp--preset--font-family--accent);
+    font-size: 1rem;
+    letter-spacing: normal;
+    line-height: 1;
+    padding: 0.75em 1em;
+    text-transform: none;
+    transition: var(--tran-default);
+
+    &:hover,
+    &:focus {
+      background-color: var(--wp--preset--color--primary-tint);
+    }
+
+    .icon-bars,
+    .icon-close {
+      color: currentColor;
+    }
+  }
+}
+
+@include breakpoint(large) {
+  #header {
+    div.primary-nav .current-menu-item a,
+    div.primary-nav .current-page-ancestor a {
+      border-color: transparent;
+    }
+
+    div.secondary-nav {
+      a:hover,
+      .current-menu-item a {
+        border-top: 0;
+      }
+    }
+  }
+}
+
+/* Open mobile menu panel (2025: white panel) */
+body.nav-open #header div.primary-nav {
+  background: var(--wp--preset--color--default-bg);
+}

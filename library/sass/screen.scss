@@ -21,3 +21,6 @@ the Property Database overrides.
 @import 'global'; // typography, media, reusable components, etc.
 @import 'header'; // header, main nav
 @import 'site-specific'; // anything for specific pages
+
+// 2025 theme alignment (type, nav, CSS custom properties). Keep last.
+@import 'theme-2025';
