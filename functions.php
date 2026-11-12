@@ -104,11 +104,15 @@ function ppsdb_scripts_and_styles() {
     wp_enqueue_script( 'ppsdb-js', $theme_uri . '/library/scripts/scripts.js', array( 'jquery' ), '', true );
 
     // Google Maps scripts
-    // conditional here because Property needs `callback=initMap` and Tour doesn't
+    // Loaded with `loading=async` (Google's recommended pattern); the API then calls the named
+    // callback once it is ready, so map code must run from that callback, not on document ready.
+    //   Property: initMap() is defined inline in single-property.php
+    //   Tour:     ppsdbInitTourMaps() is defined in library/scripts/scripts.js
+    $maps_api = 'https://maps.googleapis.com/maps/api/js?key=' . ppsdb_google_maps_key() . '&loading=async';
     if ( is_singular('property') ) {
-      wp_enqueue_script('googlemaps-js', 'https://maps.googleapis.com/maps/api/js?key=' . ppsdb_google_maps_key() . '&callback=initMap', array(), '', true);
+      wp_enqueue_script( 'googlemaps-js', $maps_api . '&callback=initMap', array(), null, true );
     } elseif ( is_singular('tour') ) {
-      wp_enqueue_script('googlemaps-js', 'https://maps.googleapis.com/maps/api/js?key=' . ppsdb_google_maps_key(), array(), '', true);
+      wp_enqueue_script( 'googlemaps-js', $maps_api . '&callback=ppsdbInitTourMaps', array( 'ppsdb-js' ), null, true );
     }
 
     // Foundation scripts (vendored from foundation-sites 6.3.0; previously loaded from the parent theme's node_modules)

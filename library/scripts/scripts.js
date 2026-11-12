@@ -144,11 +144,13 @@ jQuery(document).ready( function($) {
 
 		}
 
-		// Render each map when the page has loaded
+		// Render each map once the Google Maps API has loaded.
+		// The API calls this via `callback=ppsdbInitTourMaps` (see functions.php). With
+		// `loading=async`, google.maps is not ready on document ready, so don't render there.
 
 		var map = null;
 
-		$(document).ready(function(){
+		window.ppsdbInitTourMaps = function() {
 
 			$('.map').each(function(){
 
@@ -156,7 +158,7 @@ jQuery(document).ready( function($) {
 
 			});
 
-		});
+		};
 
 	} // endif
 
