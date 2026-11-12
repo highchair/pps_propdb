@@ -1,0 +1,233 @@
+
+/********************
+SETTINGS & UTILITIES
+********************/
+
+/*** COLORS ***/
+
+$blue: #4881cb; // was too light at #82a6d6, HSL 214,51,67 = #5489cf 214,56,54 
+$blue-border: #82a6d6;
+$blue-lt: #d1dcf2;
+$blue-xlt: #e8edf8;
+
+$bronze: #8a7846;
+$mustard: #d6d397;
+$mustard-lt: #f1f0dc;
+
+$black: #333;
+$gray-dk: #666;
+$gray: #999;
+$gray-lt: #ddd;
+$silver: #f2f2f2;
+$white: #fff;
+
+$green: #b3e37e;
+$green-lt: #ecf8df;
+
+$red: #900;
+$red-lt: #e5bfbf;
+
+/*** OTHER UTILITIES ***/
+
+$padding: 1rem;
+$border: 1px solid $silver;
+
+/*** FONTS ***/
+
+@import url('https://fonts.googleapis.com/css?family=Alegreya|Alegreya+SC|Alegreya+Sans:300,400,400i,900');
+
+$serif: 'Alegreya';
+$small-caps: 'Alegreya SC';
+$sans-serif: 'Alegreya Sans';
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 900;
+
+
+/*** MIXINS ***/
+
+/*** Bulleted Unordered Lists ***/
+// Sass usage:
+// @include bullet-list;
+
+@mixin bullet-list {
+	margin-left: 0;
+	padding-left: 0.75em;
+	text-indent: -0.75em;
+	li:before {
+		content: '-';
+		padding-right: 0.5em;
+	}
+	li + li {
+		margin-top: 0.75em;
+	}
+  li li:before {
+    content: '\2022';
+  }
+}
+
+/*** Thick Borders ***/
+
+@mixin border($direction:top,$color:$blue-border) {
+  border-#{$direction}: 5px solid;
+  border-color: $color;
+}
+
+/*** Buttons ***/
+
+@mixin buttons($color:null,$border:$gray-lt,$text:$gray) {
+
+  // default
+  border-color: $border;
+  color: $text;
+  &:hover {
+    background-color: $gray-lt;
+    border-color: $text;
+    color: $black;
+  }
+
+  // color specified
+  @if ($color) {
+    border-color: $color;
+    color: $color;
+    &:hover {
+      background-color: $color;
+      border-color: $color;
+      color: $white;
+    }
+  }
+
+}
+
+
+/*** Cut Off Text That's Too Long with an Ellipsis ***/
+// usage:
+// @include truncate;
+// in cases where a height must be specified to cut off properly:
+// @include truncate(1.25em);
+
+@mixin truncate($height:null) {
+  height: $height;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*** Icons ***/
+// to update: import one of the font files into the app at icomoon.io/app
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot');
+  src:  url('../fonts/icomoon.eot#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf') format('truetype'),
+    url('../fonts/icomoon.woff') format('woff'),
+    url('../fonts/icomoon.svg#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+// html usage:
+// <span class="icon-twitter"></span>
+// for accessibility, provide some visually-hidden text:
+// <span class="icon-twitter"></span><span class="screen-reader-text">Twitter</span>
+
+.icon-close:before {
+  content: "\f00d";
+}
+.icon-chevron-left:before {
+  content: "\f053";
+}
+.icon-chevron-right:before {
+  content: "\f054";
+}
+.icon-arrow-left:before {
+  content: "\f060";
+}
+.icon-arrow-right:before {
+  content: "\f061";
+}
+.icon-arrow-up:before {
+  content: "\f062";
+}
+.icon-arrow-down:before {
+  content: "\f063";
+}
+.icon-chevron-up:before {
+  content: "\f077";
+}
+.icon-chevron-down:before {
+  content: "\f078";
+}
+.icon-twitter-square:before {
+  content: "\f081";
+}
+.icon-facebook:before {
+  content: "\f082";
+}
+.icon-linkedin:before {
+  content: "\f08c";
+}
+.icon-twitter:before {
+  content: "\f099";
+}
+.icon-bars:before {
+  content: "\f0c9";
+}
+.icon-pinterest:before {
+  content: "\f0d3";
+}
+.icon-envelope:before {
+  content: "\f0e0";
+}
+.icon-chevron-circle-left:before {
+  content: "\f137";
+}
+.icon-chevron-circle-right:before {
+  content: "\f138";
+}
+.icon-chevron-circle-up:before {
+  content: "\f139";
+}
+.icon-chevron-circle-down:before {
+  content: "\f13a";
+}
+.icon-instagram:before {
+  content: "\f16d";
+}
+
+
+/*** FOUNDATION (by Zurb) ***/
+// used just for the grid system.
+
+@import '../../node_modules/foundation-sites/scss/util/util';
+
+$breakpoints: (
+  small: 0,
+  medium: 640px,
+  large: 1024px,
+  xlarge: 1366px
+);
+$grid-row-width: rem-calc(1350);
+
+@import "../../node_modules/foundation-sites/scss/foundation";
+@include foundation-global-styles;
+@import "base-grid";
+

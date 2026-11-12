@@ -1,0 +1,446 @@
+@import "../../node_modules/compass-mixins/lib/compass/css3";
+
+/*************
+TYPOGRAPHY 
+& OTHER BITS
+*************/
+
+html {
+	font-size: 100%;
+}
+
+body {
+	background: $white;
+	color: $black;
+	font-family: $sans-serif, sans-serif;
+	letter-spacing: 0.025em;
+	line-height: 1.5em;
+	word-break: break-word; // wrap extra-long words so they don't break layout
+}
+
+p {
+	margin-top: 0;
+	margin-bottom: $padding;
+}
+
+@include breakpoint(large) {
+	p {
+		font-size: 1.125rem;
+		line-height: 1.85rem;
+	}
+}
+
+body:not(.home) main {
+	padding: $padding $padding $padding*2;
+}
+
+/*** font sizes ***/
+$h1: 1.625rem;
+$h2: 1.438rem;
+$h3: 1.25rem;
+$h4: 1.125rem;
+$h5: 1.063rem;
+$h6: 1rem;
+
+
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.25em;
+}
+h1, h2 {
+	font-weight: $font-weight-light;
+}
+h3, h4, h5 {
+	font-weight: $font-weight-bold;
+}
+h1 {
+	font-size: $h1;
+}
+h2 {
+	color: $bronze;
+	font-size: $h2;
+}
+h3 {
+	color: $blue;
+	font-size: $h3;
+}
+h4 {
+	color: $bronze;
+	font-size: $h4;
+}
+h5 {
+	color: $gray;
+	font-size: $h5;
+}
+h6 {
+	color: $gray-dk;
+	font-size: $h6;
+	font-weight: $font-weight-normal;
+	text-transform: uppercase;
+}
+
+%giga, %mega, %kilo {
+	font-weight: $font-weight-light;
+}
+
+%giga {
+	font-size: 2.313rem;
+}
+%mega {
+	font-size: 2.063rem;
+}
+%kilo {
+	font-size: 1.813rem;
+}
+
+
+@include breakpoint(large) {
+	h1, .h1 {
+		font-size: 2.563rem;
+	}
+	h2, .h2 {
+		font-size: 2.063rem;
+	}
+	h3, .h3 {
+		font-size: 1.688rem;
+	}
+	h4, .h4 {
+		font-size: 1.375rem;
+	}
+	h5, .h5 {
+		font-size: 1.25rem;
+	}
+	h6, .h6 {
+		font-size: 1.125rem;
+	}
+	%giga {
+		font-size: 4.835rem;
+	}
+	%mega {
+		font-size: 3.938rem;
+	}
+	%kilo {
+		font-size: 3.188rem;
+	}
+}
+
+small, .micro {
+	font-size: 0.813rem;
+}
+
+.label {
+	font-weight: $font-weight-bold;
+	text-transform: uppercase;
+	@extend .micro;
+}
+
+.subheading {
+	font-family: $small-caps, serif;
+	font-size: 1.25rem;
+	margin: 0;
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 0;
+	ul {
+		margin-left: $padding;
+	}
+}
+ol {
+	padding-left: 1.125rem;
+	li + li {
+		margin-top: 0.75em;
+	}
+}
+li ul, li ol { // lists that are children of a list item
+	margin-top: 0.75em;
+}
+
+hr {
+	border-top: 1px solid $silver;
+	margin-top: $padding;
+	margin-bottom: $padding;
+}
+
+::selection {
+	background: $gray;
+	color: $blue-lt;
+}
+
+
+blockquote {
+	border-left: 4px solid $silver;
+	padding-left: $padding/2;
+}
+
+.screen-reader-text { /* text for screen readers */
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*************
+FORMS 
+*************/
+
+input, textarea {
+	background-color: $silver;
+	border: 1px solid $gray-lt;
+	border-radius: 0;
+	max-width: 100%;
+	padding: 0.25em;
+	&:focus {
+		background-color: $green-lt;
+		border-color: $green;
+		color: $gray-dk;
+		outline: none;
+	}
+	&.error {
+		background-color: $red-lt;
+		border-color: $red;
+	}
+	@include input-placeholder {
+		color: $gray;
+		font-style: italic;
+	}
+}
+
+input {
+	font-family: $sans-serif, sans-serif;
+	padding: 0.75em 1em 0.625em;
+}
+
+input[type='search'] {
+	-webkit-appearance: none;
+}
+
+label {
+	color: $bronze;
+	display: block;
+	font-weight: $font-weight-bold;
+	text-transform: uppercase;
+}
+
+.checkbox {
+	margin-top: $padding/3;
+	span { // checkbox label
+		color: $gray;
+	}
+}
+
+/*************
+MEDIA
+*************/
+
+img {
+	display: block; // override weird Foundation stuff
+	vertical-align: initial; // override weird Foundation stuff
+	margin-bottom: $padding;
+}
+
+iframe {
+	width: 100%;
+}
+
+
+/*************
+COMPONENTS 
+other reusable bits of stuff
+*************/
+
+a {
+	color: $blue;
+	text-decoration: none;
+	@include transition(all 0.125s ease-in);
+	&:hover {
+		color: $gray-dk;
+	}
+}
+
+button, .button, input[type='submit'] {
+	background: transparent;
+	border: 1px solid;
+	display: inline-block;
+	font-weight: $font-weight-bold;
+	letter-spacing: 0.125em;
+	padding: 0.875em 1.5em 0.75em;
+	text-align: center;
+	white-space: nowrap;
+	@include buttons;
+  	&.primary {
+  		@include buttons($blue);
+  	}
+  	&.secondary {
+  		@include buttons($bronze);
+  	}
+}
+
+button, input[type='submit'] {
+	cursor: pointer;
+	@include transition(all 0.125s ease-in);
+	&:focus {
+		border-color: $black;
+		outline: none;
+	}
+}
+
+button {
+	font-family: $sans-serif, sans-serif;
+}
+
+.button-group .button {
+	margin-top: $padding;
+	width: 100%;
+}
+
+article {
+	position: relative;
+	ul:not(.meta) {
+		@include bullet-list;
+	}
+	.thumbnail {
+		background-color: $white;
+		background-size: cover;
+		background-position: center;
+		display: block;
+		height: 150px;
+		margin-bottom: $padding/4;
+		overflow: hidden;
+	}
+}
+
+aside nav a {
+	color: $blue;
+	display: block;
+	font-size: $h2;
+	font-weight: $font-weight-light;
+	padding: $padding/2;
+}
+
+/*** Tables ***/
+
+table {
+	margin-bottom: $padding/2;
+	img {
+		max-width: 160px;
+	}
+	th, tr, td {
+		padding: $padding/2;
+	}
+	th {
+		text-align: left;
+	}
+	tr {
+		border-bottom: $border;
+		font-size: 0.85rem;
+	}
+	th + th, td + td {
+		border-left: 1px solid $silver;
+	}
+}
+
+/*** Definition Lists ***/
+
+dt {
+	margin-top: $padding/2;
+}
+dd {
+	margin-left: 0;
+}
+
+/*** Page Navigation ***/
+
+nav.pagination {
+	font-family: $serif, serif;
+	font-size: 2.25rem;
+	padding: $padding*2;
+	text-align: center;
+	.page-numbers {
+		padding: $padding/2;
+		&.current {
+			color: $gray-lt;
+			text-decoration: line-through;
+		}
+	}
+	a.next, a.prev {
+		color: $bronze;
+	}
+}
+
+/*** "Read More" Links ***/
+
+.read-more {
+	bottom: $padding/2;
+	left: 0;
+	margin-bottom: 0;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	.text {
+		display: inline-block;
+		font-size: $h4;
+		font-weight: $font-weight-bold;
+		height: 1em;
+		line-height: 1em; // prevents element from adding height to container
+		overflow: hidden;
+		vertical-align: middle;
+		white-space: nowrap;
+		max-width: 0;
+		opacity: 0;
+		@include transition(max-width opacity 500ms ease);
+	}
+	.icon-chevron-circle-right {
+		color: $blue;
+		font-size: 1.5rem;
+		vertical-align: middle;
+	}
+}
+a:hover .read-more {
+	color: $bronze;
+	.icon-chevron-circle-right {
+		color: $bronze;
+	}
+	.text {
+		max-width: 5em;
+		opacity: 1;
+		@include transition(max-width opacity 500ms ease);
+	}
+}
+
+/*** Breadcrumb Navigation ***/
+
+nav.breadcrumb {
+	color: $gray;
+	padding: $padding 0;
+	text-align: left;
+}
+
+/*** Header and Footer Logo Text ***/
+
+.logo-text {
+	color: $black;
+	font-family: $small-caps, serif;
+	letter-spacing: 0.325em;
+	margin: 0;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+/*** NextGen Image Gallery ***/
+
+div.ngg-galleryoverview {
+	margin-bottom: $padding;
+}
+
+div.ngg-gallery-thumbnail {
+	border: 0;
+	margin: 0 0 $padding;
+	a, img {
+		margin: 0 !important;
+	}
+}

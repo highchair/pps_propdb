@@ -1,0 +1,252 @@
+
+/*************
+HEADER 
+*************/
+
+#header {
+	background-color: $blue-xlt;
+	> div {
+		position: relative;
+	}
+	.logo-text {
+		color: $blue-xlt;
+		text-align: center;
+		@extend .micro;
+		font-size: .75rem;
+	}
+	div.primary-nav {
+		text-align: center;
+		a {
+			color: $blue;
+			border-bottom: 10px solid transparent;
+			display: block;
+			font-size: 2.063rem;
+			font-weight: $font-weight-light;
+			padding: 0.375em;
+		}
+		.current-menu-item a, .current-page-ancestor a, a:hover {
+			color: $gray-dk;
+		}
+	}
+	.desktop-search {
+		display: none;
+	}
+	div.secondary-nav a, .toggle-nav {
+		color: $white;
+	}
+	div.secondary-nav {
+		font-family: $small-caps, serif;
+		letter-spacing: 0.125em;
+		text-align: right;
+		text-transform: lowercase; // make smallcaps just look uppercase
+		ul, li {
+			display: inline-block;
+		}
+		ul {
+			margin: 0;
+		}
+		li a {
+			padding-left: $padding/2;
+		}
+	}
+	.toggle-nav {
+		float: left;
+	}
+	.icon-bars {
+		color: rgba($white,0.5);
+		margin-right: 0.125em;
+		vertical-align: middle;
+	}
+} // end #header
+
+#mainnav {
+	background-color: $blue;
+	padding: $padding*.75 $padding;
+}
+
+@media (min-width: 30em ) { // 480px
+
+  #header .logo-text {
+		font-size: initial;
+	}
+}
+
+@include breakpoint(large) {
+	#header {
+		&:before {
+			height: 140px;
+		}
+		.logo-text {
+			color: $black;
+			float: left;
+			font-size: 1.25rem;
+			margin-left: $padding;
+			text-align: left;
+		}
+		.toggle-nav {
+			display: none;
+		}
+		.desktop-search {
+			display: inline-block;
+		}
+	}
+
+	#mainnav {
+  	@include border(bottom);
+  	background-color: $blue-xlt;
+  	padding: 0;
+	}
+
+	#header div.primary-nav {
+		display: block !important;
+		text-align: right;
+		ul {
+			margin-top: 0;
+			margin-bottom: -4px;
+		}
+		li {
+			display: inline-block;
+		}
+		li a {
+			padding: $padding;
+		}
+		.current-menu-item a, .current-page-ancestor a {
+			border-color: $bronze;
+		}
+	}
+	#header div.secondary-nav {
+		padding-top: $padding;
+		@include clearfix;
+		a {
+			color: $gray-dk;
+		}
+		a:hover, .current-menu-item a {
+			@include border(top);
+		}
+		a:hover {
+			color: $blue;
+		}
+		li a, .desktop-search a {
+			padding: .75rem $padding;
+		}
+	}
+	#searchform button {
+		display: none;
+	}
+} // end breakpoint(large)
+
+
+/*** Search Form ***/
+
+nav .desktop-search {
+	position: relative;
+	#searchform {
+		display: inline-block;
+		overflow: hidden;
+		width: 0;
+		opacity: 0;
+		@include transition(all 0.25s ease-in);
+		position: absolute;
+		right: calc(100% + #{$padding});
+		top: -$padding/2;
+		input {
+			width: 100%;
+		}
+	}
+}
+
+div.secondary-nav ul {
+	@include transition(opacity 0.125s ease-in);
+}
+
+nav.search-open {
+	#searchform {
+		opacity: 1;
+		width: 280px;
+	}
+	div.secondary-nav ul {
+		opacity: 0.2;
+	}
+}
+
+/*** Overlay Nav ***/
+
+#header div.primary-nav, body.nav-closed #header div.primary-nav {
+	display: none;
+}
+
+body.nav-open {
+	overflow-y: hidden; // no scrolling
+	#header nav {
+		position: relative;
+	}
+	#header div.primary-nav {
+		display: block;
+		background: $blue-xlt;
+		padding: $padding*1.5 $padding/2;
+		min-height: 100vh;
+		position: absolute;
+		top: 2.25rem;
+		right: 1 $padding;
+		left: -1 $padding;
+		z-index: 1;
+		.toggle-nav {
+			background: $blue-xlt;
+			border-top: 3px solid $blue;
+			font-family: $small-caps, serif;
+			font-size: 1rem;
+			letter-spacing: 0.125em;
+			padding: $padding/2 $padding;
+			position: absolute;
+			top: -$padding*3;
+			left: 0;
+			text-transform: lowercase;
+		}
+	}
+}
+#header div.primary-nav .toggle-nav {
+	background: $blue-xlt;
+	border-top: 3px solid $blue;
+	font-family: $small-caps, serif;
+	font-size: 1rem;
+	letter-spacing: 0.125em;
+	padding: $padding/2 $padding;
+	position: absolute;
+	top: -$padding*3;
+	left: 0;
+	text-transform: lowercase;
+}
+#searchform {
+	input {
+		background: $white;
+		border-color: $blue;
+	}
+	button {
+		background: $white;
+		margin-left: -4px; // hack to get it to align with input
+		padding-left: $padding;
+		padding-right: $padding;
+		&:hover {
+			color: $blue;
+		}
+	}
+}
+
+@include breakpoint(large) {
+	#header div.primary-nav .toggle-nav {
+		display: none;
+	}
+}
+
+// Adhesive header
+#mainnav {
+
+  &.stuck {
+    //box-shadow: 0 .25rem .25rem rgba(#000, .15);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+}

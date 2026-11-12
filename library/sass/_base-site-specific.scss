@@ -1,0 +1,324 @@
+
+/*************
+HOMEPAGE 
+*************/
+
+@import 'base-homepage';
+
+
+/*************
+BLOG & 
+SEARCH RESULTS
+*************/
+
+body.blog, body.archive, body.page-template-events-page, 
+body.search-results, body.search-no-results {
+	header {
+		p {
+			margin-bottom: 0;
+		}
+		h1 {
+			margin-top: 0;
+		}
+	}
+	main h2 {
+		margin-top: 0;
+	}
+	article a {
+		color: $gray-dk;
+		display: block;
+		padding-bottom: $padding*2;
+		position: relative;
+		width: 100%;
+	}
+	&:not(.paged) article:first-of-type { // first page only
+		@include box-shadow($silver 0 0 $padding);
+	}
+}
+
+body.blog, body.archive, body.page-template-events-page article, 
+body.search-results, body.search-no-results {
+	article {
+		padding: $padding;
+	}
+}
+
+@include breakpoint(medium) {
+	body.blog, body.archive, body.page-template-events-page, body.search-results {
+		.read-more {
+			text-align: left;
+		}
+	}
+}
+
+@include breakpoint(large) {
+	body.blog, body.archive, body.page-template-events-page, 
+	body.search-results, body.search-no-results {
+		article {
+			padding: $padding*2;
+		}
+	}
+}
+
+aside.blog h3 {
+	color: $gray;
+	font-size: $h4;
+}
+
+body.blog, body.archive, body.page-template-events-page {
+	aside.blog {
+		border-top: $border;
+		padding-top: $padding;
+		margin-top: $padding;
+	}
+}
+
+div.widget {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 26rem; // looks weird if it's wider
+}
+
+@include breakpoint(large) {
+	body.blog, body.archive, body.page-template-events-page {
+		aside.blog {
+			border-top: none;
+			padding-top: 0;
+			margin-top: 0;
+		}
+	}
+	div.widget {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+.widget_categories ul {
+	display: table;
+	width: 100%;
+}
+.widget_categories .cat-item {
+	color: $blue;
+	display: table-row;
+	font-size: $h3;
+	position: relative;
+	.name, .count {
+		display: table-cell;
+		padding-bottom: 0.5em;
+	}
+	.name {
+		text-align: left;
+		overflow: hidden;
+		position: relative;
+		&:after {
+			content: '..................................................';
+			letter-spacing: 0.125em;
+	        position: absolute;
+	        right: -1.5em;
+	        vertical-align: bottom;
+	        z-index: -1;
+		}
+	}
+	.count {
+		background-color: $white;
+		text-align: right;
+	}
+	a {
+		background: $white;
+		padding-right: 1em;
+	}
+}
+
+body.search-results .main header, body.search-no-results .main header {
+	margin-top: $padding*2;
+}
+
+body.search-no-results div.main {
+	text-align: center;
+}
+
+/*************
+DEFAULT PAGE & 
+SINGLE POST
+*************/
+
+body.single article, body.page:not(.home):not(.page-template-events-page) article {
+	main p {
+		font-size: 1.25rem;
+		font-weight: $font-weight-light;
+		line-height: 1.5em;
+	}
+	a:not(.button):not(.ngg-fancybox):not(.transparent) {
+		background: lighten($blue-xlt,2);
+		border-bottom: 2px solid $blue;
+		color: $gray-dk;
+		&:hover {
+			border-color: $gray-dk;
+		}
+	}
+	img {
+		margin-top: $padding/2;
+		margin-bottom: $padding/2;
+	}
+	.wp-caption-text {
+		@extend .micro;
+	}
+}
+
+
+/*************
+SINGLE POST
+*************/
+
+body.single .breadcrumb {
+	margin-top: $padding;
+}
+
+body.single main {
+	header {
+		margin-bottom: $padding*2;
+		text-align: center;
+	}
+	header img {
+		width: 100%;
+	}
+}
+
+body.single {
+	article {
+		padding-bottom: $padding*2.5;
+	}
+	section.meta, section.pagination, main > aside {
+		padding-top: $padding*2.5;
+		padding-bottom: $padding*2.5;
+		@include border(top,$gray-lt);
+	}
+}
+
+section.meta {
+	color: $gray;
+	font-size: 1.25rem;
+	.category a {
+		border-bottom: 1px solid;
+		color: $gray;
+	}
+}
+
+div.tags {
+	$tag-height: 1.5em;
+	margin-top: $padding;
+	.label {
+		margin-right: $padding/2;
+	}
+	a {
+		background: $blue-lt;
+		display: inline-block;
+		height: $tag-height;
+		line-height: $tag-height;
+		margin-right: $padding*1.5;
+		padding-left: $padding/2;
+		position: relative;
+	}
+	a:after { // creates little arrow shape
+		border-top: $tag-height/2 solid transparent;
+		border-bottom: $tag-height/2 solid transparent;
+		border-left: $tag-height/2 solid $blue-lt;
+		content: '';
+		position: absolute;
+		right: $tag-height*1.5 / 2 * -1;
+		top: 0;
+		width: $tag-height*1.5 / 2;
+	}
+}
+
+body.single section.pagination {
+	color: $gray;
+	.label {
+		margin-bottom: $padding/2;
+	}
+	.prev {
+		margin-bottom: $padding;
+	}
+}
+
+@include breakpoint(large) {
+	body.single section.pagination .next {
+		text-align: right;
+	}
+}
+
+
+/*************
+DEFAULT PAGE
+*************/
+
+body.page {
+	nav.breadcrumb {
+		padding-bottom: $padding*2;
+	}
+	.page-title {
+		margin-top: 0;
+	}
+}
+
+.pages-menu {
+	padding-top: $padding*2;
+	li {
+		font-size: $h2;
+		font-weight: $font-weight-light;
+		list-style: none;
+		padding-bottom: $padding;
+	}
+	.current_page_item > a {
+		color: $gray-dk;
+	}
+	.current_page_item > a:before {
+		color: $gray-dk;
+		content: "\f061";
+		font-weight: normal;
+		padding-right: 0.5em;
+		@extend [class^="icon-"];
+	}
+	.children li {
+  	font-size: $h4;
+		font-weight: $font-weight-normal;
+	}
+}
+
+/*************
+PARENT & CHILD 
+PAGES
+*************/
+
+body.page-parent, body.page-child {
+	aside.sidebar {
+		border-top: $border;
+		margin-top: $padding;
+	}
+}
+
+@include breakpoint(large) {
+	body.page-parent, body.page-child {
+		aside.sidebar {
+			border-top: none;
+			margin-top: 0;
+		}
+	}
+}
+
+/*************
+EVENTS PAGE
+*************/
+
+body.page-template-events-page {
+	h2 {
+		margin-bottom: 0;
+	}
+	div.main > article {
+		@include box-shadow(none !important);
+	}
+}
+
+p.event-date {
+	font-family: "Alegreya SC", serif;
+}
